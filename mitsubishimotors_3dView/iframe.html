@@ -414,7 +414,7 @@
                         "roughness": `${baseUrl}assets/textures/cars/HPE/detailsColor/HPE_Dets_Roghness.png`
                     }
                 },
-                "HPE-S": {
+                "HPE_S": {
                     "bodyColor": {
                         "azulBaikal": `${baseUrl}assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_AzulBaikal.png`,
                         "brancoAlpino": `${baseUrl}assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_BrancoAlpino.png`,
@@ -427,7 +427,7 @@
                     },
                     "detailsColor": {
                         "color": `${baseUrl}assets/textures/cars/HPE-S/detailsColor/HPE-S_Dets_Color.png`,
-                        "roughness": `${baseUrl}assets/textures/cars/HPE-S/detailsColor/HPE-S_Dets_Roughness.png`
+                        "roughness": `${baseUrl}assets/textures/cars/HPE-S/detailsColor/HPE-S_Dets_Roghness.png`
                     }
                 },
                 // Not sure where the s-awc stuff comes from
@@ -625,7 +625,7 @@ if (!err) {
                             });
                     } else if (index == 1) {
                         loadedApi
-                            .updateTexture(CAR_TEXURES.gls.azulBaikal, bodyTextureUID, function (err, bodyTextureUID) {
+                            .updateTexture(CAR_TEXTURES.GLS.bodyColor.azulBaikal, bodyTextureUID, function (err, bodyTextureUID) {
                                 if (!err) {
                                     loadedApi
                                         .updateTexture(CAR_TEXTURES.GLS.bodyColor.roughness, bodyRoghnessTextureUID, function (err, bodyRoghnessTextureUID) {});
