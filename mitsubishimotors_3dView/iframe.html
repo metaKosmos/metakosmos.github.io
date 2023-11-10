@@ -62,7 +62,7 @@
         <div class="top">
             <div class="navigation">
                 <div class="navigation__left">
-                    <img class="logo" src="3dView/assets/logo/mitsubishi.png"/>
+                    <img class="logo" src="https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi.png"/>
                 </div>
             </div>
         </div>
@@ -1345,19 +1345,19 @@ if (!err) {
                                                     changeCamera(0, true);
                                                 
                                                 //if($(".dia").hasClass("active")){
-                                                $(".logo").attr("src", "3dView/assets/logo/mitsubishi.png");
+                                                $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi.png");
                                                 //}else{    $(".logo").attr("src","logo/mitsubishi-white.png"); }
 
                                                 break;
                                             case 1:
                                                 if (camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2]) 
                                                     changeCamera(1, true);
-                                                $(".logo").attr("src", "3dView/assets/logo/mitsubishi-white.png");
+                                                $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi-white.png");
                                                 break;
                                             case 2:
                                                 if (camTarget[0] != cameraHeadTarget2[0] || camTarget[1] != cameraHeadTarget2[1] || camTarget[2] != cameraHeadTarget2[2]) 
                                                     changeCamera(2, true);
-                                                $(".logo").attr("src", "3dView/assets/logo/mitsubishi-white.png");
+                                                $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi-white.png");
                                                 break;
                                             default:
                                                 console.log("Wrong camera index!");
@@ -1533,7 +1533,7 @@ if (!err) {
                         $(".dia").addClass("active");
                         $(".noite").removeClass("active");
 
-                        $(".logo").attr("src", "logo/mitsubishi.png");
+                        $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi.png");
 
                         $("body").css({"background-color": "#FFFFFF"});
                         if ($("body").hasClass("light")) 
@@ -1574,7 +1574,7 @@ if (!err) {
                         $(".dia").removeClass("active");
                         $(".noite").addClass("active");
 
-                        $(".logo").attr("src", "logo/mitsubishi-white.png");
+                        $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi-white.png");
 
                         $("body").css({"background-color": "#121212"});
 
@@ -1963,7 +1963,7 @@ if (!err) {
 
                     $(".changeColor").click(function () {
                         currentCamera = 0;
-                        $(".logo").attr("src", "logo/mitsubishi.png");
+                        $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi.png");
                         changeCamera(currentCamera);
                         $(".changeColor").addClass("active");
                         $(".changeColorInt").removeClass("active");
@@ -1975,7 +1975,7 @@ if (!err) {
 
                     $(".changeColorInt").click(function () {
                         currentCamera = 1;
-                        $(".logo").attr("src", "logo/mitsubishi-white.png");
+                        $(".logo").attr("src", "https://metakosmos.github.io/mitsubishimotors_3dView/assets/logo/mitsubishi-white.png");
                         changeCamera(currentCamera);
                         $(".changeColor").removeClass("active");
                         $(".changeColorInt").addClass("active");
