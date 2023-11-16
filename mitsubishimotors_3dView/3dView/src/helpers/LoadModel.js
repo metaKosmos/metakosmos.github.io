@@ -7,8 +7,9 @@ function LoadModel() {
 
     loadingPct.nextPct = 20;
     const textureSize = GetTextureSize();
+    const iframe = document.getElementById('api-frame');
 
-    sketchfabDict.client = new Sketchfab(sketchfabDict.version, sketchfabDict.iframe);
+    sketchfabDict.client = new Sketchfab(sketchfabDict.version, iframe);
 
     sketchfabDict
         .client
