@@ -334,8 +334,8 @@
                     .setProperty('--vh', `${vh}px`);
             });
             var iframe = document.getElementById('api-frame');
-            // var urlid = '8f9b2df5ae4048bc89e1e6cc87181913';
-            // var urlid = "8f9b2df5ae4048bc89e1e6cc87181913"
+            // var urlid = '8f9b2df5ae4048bc89e1e6cc87181913'; var urlid =
+            // "8f9b2df5ae4048bc89e1e6cc87181913"
             var urlid = '42b51939c68e448b9c9a06a24a0d21e5';
             var client = null;
             var loadedApi = null;
@@ -660,7 +660,7 @@ if (!err) {
 
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
 
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
 
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
@@ -692,7 +692,7 @@ if (!err) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID);
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
                                     loadedApi.setMaterial(lowerPaintMaterial);
@@ -802,7 +802,7 @@ if (!err) {
                                 if (!err) {
                                     // EDITAR console.log('Replaced texture with UID', bodyTextureUID);
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     lowerPaintMaterial.channels.AlbedoPBR.factor = 0.5;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
@@ -834,7 +834,7 @@ if (!err) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID);
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     lowerPaintMaterial.channels.AlbedoPBR.factor = 0.5;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
@@ -947,7 +947,7 @@ if (!err) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID); EDITAR
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     lowerPaintMaterial.channels.AlbedoPBR.factor = 0.5;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
@@ -979,7 +979,7 @@ if (!err) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID);
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0;
-                                    paintMaterial.channels.AlbedoPBR.factor = 0.5;
+                                    paintMaterial.channels.AlbedoPBR.factor = 1;
                                     lowerPaintMaterial.channels.AlbedoPBR.factor = 0.5;
                                     paintMaterial.channels.MetalnessPBR.factor = 0.85;
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0;
@@ -1343,40 +1343,47 @@ if (!err) {
 
                             });
 
-                            api.setPostProcessing({vignetteEnable: false});
+                            api.setPostProcessing({
+                                "postProcessReady": true,
+                                "ssrEnable": true,
+                                "ssrFactor": 1,
+                                "ssaoEnable": true,
+                                "ssaoRadius": 0.06524894406688769,
+                                "ssaoIntensity": 0.5,
+                                "ssaoBias": 0.013049788813377539
+                            });
 
                             api.addEventListener('camerastop', function () {
                                 api.addEventListener('camerastop', () => {
-                                    sketchfabDict
-                                        .api
-                                        .getCameraLookAt((err, returnCamera) => {
-                                            if (err) {
-                                                console.error(err, err.stack);
-                                                return;
-                                            };
-                                            switch (camera.current) {
-                                                case 0:
-                                                    if (returnCamera.target[0] != camera.target[0] || returnCamera.target[1] != camera.target[1] || returnCamera.target[2] != camera.target[2]) 
-                                                        ChangeCamera(0, true);
-                                                    
-                                                    $(".logo").attr("src", LOGOS.mitsubishi.black);
+                                    api.getCameraLookAt((err, returnCamera) => {
+                                        if (err) {
+                                            console.error(err, err.stack);
+                                            return;
+                                        };
+                                        var camTarget = camera.target;
+                                        switch (currentCamera) {
+                                            case 0:
+                                                if (camTarget[0] != cameraTarget[0] || camTarget[1] != cameraTarget[1] || camTarget[2] != cameraTarget[2]) 
+                                                    ChangeCamera(0, true);
+                                                
+                                                $(".logo").attr("src", LOGOS.mitsubishi.black);
 
-                                                    break;
-                                                case 1:
-                                                    if (returnCamera.target[0] != camera.headTarget[0] || returnCamera.target[1] != camera.headTarget[1] || returnCamera.target[2] != camera.headTarget[2]) 
-                                                        ChangeCamera(1, true);
-                                                    $(".logo").attr("src", LOGOS.mitsubishi.white);
-                                                    break;
-                                                case 2:
-                                                    if (returnCamera.target[0] != camera.headTarget2[0] || returnCamera.target[1] != camera.headTarget2[1] || returnCamera.target[2] != camera.headTarget2[2]) 
-                                                        ChangeCamera(2, true);
-                                                    $(".logo").attr("src", LOGOS.mitsubishi.white);
-                                                    break;
-                                                default:
-                                                    console.log("Wrong camera index!");
-                                                    break;
-                                            }
-                                        });
+                                                break;
+                                            case 1:
+                                                if (camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2]) 
+                                                    ChangeCamera(1, true);
+                                                $(".logo").attr("src", LOGOS.mitsubishi.white);
+                                                break;
+                                            case 2:
+                                                if (camTarget[0] != cameraHeadTarget2[0] || camTarget[1] != cameraHeadTarget2[1] || camTarget[2] != cameraHeadTarget2[2]) 
+                                                    ChangeCamera(2, true);
+                                                $(".logo").attr("src", LOGOS.mitsubishi.white);
+                                                break;
+                                            default:
+                                                console.log("Wrong camera index!");
+                                                break;
+                                        }
+                                    });
                                 });
                             });
 
