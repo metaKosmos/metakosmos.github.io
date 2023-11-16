@@ -56,14 +56,14 @@ const CAR_TEXTURES = {
     },
     "seats": {
         "backSeat": {
-            "plasticAlbedo": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Black_Plastic_albedo.jpg`,
-            "platicNormal": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Black_Plastic_normal.png`,
-            "plasticRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Black_Plastic_roughness.jpg`,
-            "leatherBlack": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Seat_Back_LeatherBlack_Color.png`,
-            "leatherWhite": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Seat_Back_LeatherWhite_Color.png`,
-            "seatWhiteAlbedo": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Seat_Back_White_albedo.jpg`,
-            "seatWhiteNormal": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Seat_Back_White_normal.png`,
-            "seatWhiteRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Seat_Back_White_roughness.jpg`
+            "leatherBlack": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_Leather_Black_Color.png`,
+            "leatherWhite": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_Leather_White_Color.png`,
+            "seatWhiteAlbedo": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_White_Albedo.jpg`,
+            "seatWhiteNormal": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_White_Normal.png`,
+            "seatWhiteRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_White_roughness.jpg`,
+            "plasticAlbedo": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Albedo.jpg`,
+            "platicNormal": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Normal.png`,
+            "plasticRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Roughness.jpg`,
         },
         "frontSeat": {
             "blackAlbedo": `${BASE_URL}/3dView/assets/textures/seats/frontSeat/Leather_Black_albedo.jpg`,
