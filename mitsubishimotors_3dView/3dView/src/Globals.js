@@ -70,12 +70,12 @@ const sketchfabDict = {
 };
 
 const texturesUids = {
-    "bodyTexture": "615b725c793b4265bc175b3e4482c04c",
-    "bodyRoughness": "a9f1fb7601114adbb614c7f324632df5",
-    "detailsColor": "b92f89769b8347cca727b4777ba8ca2b",
-    "detailsRoughness": "76595a30daf740e5ba608d1ebccdba9c",
-    "leatherAlbedoFront": "5945fc0eedc546248de8bb7ce8f2c3cd",
-    "leatherAlbedoBack": "05be3256011a4ec49be6cefd689edeed"
+    "bodyTexture": null,
+    "bodyRoughness": null,
+    "detailsColor": null,
+    "detailsRoughness": null,
+    "leatherAlbedoFront": null,
+    "leatherAlbedoBack": null
 };
 
 export {

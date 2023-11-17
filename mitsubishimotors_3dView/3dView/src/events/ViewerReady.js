@@ -42,6 +42,12 @@ function ViewerReady() {
                 return;
             }
             GetNamedResources(textures, "textures");
+            texturesUids.bodyRoughness = namedResources.textures['GLS_Body_Roghness.png'].uid;
+            texturesUids.detailsColor = namedResources.textures['GLS_Dets_Color.png'].uid;
+            texturesUids.detailsRoughness = namedResources.textures['GLS_Dets_Roghness.png'].uid;
+            texturesUids.bodyTexture =  namedResources.textures['Car_Red.png'].uid; //cor do carro
+            texturesUids.leatherAlbedoFront = namedResources.textures['Leather_White_albedo.jpg'].uid;
+            texturesUids.leatherAlbedoBack = namedResources.textures['Seat_Back_LeatherWhite_Color.png'].uid;
         });
 
     sketchfabDict
