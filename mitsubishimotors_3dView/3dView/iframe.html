@@ -1355,7 +1355,7 @@ if (!err) {
 
                             api.addEventListener('camerastop', function () {
                                 api.addEventListener('camerastop', () => {
-                                    api.getCameraLookAt((err, returnCamera) => {
+                                    api.getCameraLookAt((err, camera) => {
                                         if (err) {
                                             console.error(err, err.stack);
                                             return;
@@ -1364,19 +1364,19 @@ if (!err) {
                                         switch (currentCamera) {
                                             case 0:
                                                 if (camTarget[0] != cameraTarget[0] || camTarget[1] != cameraTarget[1] || camTarget[2] != cameraTarget[2]) 
-                                                    ChangeCamera(0, true);
+                                                    changeCamera(0, true);
                                                 
                                                 $(".logo").attr("src", LOGOS.mitsubishi.black);
 
                                                 break;
                                             case 1:
                                                 if (camTarget[0] != cameraHeadTarget[0] || camTarget[1] != cameraHeadTarget[1] || camTarget[2] != cameraHeadTarget[2]) 
-                                                    ChangeCamera(1, true);
+                                                    changeCamera(1, true);
                                                 $(".logo").attr("src", LOGOS.mitsubishi.white);
                                                 break;
                                             case 2:
                                                 if (camTarget[0] != cameraHeadTarget2[0] || camTarget[1] != cameraHeadTarget2[1] || camTarget[2] != cameraHeadTarget2[2]) 
-                                                    ChangeCamera(2, true);
+                                                    changeCamera(2, true);
                                                 $(".logo").attr("src", LOGOS.mitsubishi.white);
                                                 break;
                                             default:
