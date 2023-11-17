@@ -1,4 +1,4 @@
-import {loadingPct, namedResources, carMaterials, sketchfabDict, camera} from "../Globals.js";
+import {loadingPct, namedResources, carMaterials, sketchfabDict, camera, texturesUids} from "../Globals.js";
 import GetNamedResources from "../helpers/GetNameResource.js";
 import {POST_PROCESSING} from "../Constants.js";
 import RemoveNodes from "../helpers/RemoveNodes.js";
