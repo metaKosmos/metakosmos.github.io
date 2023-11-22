@@ -25,7 +25,7 @@ const camera = {
     "headTarget2": [0, 0.5, 1]
 };
 
-// Used in helpers/changeCarColor.js
+// Used in helpers/ChangeCarColor.js
 const carMaterials = {
     "paint": null,
     "lowerPaint": null,

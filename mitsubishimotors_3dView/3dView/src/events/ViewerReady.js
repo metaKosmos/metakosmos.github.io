@@ -3,7 +3,7 @@ import GetNamedResources from "../helpers/GetNameResource.js";
 import {POST_PROCESSING} from "../Constants.js";
 import RemoveNodes from "../helpers/RemoveNodes.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
-import changeCarColor from "../helpers/changeCarColor.js";
+import changeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 import {LOGOS} from "../Constants.js";
 

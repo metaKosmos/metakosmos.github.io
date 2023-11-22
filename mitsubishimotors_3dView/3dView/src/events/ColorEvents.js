@@ -1,6 +1,6 @@
 import {priceInfo, carSelection} from "../Globals.js";
 import writePrice from "../helpers/WritePrice.js";
-import changeCarColor from "../helpers/changeCarColor.js";
+import changeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function ColorEvents() {

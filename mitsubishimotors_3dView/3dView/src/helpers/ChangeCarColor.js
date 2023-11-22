@@ -46,7 +46,7 @@ function changeCarColor(selectedColor, carName) {
             carMaterials.paint.channels.MetalnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.MetalnessPBR;
             carMaterials.paint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.AlbedoPBR;
             carMaterials.paint.channels.RoughnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.RoughnessPBR;
-            carMaterials.paint.channels.ClearCoat.thickness = 12;
+            carMaterials.paint.channels.ClearCoat.thickness = TEXTURES_SETTINGS[selectedColor].paint.ClearCoatThickness || 15;
             // All of them are 0
             carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
 

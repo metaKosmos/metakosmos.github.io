@@ -217,6 +217,7 @@ const TEXTURES_SETTINGS = {
         'paint': {
             "ClearCoat": 1,
             "ClearCoatRoughness": 0.1,
+            "ClearCoatThickness": 12,
             "MetalnessPBR": 1,
             "RoughnessPBR":0.6,
             "AlbedoPBR": 0.5
