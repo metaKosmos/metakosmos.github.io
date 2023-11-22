@@ -3,7 +3,7 @@ import GetNamedResources from "../helpers/GetNameResource.js";
 import {POST_PROCESSING} from "../Constants.js";
 import RemoveNodes from "../helpers/RemoveNodes.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
-import ChangeCarColor from "../helpers/ChangeCarColor.js";
+import changeCarColor from "../helpers/changeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 import {LOGOS} from "../Constants.js";
 
@@ -116,9 +116,9 @@ function ViewerReady() {
         .api
         .getMaterialList((err, materials) => {
             if (err) {
-                console.log(err);
+                console.error(err, err.stack);
                 return;
-            }
+            };
             GetNamedResources(materials, "materials");
 
             carMaterials.lowerPaint = namedResources.materials["Eclipse_Body_Bottom"];
@@ -160,11 +160,15 @@ function ViewerReady() {
             sketchfabDict
                 .api
                 .getCameraLookAt(function (err, camera) {
-                    console.log(err)
+
+                    if (err) {
+                        console.error(err, err.stack);
+                        return;
+                    };
                     ChangeCamera(0);
                     setTimeout(function () {
                         loadingPct.nextPct = 100;
-                        ChangeCarColor(0);
+                        changeCarColor('brancoAlpino', 'GLS');
                         ChangeLeatherColor(0);
                         $("#intcolorwhite").css("display", "none");
                         setTimeout(function () {

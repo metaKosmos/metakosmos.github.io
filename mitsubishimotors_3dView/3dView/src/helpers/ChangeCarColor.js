@@ -1,679 +1,72 @@
 import {carMaterials, sketchfabDict, carSelection, texturesUids, camera} from "../Globals.js";
+import {CAR_TEXTURES, TEXTURES_SETTINGS} from "../Constants.js";
 
-function ChangeCarColor(index) {
-
+function changeCarColor(selectedColor, carName) {
     if (carMaterials.paint == null || sketchfabDict.api == null) {
         console.error("Sketchfab API not loaded yet or failed.");
         return;
-    }
+    };
 
-    carMaterials.paint.channels.RoughnessPBR.texture = null
+    // Limpa o modelo 3d ao trocar o modelo de carro
+    if (carSelection.latestModelSelected != carSelection.selectedModel) {
+        sketchfabDict
+            .api
+            .updateTexture('', texturesUids.bodyRoughness, (err, bodyRoughnessUID) => {});
+        sketchfabDict
+            .api
+            .updateTexture(CAR_TEXTURES[carName].detailsColor.color, texturesUids.detailsColor, (err, detailsColorUID) => {});
+        sketchfabDict
+            .api
+            .updateTexture(CAR_TEXTURES[carName].detailsColor.roughness, texturesUids.detailsRoughness, (err, detailsRoughness) => {});
+    };
+
+    // Maybe do this later
+    const colorsToUpdateRoughness = ['brancoAlpino', 'azulBaikal']
+
     sketchfabDict
         .api
-        .setMaterial(carMaterials.paint);
+        .updateTexture(CAR_TEXTURES[carName].bodyColor[selectedColor], texturesUids.bodyTexture, function (err, bodyTexture) {
+            if (err) {
+                console.error(err, bodyTexture);
+                return;
+            };
 
-    if (carSelection.selectedModel == 0) {
+            if (colorsToUpdateRoughness.includes(selectedColor)) {
+                sketchfabDict
+                    .api
+                    .updateTexture(CAR_TEXTURES[carName].bodyColor.roughness, texturesUids.bodyRoughness, (err, bodyRoughness) => {
+                        err && console.error(err, bodyRoughness)
+                    });
 
-        if (carSelection.latestModelSelected != carSelection.selectedModel) {
-            //roughness
-            sketchfabDict
-                .api
-                .updateTexture('', texturesUids.bodyRoughness, function (err, bodyRoughnessUID) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', bodyRoughnessUID);
-                    }
-                });
+            };
+            // Update textures values
+            carMaterials.paint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].paint.ClearCoatRoughness;
+            carMaterials.paint.channels.ClearCoat.factor = TEXTURES_SETTINGS[selectedColor].paint.ClearCoat;
+            
+            carMaterials.paint.channels.MetalnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.MetalnessPBR;
+            carMaterials.paint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.AlbedoPBR;
+            carMaterials.paint.channels.RoughnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.RoughnessPBR;
+            carMaterials.paint.channels.ClearCoat.thickness = 12;
+            // All of them are 0
+            carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
 
-            //Details
+            // Set materials
             sketchfabDict
                 .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Co' +
-                        'lor.png',
-                texturesUids.detailsColor, function (err, detailsColor) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', detailsColor);
-                    }
-                });
+                .setMaterial(carMaterials.paint);
 
-            //Details Roughtness
             sketchfabDict
                 .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Dets%20Color/GLS_Dets_Ro' +
-                        'ghness.png',
-                texturesUids.detailsRoughness, function (err, detailsRoughness) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', detailsRoughness);
-                    }
-                });
-        }
+                .setMaterial(carMaterials.lowerPaint);
 
-        if (index == 0) {
+            // Set camera exposure
+            camera.enviromment.exposure = TEXTURES_SETTINGS[selectedColor].camera.exposure;
             sketchfabDict
                 .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Br' +
-                        'anco_Alpino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Ro' +
-                                    'ghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 1;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 2) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Pr' +
-                        'eto_Onix.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                    }
-                    camera.enviromment.exposure = 1;
-                    sketchfabDict
-                        .api
-                        .setEnvironment(camera.enviromment);
-                });
-        } else if (index == 1) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Az' +
-                        'ul_Baikal.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Ro' +
-                                    'ghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
+                .setEnvironment(camera.enviromment);
 
-                        camera.enviromment.exposure = 2.08;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
+        });
 
-                    }
-                });
-        } else if (index == 3) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Pr' +
-                        'ata_Litio.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 4) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Ve' +
-                        'rmelho_Lucid.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 5) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Pr' +
-                        'ata_Cool.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 6) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/GLS/Body%20Color/GLS_Body_Ci' +
-                        'nza_Londrino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        }
-    } else if (carSelection.selectedModel == 1) {
-
-        if (carSelection.latestModelSelected != carSelection.selectedModel) {
-            //roughness
-            sketchfabDict
-                .api
-                .updateTexture('', texturesUids.bodyRoughness, function (err, bodyRoughness) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyRoughness);
-
-                    }
-                });
-
-            //Details
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Co' +
-                        'lor.png',
-                texturesUids.detailsColor, function (err, detailsColor) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.detailsColor);
-                    }
-                });
-
-            //Details Roughtness
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Dets%20Color/HPE_Dets_Ro' +
-                        'ghness.png',
-                texturesUids.detailsRoughness, function (err, detailsRoughness) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.detailsRoughness);
-                    }
-                });
-        }
-
-        if (index == 0) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Br' +
-                        'anco_Alpino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Ro' +
-                                    'ghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 1;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 1;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 2) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Pr' +
-                        'eto_Onix.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 1) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Az' +
-                        'ul_Baikal.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Ro' +
-                                    'ghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 2.08;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 3) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Pr' +
-                        'ata_Litio.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 4) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Ve' +
-                        'rmelho_Lucid.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 5) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Pr' +
-                        'ata_Cool.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 6) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE/Body%20Color/HPE_Body_Ci' +
-                        'nza_Londrino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        }
-    } else if (carSelection.selectedModel == 2) {
-
-        if (carSelection.latestModelSelected != carSelection.selectedModel) {
-            //roughness
-            sketchfabDict
-                .api
-                .updateTexture('', texturesUids.bodyRoughness, function (err, bodyRoughness) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyRoughness);
-                    }
-                });
-
-            //Details
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Det' +
-                        's_Color.png',
-                texturesUids.detailsColor, function (err, detailsColor) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.detailsColor);
-                    }
-                });
-
-            //Details Roughtness
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Dets%20Color/HPE-S_Det' +
-                        's_Roghness.png',
-                texturesUids.detailsRoughness, function (err, detailsRoughness) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.detailsRoughness);
-
-                    }
-                });
-        }
-
-        if (index == 0) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_BrancoAlpino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                                    'y_Roghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 1;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 1;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-
-                });
-        } else if (index == 2) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_PretoOnix.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 1) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_AzulBaikal.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        sketchfabDict
-                            .api
-                            .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                                    'y_Roghness.png',
-                            texturesUids.bodyRoughness, function (err, bodyRoughness) {});
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0.072;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0.072;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 2.08;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 3) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_PrataLitio.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 4) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_VermelhoLucid.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 5) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_PrataCool.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        } else if (index == 6) {
-            sketchfabDict
-                .api
-                .updateTexture('https://seedsofnature.github.io/metakosmos/textures/HPE-S/Body%20Color/HPE-S_Bod' +
-                        'y_CinzaLondrino.png',
-                texturesUids.bodyTexture, function (err, bodyTexture) {
-                    if (!err) {
-                        //console.log('Replaced texture with UID', texturesUids.bodyTexture);
-                        carMaterials.paint.channels.ClearCoatRoughness.factor = 0;
-                        carMaterials.paint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0.5;
-                        carMaterials.paint.channels.MetalnessPBR.factor = 0.85;
-                        carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = 0;
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.lowerPaint);
-                        sketchfabDict
-                            .api
-                            .setMaterial(carMaterials.paint);
-                        camera.enviromment.exposure = 1;
-                        sketchfabDict
-                            .api
-                            .setEnvironment(camera.enviromment);
-                    }
-                });
-        }
-    }
 }
 
-export default ChangeCarColor;
+export default changeCarColor;

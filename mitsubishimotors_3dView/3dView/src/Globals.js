@@ -25,7 +25,7 @@ const camera = {
     "headTarget2": [0, 0.5, 1]
 };
 
-// Used in helpers/ChangeCarColor.js
+// Used in helpers/changeCarColor.js
 const carMaterials = {
     "paint": null,
     "lowerPaint": null,
@@ -37,8 +37,8 @@ const carMaterials = {
 };
 
 const carSelection = {
-    "latestModelSelected": 0,
-    "selectedModel": 0 //0 GLS 1 HPE 2 HPE-S
+    "latestModelSelected": null,
+    "selectedModel": 'GLS' 
 };
 
 const loadingPct = {

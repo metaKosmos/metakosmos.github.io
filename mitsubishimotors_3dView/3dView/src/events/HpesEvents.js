@@ -1,5 +1,5 @@
 import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
-import ChangeCarColor from "../helpers/ChangeCarColor.js";
+import changeCarColor from "../helpers/changeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function HpesEvents() {
@@ -8,7 +8,6 @@ function HpesEvents() {
 
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels = carMaterials.paint.channels;
-            //carMaterials.lowerPaint.channels.AlbedoPBR.factor = 1;
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
@@ -134,10 +133,10 @@ function HpesEvents() {
                 .api
                 .show(namedResources.nodes['P_Front_SideDetail_R'].instanceID);
 
-            carSelection.selectedModel = 2;
-            var carColorIndex = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorIndex);
-            carSelection.latestModelSelected = 2;
+            carSelection.selectedModel = 'HPE_S';
+            var carColorSelected = $(".car-color.active").data("color-id");
+            changeCarColor(carColorSelected, 'HPE_S');
+            carSelection.latestModelSelected = 'HPE_S';
             //back logo
             sketchfabDict
                 .api

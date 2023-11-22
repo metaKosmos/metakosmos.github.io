@@ -1,17 +1,22 @@
+/* debug */
+/* div {
+    border:1px solid black;
+    margin:1px;
+}
 
-html,
-body {
+div+div {
+    border: 1px solid red;
+    margin: 1px;
+} */
+
+/* debug */
+/* html */
+body,
+html {
+    font-size: 100%;
     overflow: hidden;
     position: relative;
     height: 100%;
-}
-html {
-    font-size: 100%; /*62.5%*/
-}
-.iframe-hidden {
-    visibility: hidden;
-    height: 0;
-    width: 0;
 }
 body {
     background: #fafafa;
@@ -40,7 +45,7 @@ body svg {
     transition: all 0.5s ease-out;
 }
 
-body svg.active{
+body svg.active {
     stroke: red;
 }
 body.light {
@@ -74,13 +79,19 @@ p {
     line-height: 32px;
     letter-spacing: 1px;
 }
+/* ids */
 .text-right {
     text-align: right;
 }
 .logo {
-  width: 60px;
+    width: 3vw;
+    /* width: 60px; */
 }
-
+.iframe-hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
 .iframe-container {
     position: absolute;
     top: 0;
@@ -115,12 +126,18 @@ p {
     width: 100%;
     height: 100%;
     z-index: 0;
-    
+
 }
 @keyframes loader-animation {
-    0%   {opacity: 1;}
-    50%  {opacity: 0.6;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 .iframe-loader {
     position: absolute;
@@ -192,8 +209,8 @@ p {
     margin-right: 0;
     margin-left: 5px;
 }
-.views > div svg,
-.views > div img {
+.views > div img,
+.views > div svg {
     height: 30px;
     position: absolute;
     left: 50%;
@@ -209,7 +226,7 @@ p {
     background: #fff;
     padding: 10px;
     left: 20px;
-    bottom: 0px;
+    bottom: 0;
     z-index: 20;
     width: 100%;
     user-select: none;
@@ -237,7 +254,7 @@ p {
 }
 .colors.active {
     display: block;
-    
+
 }
 .colors div.active {
     border: 1px solid #242424;
@@ -318,8 +335,8 @@ p {
 }
 #top-right span + span.small {
     max-height: 0;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     -webkit-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
     -moz-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
     -o-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
@@ -335,7 +352,7 @@ p {
     transition: max-height 0.25s ease-in, padding 0.25s ease-in;
 }
 #top-right span.small {
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.5625rem;
     transform-origin: top;
     display: block;
@@ -347,7 +364,7 @@ p {
     cursor: pointer;
 }
 #top-right span.car-feature + span.small {
-    font-size: .8125rem;
+    font-size: 0.8125rem;
     line-height: 1.4375rem;
     *margin: 20px 0;
     font-family: 'MMC', sans-serif;
@@ -360,34 +377,32 @@ p {
     margin-top: 50px;
 }
 
-.timeSelector{
+.timeSelector {
     margin-top: 10px;
     left: 50%;
     bottom: -35px;
     z-index: 1;
 }
-
-
 @media (max-aspect-ratio: 12/10) {
 
-    .timeSelector{
+    .timeSelector {
         top: 43% !important;
         bottom: unset !important;
     }
-    
-    .colors div{
+
+    .colors div {
         width: 30px !important;
         height: 30px !important;
     }
 
-    .btn-group button{
+    .btn-group button {
         width: 67px;
     }
 
     #top-right {
         top: 50%;
         width: 100%;
-        padding: 17px 0px 17px 17px;
+        padding: 17px 0 17px 17px;
         right: 2px;
     }
 
@@ -429,67 +444,62 @@ p {
     }
 }
 @media (max-height: 900px) {
-    .info-area{
+    .info-area {
         height: 29vh;
     }
 
 }
-
 @media (max-width: 1460px) {
-    .iframe-container{
+    .iframe-container {
         width: 69%;
     }
 
 }
-
-
 @media (min-aspect-ratio: 12/10) and (max-height: 600px) {
     #top-right {
         top: 20px;
-        right: 0px;
+        right: 0;
         width: 30%;
     }
 
-    
-
-    .iframe-container{
+    .iframe-container {
         width: 69% !important;
     }
 
-    .btn-group button.gls{
+    .btn-group button.gls {
         width: 40px;
     }
 
-    .btn-group button.awd{
+    .btn-group button.awd {
         width: 65px;
     }
 
-    .btn-group button.hpe{
+    .btn-group button.hpe {
         width: 40px;
     }
 
-    .btn-group button.hpes{
+    .btn-group button.hpes {
         width: 60px;
     }
 
-    .modelButtons{
+    .modelButtons {
         left: 50% !important;
         top: 35px !important;
         bottom: unset !important;
-        
+
     }
 
-    .btn-group.day{
+    .btn-group.day {
         height: 36px;
     }
-    .btn-group button.dia{
+    .btn-group button.dia {
         width: 64px;
     }
-    .btn-group button.noite{
+    .btn-group button.noite {
         width: 64px;
     }
 
-    .colors div{
+    .colors div {
         width: 20px;
         height: 20px;
     }
@@ -520,122 +530,123 @@ p {
 }
 
 .btn-group button {
-  background-color: #fd3c3c00; /* Green background */
-  border: 0px solid rgb(241, 115, 115); /* Green border */
-  color: #ff0000; /* White text */
-  font-family: 'MMC', sans-serif;
-  font-weight: bold;
-  /*padding: 10px 42px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  /*margin-bottom: 25px;*/
-  width: 90px;
-  border-radius: 8px;
-  margin-top: 4px;
-  
-  /*margin-bottom: 25px;*/
-}
+    background-color: #fd3c3c00;
+    /* Green background */
+    border: 0 solid rgb(241, 115, 115);
+    /* Green border */
+    color: #ff0000;
+    /* White text */
+    font-family: 'MMC', sans-serif;
+    font-weight: bold;
+    /*padding: 10px 42px; /* Some padding */
+    cursor: pointer;
+    /* Pointer/hand icon */
+    /*margin-bottom: 25px;*/
+    width: 90px;
+    border-radius: 8px;
+    margin-top: 4px;
 
-.btn-group button:focus{
+    /*margin-bottom: 25px;*/
+}
+.btn-group button:focus {
     outline: 0;
 }
-
-.btn-group button:hover{
+.btn-group button:hover {
     background-color: #fadbdb !important;
     color: #ff0000 !important;
 }
 
-.btn-group button.active{
+.btn-group button.active {
     background-color: #ff0000;
     color: white;
-    border: 0px;
+    border: 0;
 }
-
 .btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
+    border-right: none;
+    /* Prevent double borders */
 }
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
-.modelButtons{
-   
+.modelButtons {
+
     left: 68%;
     bottom: -35px;
     margin: 0 auto;
     z-index: 32;
 }
 
-.btn-group button.gls{
+.btn-group button.gls {
     width: 40px;
 }
 
-.btn-group button.awd{
+.btn-group button.awd {
     width: 65px;
 }
 
-.btn-group button.hpe{
+.btn-group button.hpe {
     width: 40px;
 }
 
-.btn-group button.hpes{
+.btn-group button.hpes {
     width: 60px;
 }
 
 /* Add a background color on hover */
 .btn-group button:hover {
-  background-color: #e0e0e0;
+    background-color: #e0e0e0;
 }
 
-.car-info{
+.car-info {
     height: 64px;
     padding-top: 5px;
 }
 
-
-.potencia{
+.potencia {
     float: left;
     letter-spacing: 2px;
-    text-align: center; 
+    text-align: center;
     font-weight: bolder;
 }
 
-.km{
+.km {
     float: right;
     letter-spacing: 2px;
-    text-align: center; 
+    text-align: center;
     font-weight: bolder;
 }
 
-.exterior-items span{
+.exterior-items span {
     font-size: 12px;
     text-align: left;
     display: inline-block;
 }
 
-.exterior-items.active{
+.exterior-items.active {
     display: block;
 }
 
-.exterior-items{
+.exterior-items {
     display: none;
     margin-bottom: 20px;
 }
 
-.interior-items span{
+.interior-items span {
     font-size: 12px;
     text-align: left;
     display: inline-block;
 }
 
-.interior-items.active{
+.interior-items.active {
     display: block;
 }
 
-.interior-items{
+.interior-items {
     display: none;
     margin-bottom: 20px;
 }

@@ -1,5 +1,5 @@
 import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
-import ChangeCarColor from "../helpers/ChangeCarColor.js";
+import changeCarColor from "../helpers/changeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function HpeEvents() {
@@ -132,10 +132,10 @@ function HpeEvents() {
                 .api
                 .hide(namedResources.nodes['P_Front_SideDetail_R'].instanceID);
 
-            carSelection.selectedModel = 1;
-            var carColorIndex = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorIndex);
-            carSelection.latestModelSelected = 1;
+            carSelection.selectedModel = 'HPE';
+            var carColorSelected = $(".car-color.active").data("color-id");
+            changeCarColor(carColorSelected, 'HPE');
+            carSelection.latestModelSelected = 'HPE';
             //back logo
             sketchfabDict
                 .api

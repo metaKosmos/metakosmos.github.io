@@ -5,16 +5,16 @@ const CAR_TEXTURES = {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
             "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Cinza_Londrino.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Prata_Cool.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Prata_Litio.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Preto_Onix.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Roghness.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Roughness.png`,
             "specular": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Specular.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Vermelho_Lucid.png`
         },
         "detailsColor": {
-            "color": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Dets_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Dets_Roughness.png`
+            "color": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Details_Color.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Details_Roughness.png`
         }
     },
     "HPE": {
@@ -22,15 +22,15 @@ const CAR_TEXTURES = {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Cinza_Londrino.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Prata_Cool.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Prata_Litio.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Preto_Onix.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Roghness.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Vermelho_Lucid.png`
         },
         "detailsColor": {
-            "color": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Dets_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Dets_Roghness.png`
+            "color": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Details_Color.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Details_Roughness.png`
         }
     },
     "HPE_S": {
@@ -38,15 +38,15 @@ const CAR_TEXTURES = {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_AzulBaikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_BrancoAlpino.png`,
             "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_CinzaLondrino.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_PrataCool.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_BrancoAlpino.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_PrataLitio.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_PretoOnix.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Roghness.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_VermelhoLucid.png`
         },
         "detailsColor": {
-            "color": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Dets_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Dets_Roghness.png`
+            "color": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Color.png`,
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Roughness.png`
         }
     },
     // Not sure where the s-awc stuff comes from
@@ -63,7 +63,7 @@ const CAR_TEXTURES = {
             "seatWhiteRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Back_White_roughness.jpg`,
             "plasticAlbedo": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Albedo.jpg`,
             "platicNormal": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Normal.png`,
-            "plasticRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Roughness.jpg`,
+            "plasticRoughness": `${BASE_URL}/3dView/assets/textures/seats/backSeat/Plastic_Roughness.jpg`
         },
         "frontSeat": {
             "blackAlbedo": `${BASE_URL}/3dView/assets/textures/seats/frontSeat/Leather_Black_albedo.jpg`,
@@ -128,8 +128,122 @@ const NODES_TO_REMOVE = [
 ];
 
 const POST_PROCESSING = {
+    "postProcessReady": true,
+    "ssrEnable": true,
+    "ssrFactor": 1,
+    "ssaoEnable": true,
+    "ssaoRadius": 0.06524894406688769,
+    "ssaoIntensity": 0.5,
+    "ssaoBias": 0.013049788813377539,
     "vignetteEnable": false
-}
+};
+const TEXTURES_SETTINGS = {
+    'brancoAlpino': {
+        'paint': {
+            "ClearCoat": 0.3,
+            "ClearCoatRoughness": 0.2,
+            "MetalnessPBR": 0.85,
+            "RoughnessPBR":0.3,
+            "AlbedoPBR": 1
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0.072
+        },
+        'camera': {
+            'exposure': 1, //1 as default
+        }
+    },
+    'azulBaikal': {
+        'paint': {
+            "ClearCoat": 0.2,
+            "ClearCoatRoughness": 0.2,
+            "MetalnessPBR": 0.5,
+            "RoughnessPBR":0.5,
+            "AlbedoPBR": 0.5
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0.072
+        },
+        'camera': {
+            'exposure': 2.08
+        }
+    },
+    'pretoOnix': {
+        'paint': {
+            "ClearCoat": 0.3,
+            "ClearCoatRoughness": 0.2,
+            "MetalnessPBR": 0.85,
+            "RoughnessPBR":0.1,
+            "AlbedoPBR": 0.5
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0
+        },
+        'camera': {
+            'exposure': 1
+        }
+    },
+    'prataLitio': {
+        'paint': {
+            "ClearCoat": 0.85,
+            "ClearCoatRoughness": 0.3,
+            "MetalnessPBR": 0.5,
+            "RoughnessPBR":0.4,
+            "AlbedoPBR": 1
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0
+        },
+        'camera': {
+            'exposure': 5
+        }
+    },
+    'vermelhoLucid': {
+        'paint': {
+            "ClearCoat": 0.3,
+            "ClearCoatRoughness": 0.2,
+            "MetalnessPBR": 0.85,
+            "RoughnessPBR":0.3,
+            "AlbedoPBR": 0.5
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0
+        },
+        'camera': {
+            'exposure': 1
+        }
+    },
+    'prataCool': {
+        'paint': {
+            "ClearCoat": 1,
+            "ClearCoatRoughness": 0.1,
+            "MetalnessPBR": 1,
+            "RoughnessPBR":0.6,
+            "AlbedoPBR": 0.5
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness": 0
+        },
+        'camera': {
+            'exposure': 1.5
+        }
+    },
+    'cinzaLondrino': {
+        'paint': {
+            "ClearCoat": 0.2,
+            "ClearCoatRoughness": 0.2,
+            "MetalnessPBR": 0.85,
+            "RoughnessPBR":0.3,
+            "AlbedoPBR": 0.5
+        },
+        'lowerPaint': {
+            "ClearCoatRoughness":0
+        },
+        'camera': {
+            'exposure': 5
+        }
+    }
+};
 
 const TEXTURES_UIDS = {
     "bodyRoughness": null,
@@ -146,5 +260,6 @@ export {
     MAX_TEXTURE_SIZE,
     NODES_TO_REMOVE,
     POST_PROCESSING,
+    TEXTURES_SETTINGS,
     TEXTURES_UIDS
 };

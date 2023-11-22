@@ -1,5 +1,5 @@
 import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
-import ChangeCarColor from "../helpers/ChangeCarColor.js";
+import changeCarColor from "../helpers/changeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function GlsEvents() {
@@ -135,10 +135,12 @@ function GlsEvents() {
                 .api
                 .hide(namedResources.nodes['P_Front_SideDetail_R'].instanceID);
 
-            carSelection.selectedModel = 0;
-            var carColorIndex = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorIndex);
-            carSelection.latestModelSelected = 0;
+            carSelection.selectedModel = 'GLS';
+            var carColorSelected = $(".car-color.active").data("color-id");
+            changeCarColor(carColorSelected, 'GLS');
+            carSelection.latestModelSelected = 'GLS';
+
+
             //back logo
             sketchfabDict
                 .api

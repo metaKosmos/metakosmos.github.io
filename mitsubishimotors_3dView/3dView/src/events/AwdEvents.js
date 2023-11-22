@@ -1,5 +1,5 @@
 import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
-import ChangeCarColor from "../helpers/ChangeCarColor.js";
+import changeCarColor from "../helpers/changeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function AwdEvents(api) {
@@ -66,10 +66,10 @@ function AwdEvents(api) {
             sketchfabDict.api.show(namedResources.nodes['P_Front_SideDetail_L'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['P_Front_SideDetail_R'].instanceID);
 
-            carSelection.selectedModel = 2;
-            var carColorIndex = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorIndex);
-            carSelection.latestModelSelected = 2;
+            carSelection.selectedModel = 'HPE_S';
+            var carColorSelected = $(".car-color.active").data("color-id");
+            changeCarColor(carColorSelected, 'HPE_S');
+            carSelection.latestModelSelected = 'HPE_S';
             //back logo back logo
             sketchfabDict.api.hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['LogoBack_Vidro'].instanceID);
