@@ -43,7 +43,8 @@ const carSelection = {
 
 const loadingPct = {
     "pctValue": 0,
-    "nextPct": 10
+    "nextPct": 10,
+    'intervalId': null
 };
 
 const namedResources = {

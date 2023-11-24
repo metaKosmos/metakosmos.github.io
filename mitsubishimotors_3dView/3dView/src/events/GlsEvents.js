@@ -1,5 +1,5 @@
 import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
-import changeCarColor from "../helpers/ChangeCarColor.js";
+import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function GlsEvents() {
@@ -137,7 +137,7 @@ function GlsEvents() {
 
             carSelection.selectedModel = 'GLS';
             var carColorSelected = $(".car-color.active").data("color-id");
-            changeCarColor(carColorSelected, 'GLS');
+            ChangeCarColor(carColorSelected, 'GLS');
             carSelection.latestModelSelected = 'GLS';
 
 
@@ -159,7 +159,7 @@ function GlsEvents() {
             $(".hpe").removeClass("active");
             $(".hpes").removeClass("active");
             $(".awd").removeClass("active");
-            ChangeLeatherColor(0);
+            ChangeLeatherColor('Black');
         });
 }
 

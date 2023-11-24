@@ -31,22 +31,32 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
         <link rel="stylesheet" href="3dView.css">
-        <link rel="shortcut icon" src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/favicon.ico">
-        <!-- <script type="module" src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/src/3dView.js"></script> -->
+        <link
+            rel="shortcut icon"
+            src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/favicon.ico">
         <script type="module" src="src/3dView.js"></script>
     </head>
     <body>
-        <div class="iframe-div"></div>
-        <div class="navigation">
-            <div class="top">
-                <div class="navigation">
-                    <div class="navigation__left">
-                        <img
-                            class="logo"
-                            src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/mitsubishi.png"/>
-                    </div>
-                </div>
+        <div class="logo-div">
+            <img
+                class="logo"
+                src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/mitsubishi.png"/>
+        </div>
+        <div class="iframe-div">
+            <div class='iframe-gradient'></div>
+            <div class='iframe-mask' id='iframe-mask'></div>
+            <div class='iframe-loader' id='iframe-loader'>carregando 0%...</div>
+            <div class='iframe-container'>
+                <iframe
+                    src=''
+                    id='api-frame'
+                    sandbox='allow-scripts allow-same-origin allow-popups allow-forms'
+                    allow='autoplay; fullscreen;'
+                    mozallowfullscreen='true'
+                    webkitallowfullscreen='true'></iframe>
             </div>
+        </div>
+        <div class="navigation">
 
             <div id="top-right" class="text-right">
                 <div class="selector-box">
@@ -56,25 +66,20 @@
 
                 <div class="info-area">
                     <span style="margin-bottom: 10px;">Selecione a Versão</span>
-                    <center>
-                        <div class="modelButtons" style="margin-bottom: 20px;">
-                            <div class="btn-group" style="width: 100%;">
-                                <button
-                                    style="float: left; margin-right: 2px;margin-left: 10px;"
-                                    class="gls active">GLS</button>
-                                <button style=" margin-right: 0px;" class="hpe">HPE</button>
-                                <button style="margin-right: 0px;" class="hpes">HPE-S</button>
-                                <button style="float: right;" class="awd">S-AWC</button>
-                            </div>
-                        </div>
-                    </center>
 
-                    <center>
+                    <div class="modelButtons" style="margin-bottom: 20px;">
                         <div class="btn-group" style="width: 100%;">
-                            <button style="float: left; margin-left: 15px;" class="changeColor active">Exterior</button>
-                            <button style="float: right; margin-right: 15px;" class="changeColorInt">Interior</button>
+                            <button class="gls active">GLS</button>
+                            <button class="hpe">HPE</button>
+                            <button class="hpes">HPE-S</button>
+                            <button class="awd">S-AWC</button>
                         </div>
-                    </center>
+                    </div>
+
+                    <div class="btn-group" style="width: 100%;">
+                        <button class="changeColor active">Exterior</button>
+                        <button class="changeColorInt">Interior</button>
+                    </div>
 
                     <div class="colors active" id="colorPicker" style="background: none;">
                         <span class="info" style="font-weight: bolder;"></span>
@@ -127,13 +132,13 @@
                         <div
                             class="int-color"
                             id="intcolorwhite"
-                            data-color-id="0"
+                            data-color-id="White"
                             data-name="Couro Cinza Claro"
                             style="background-color: #FFFFFF; border: 1px solid black;"
                             data-price="0"></div>
                         <div
                             class="int-color active"
-                            data-color-id="1"
+                            data-color-id="Black"
                             data-name="Couro Preto"
                             style="background-color: #000000;"
                             data-price="0"></div>
@@ -155,7 +160,7 @@
 
             <div class="views" id="cameraPicker">
 
-                <div>
+                <div id="view-button">
                     <svg
                         id="exteriorView"
                         width="48"
@@ -165,7 +170,7 @@
                         xmlns="http://www.w3.org/2000/svg"
                         class="camera active"
                         data-cam-id="0"
-                        style="height: 50px;">
+                        style="height: 35px;">
                         <title>
                             car-large
                         </title>
@@ -175,9 +180,9 @@
                             fill="none"
                             fill-rule="evenodd"/>
                     </svg>
-                    <!-- <span>Externo</span> -->
+                    <span>Externo</span>
                 </div>
-                <div style="margin-left: 14px;">
+                <div id="view-button">
                     <svg
                         id="interiorView"
                         width="48"
@@ -197,9 +202,9 @@
                             fill="none"
                             fill-rule="evenodd"/>
                     </svg>
-                    <!-- <span>Condutor</span> -->
+                    <span>Condutor</span>
                 </div>
-                <div>
+                <div id="view-button">
                     <svg
                         id="interiorView2"
                         width="48"
@@ -219,9 +224,9 @@
                             fill="none"
                             fill-rule="evenodd"/>
                     </svg>
-                    <!-- <span>Interno</span> -->
+                    <span>Interno</span>
                 </div>
-                <div>
+                <div id="view-button">
                     <svg
                         width="48"
                         height="48"
@@ -269,7 +274,7 @@
                             fill="none"
                             fill-rule="evenodd"/>
                     </svg>
-                    <!-- <span>Abrir Portas</span> -->
+                    <span>Portas</span>
                 </div>
             </div>
         </div>

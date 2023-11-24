@@ -1,5 +1,5 @@
 import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
-import changeCarColor from "../helpers/ChangeCarColor.js";
+import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function HpesEvents() {
@@ -135,7 +135,7 @@ function HpesEvents() {
 
             carSelection.selectedModel = 'HPE_S';
             var carColorSelected = $(".car-color.active").data("color-id");
-            changeCarColor(carColorSelected, 'HPE_S');
+            ChangeCarColor(carColorSelected, 'HPE_S');
             carSelection.latestModelSelected = 'HPE_S';
             //back logo
             sketchfabDict
@@ -155,7 +155,7 @@ function HpesEvents() {
             $(".hpe").removeClass("active");
             $(".awd").removeClass("active");
             $("#intcolorwhite").css("display", "inline-block");
-            ChangeLeatherColor(0);
+            ChangeLeatherColor('Black');
         });
 };
 

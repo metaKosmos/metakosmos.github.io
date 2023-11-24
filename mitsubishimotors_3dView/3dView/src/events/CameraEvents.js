@@ -22,7 +22,6 @@ function CameraEvents() {
                 // $(".exterior-items").addClass("active");
                 // $(".interior-items").removeClass("active");
             }
-            console.log("Change camera " + camera.current);
             ChangeCamera(camera.current);
         });
 };

@@ -1,7 +1,7 @@
 import {loadingPct} from "../Globals.js";
 
 function HandleLoadingAnimation() {
-    setInterval(function () {
+    loadingPct.intervalId = setInterval(function () {
         if (loadingPct.pctValue < loadingPct.nextPct && loadingPct.pctValue < 100) 
             loadingPct.pctValue += 1;
         document

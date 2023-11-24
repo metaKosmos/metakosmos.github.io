@@ -27,7 +27,7 @@ function LoadModel() {
                     .addEventListener('viewerready', () => ViewerReady());
             },
             error: (err) => {
-                console.error(err, err.stack);
+                HandleError('Sketchfab API initialization failed.', 'On LoadModel');
                 return;
             },
             dnt: 1,

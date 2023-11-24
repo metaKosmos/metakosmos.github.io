@@ -1,11 +1,19 @@
-import {loadingPct, namedResources, carMaterials, sketchfabDict, camera, texturesUids} from "../Globals.js";
+import {
+    loadingPct,
+    namedResources,
+    carMaterials,
+    sketchfabDict,
+    camera,
+    texturesUids
+} from "../Globals.js";
 import GetNamedResources from "../helpers/GetNameResource.js";
 import {POST_PROCESSING} from "../Constants.js";
 import RemoveNodes from "../helpers/RemoveNodes.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
-import changeCarColor from "../helpers/ChangeCarColor.js";
+import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 import {LOGOS} from "../Constants.js";
+import HandleError from "../handles/HandleError.js";
 
 function ViewerReady() {
 
@@ -17,7 +25,7 @@ function ViewerReady() {
         .api
         .getNodeMap((err, nodes) => {
             if (err) {
-                console.error(err, err.stack);
+                HandleError(err, 'On Nodes');
                 return;
             };
             GetNamedResources(nodes, "nodes");
@@ -28,7 +36,7 @@ function ViewerReady() {
         .api
         .getEnvironment((err, envInfo) => {
             if (err) {
-                console.error(err, err.stack);
+                HandleError(err, 'On Env Info');
                 return;
             };
             camera.enviromment = envInfo;
@@ -38,14 +46,14 @@ function ViewerReady() {
         .api
         .getTextureList((err, textures) => {
             if (err) {
-                console.error(err, err.stack);
+                HandleError(err, 'On Textures');
                 return;
             }
             GetNamedResources(textures, "textures");
             texturesUids.bodyRoughness = namedResources.textures['GLS_Body_Roghness.png'].uid;
             texturesUids.detailsColor = namedResources.textures['GLS_Dets_Color.png'].uid;
             texturesUids.detailsRoughness = namedResources.textures['GLS_Dets_Roghness.png'].uid;
-            texturesUids.bodyTexture =  namedResources.textures['Car_Red.png'].uid; //cor do carro
+            texturesUids.bodyTexture = namedResources.textures['GLS_Body_Branco_Alpino.png'].uid; //cor do carro
             texturesUids.leatherAlbedoFront = namedResources.textures['Leather_White_albedo.jpg'].uid;
             texturesUids.leatherAlbedoBack = namedResources.textures['Seat_Back_LeatherWhite_Color.png'].uid;
         });
@@ -54,7 +62,7 @@ function ViewerReady() {
         .api
         .getAnimations((err, animations) => {
             if (err) {
-                console.error(err, err.stack);
+                HandleError(err, 'On Animations');
                 return;
             };
             if (animations.length > 0) {
@@ -80,11 +88,13 @@ function ViewerReady() {
     sketchfabDict
         .api
         .addEventListener('camerastop', () => {
+            $(".logo").attr("src", LOGOS.mitsubishi.black);
+            
             sketchfabDict
                 .api
                 .getCameraLookAt((err, returnCamera) => {
                     if (err) {
-                        console.error(err, err.stack);
+                        HandleError(err, returnCamera)
                         return;
                     };
                     switch (camera.current) {
@@ -106,8 +116,7 @@ function ViewerReady() {
                             $(".logo").attr("src", LOGOS.mitsubishi.white);
                             break;
                         default:
-                            console.log("Wrong camera index!");
-                            break;
+                            HandleError("Wrong camera index!", "camera.current");
                     }
                 });
         });
@@ -116,7 +125,7 @@ function ViewerReady() {
         .api
         .getMaterialList((err, materials) => {
             if (err) {
-                console.error(err, err.stack);
+                HandleError(err, 'On Materials');
                 return;
             };
             GetNamedResources(materials, "materials");
@@ -162,28 +171,25 @@ function ViewerReady() {
                 .getCameraLookAt(function (err, camera) {
 
                     if (err) {
-                        console.error(err, err.stack);
+                        HandleError(err, 'On CameraLookAt');
                         return;
                     };
                     ChangeCamera(0);
-                    setTimeout(function () {
-                        loadingPct.nextPct = 100;
-                        changeCarColor('brancoAlpino', 'GLS');
-                        ChangeLeatherColor(0);
-                        $("#intcolorwhite").css("display", "none");
-                        setTimeout(function () {
-                            loadingPct.pctValue = 100;
-                            document
-                                .getElementById("iframe-loader")
-                                .innerHTML = "carregando 100%<div style='width: 100%'></div>";
-                            frameMask
-                                .classList
-                                .add("hidden");
-                            loader
-                                .classList
-                                .add("hidden");
-                        }, 1000);
-                    }, 1100);
+                    loadingPct.nextPct = 100;
+                    ChangeCarColor('brancoAlpino', 'GLS');
+                    ChangeLeatherColor('Black');
+                    $("#intcolorwhite").css("display", "none");
+                    loadingPct.pctValue = 100;
+                    document
+                        .getElementById("iframe-loader")
+                        .innerHTML = "carregando 100%<div style='width: 100%'></div>";
+                    frameMask
+                        .classList
+                        .add("hidden");
+                    document
+                        .getElementById("iframe-loader")
+                        .remove()
+                    clearInterval(loadingPct.intervalId);
                 });
         });
 }

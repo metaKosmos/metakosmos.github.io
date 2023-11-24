@@ -1,6 +1,6 @@
 import {priceInfo, carSelection} from "../Globals.js";
 import writePrice from "../helpers/WritePrice.js";
-import changeCarColor from "../helpers/ChangeCarColor.js";
+import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function ColorEvents() {
@@ -30,7 +30,7 @@ function ColorEvents() {
             priceInfo.currentColorText += " £" + $(this).data("price");
         priceInfo.option1Price = parseInt($(this).data("price"));
         $("#totalPrice").text(writePrice(priceInfo.basePrice + priceInfo.option1Price + priceInfo.option2Price));
-        changeCarColor(carColor, carSelection.selectedModel);
+        ChangeCarColor(carColor, carSelection.selectedModel);
     });
     $(".car-color").hover(function () {
         var newText = $(this).data("name");
@@ -42,7 +42,7 @@ function ColorEvents() {
     });
 
     $(".int-color").click(function () {
-        var intColorIndex = $(this).data("color-id");
+        var intColor = $(this).data("color-id");
         $(".int-color").removeClass("active");
         $(this).addClass("active");
         priceInfo.currentIntText = $(this).data("name");
@@ -50,7 +50,7 @@ function ColorEvents() {
             priceInfo.currentIntText += " £" + $(this).data("price");
         priceInfo.option2Price = parseInt($(this).data("price"));
         $("#totalPrice").text(writePrice(priceInfo.basePrice + priceInfo.option1Price + priceInfo.option2Price));
-        ChangeLeatherColor(intColorIndex);
+        ChangeLeatherColor(intColor);
     });
     $(".int-color").hover(function () {
         var newText = $(this).data("name");

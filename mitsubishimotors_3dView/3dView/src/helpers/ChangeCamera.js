@@ -2,7 +2,7 @@ import {sketchfabDict, camera} from "../Globals.js";
 
 function ChangeCamera(index, animate = false) {
     if (sketchfabDict.api == null) {
-        console.error("Sketchfab API not loaded yet or failed.");
+        HandleError('Sketchfab API not loaded yet or failed.', 'On ChangeCamera');
         return;
     }
     sketchfabDict
@@ -32,7 +32,7 @@ function ChangeCamera(index, animate = false) {
 
         sketchfabDict
             .api
-            .setFov(40);
+            .setFov(50);
         if ($("#api-frame").hasClass("interior")) 
             $("#api-frame").removeClass("interior");
         }
