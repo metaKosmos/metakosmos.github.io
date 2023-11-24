@@ -390,7 +390,7 @@ p {
     flex-direction: column;
     justify-content: center;
 }
-.cameraPicker{
+.cameraPicker {
     display: flex;
     /* flex-direction: row; */
     /* justify-content: space-around; */
@@ -399,7 +399,7 @@ p {
 position:absolute;
 top: -1rem;
 } */
-#top-right > div.info-area > div.btn-group{
+#top-right > div.info-area > div.btn-group {
     width: 100%;
     display: flex;
     align-content: center;
@@ -415,7 +415,7 @@ top: -1rem;
     flex-wrap: wrap;
     flex-direction: row;
 }
-#cameraPicker{
+#cameraPicker {
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
@@ -427,15 +427,13 @@ top: -1rem;
     right: 0.5em;
 }
 
-.changeColor
-.changeColorInt{
+.changeColor .changeColorInt {
     padding: 0.5em;
-    padding-right: 0.5em;
 }
 
-
-@media (max-aspect-ratio: 12/10) {
-    .navigation{
+/* @media (max-aspect-ratio: 12/10) { */
+@media (min-width: 576px) {
+    .navigation {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -446,7 +444,7 @@ top: -1rem;
     #buttons-text {
         display: none;
     }
-    #cameraPicker{
+    #cameraPicker {
         display: flex;
         justify-content: space-around;
         flex-wrap: nowrap;
@@ -457,7 +455,7 @@ top: -1rem;
         position: absolute;
         right: 0.5em;
     }
-    .view-button{
+    .view-button {
         position: absolute;
         bottom: 0;
         left: 1000;
@@ -478,10 +476,10 @@ top: -1rem;
         padding-top: 10px;
         z-index: 9999999;
     }
-    .logo-div{
+    .logo-div {
         z-index: 999;
     }
-    .modelButtons{
+    .modelButtons {
         display: flex;
         justify-content: space-evenly;
         /* flex-direction: row;
