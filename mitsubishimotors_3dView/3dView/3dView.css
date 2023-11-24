@@ -392,13 +392,8 @@ p {
 }
 .cameraPicker {
     display: flex;
-    /* flex-direction: row; */
-    /* justify-content: space-around; */
 }
-/* #exteriorView.camera.active {
-position:absolute;
-top: -1rem;
-} */
+
 #top-right > div.info-area > div.btn-group {
     width: 100%;
     display: flex;
@@ -431,8 +426,7 @@ top: -1rem;
     padding: 0.5em;
 }
 
-/* @media (max-aspect-ratio: 12/10) { */
-@media (min-width: 576px) {
+@media (max-aspect-ratio: 12/10) {
     .navigation {
         display: flex;
         flex-direction: column;
@@ -482,19 +476,11 @@ top: -1rem;
     .modelButtons {
         display: flex;
         justify-content: space-evenly;
-        /* flex-direction: row;
-        justify-content: left; */
     }
-    /* .btn-group{
-        display: flex;
-    }
-    .btn-group button {
-        flex-grow: 1;
-    } */
     span.car-name {
         position: absolute;
-        top: -19rem;
-        left: 6rem;
+        top: -50vh;
+        left: 25vw;
     }
     .timeSelector {
         top: 43% !important;
@@ -519,7 +505,7 @@ top: -1rem;
 
     .info-area {
         padding-right: 17px;
-        height: 35vh;
+        height: 30vh;
         overflow: scroll;
     }
 
@@ -539,83 +525,6 @@ top: -1rem;
     }
     #top-right span.descr {
         display: none !important;
-    }
-    .colors div > img {
-        width: 40px;
-    }
-}
-@media (max-height: 900px) {
-    .info-area {
-        height: 32vh;
-    }
-
-}
-@media (max-width: 1460px) {
-    .iframe-container {
-        width: 69%;
-    }
-
-}
-@media (min-aspect-ratio: 12/10) and (max-height: 600px) {
-    #top-right {
-        top: 20px;
-        right: 0;
-        width: 30%;
-    }
-
-    .iframe-container {
-        width: 69% !important;
-    }
-
-    .btn-group button.gls {
-        width: 40px;
-    }
-
-    .btn-group button.awd {
-        width: 65px;
-    }
-
-    .btn-group button.hpe {
-        width: 40px;
-    }
-
-    .btn-group button.hpes {
-        width: 60px;
-    }
-
-    .modelButtons {
-        left: 50% !important;
-        top: 35px !important;
-        bottom: unset !important;
-
-    }
-
-    .btn-group.day {
-        height: 36px;
-    }
-    .btn-group button.dia {
-        width: 64px;
-    }
-    .btn-group button.noite {
-        width: 64px;
-    }
-
-    .colors div {
-        width: 20px;
-        height: 20px;
-    }
-
-    .info-area {
-        height: 250px;
-        overflow: scroll;
-        padding-right: 20px;
-    }
-
-    .views {
-        right: 40px;
-    }
-    .navigation__right {
-        display: none;
     }
     .colors div > img {
         width: 40px;
