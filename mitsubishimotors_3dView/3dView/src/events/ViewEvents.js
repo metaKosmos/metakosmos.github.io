@@ -1,49 +1,108 @@
-import { LOGOS } from "../Constants.js";
-import { camera } from "../Globals.js";
+import {camera} from "../Globals.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
 
 function ViewEvents() {
-    $("#interiorView").click(function () {
-        $("#interiorView").addClass("active");
-        $("#exteriorView").removeClass("active");
-        $("#interiorView2").removeClass("active");
-    });
+    document
+        .getElementById('interior-view')
+        .onclick = () => {
+        document
+            .getElementById('interior-view')
+            .classList
+            .add('active');
+        document
+            .getElementById('exterior-view')
+            .classList
+            .remove('active');
+        document
+            .getElementById('backSeat-view')
+            .classList
+            .remove('active');
+    }
 
-    $("#interiorView2").click(function () {
-        $("#interiorView").removeClass("active");
-        $("#exteriorView").removeClass("active");
-        $("#interiorView2").addClass("active");
-    });
+    document
+        .getElementById('backSeat-view')
+        .onclick = () => {
+        document
+            .getElementById('interior-view')
+            .classList
+            .remove('active');
+        document
+            .getElementById('exterior-view')
+            .classList
+            .remove('active');
+        document
+            .getElementById('backSeat-view')
+            .classList
+            .add('active');
+    }
 
-    $("#exteriorView").click(function () {
-        $("#interiorView").removeClass("active");
-        $("#exteriorView").addClass("active");
-        $("#interiorView2").removeClass("active");
-    });
-
-    $(".changeColor").click(function () {
+    document
+        .getElementById('exterior-view')
+        .onclick = () => {
+        document
+            .getElementById('interior-view')
+            .classList
+            .remove('active');
+        document
+            .getElementById('exterior-view')
+            .classList
+            .add('active');
+        document
+            .getElementById('backSeat-view')
+            .classList
+            .remove('active');
+    }
+    document
+        .getElementById('changeColor')
+        .onclick = () => {
         camera.current = 0;
-        $(".logo").attr("src", LOGOS.mitsubishi.black);
+        // document
+        //     .getElementById('logo')
+        //     .src = LOGOS.mitsubishi.black;
         ChangeCamera(camera.current);
-        $(".changeColor").addClass("active");
-        $(".changeColorInt").removeClass("active");
-        // $(".exterior-items").addClass("active");
-        // $(".interior-items").removeClass("active");
-        $("#colorPicker2").removeClass("active");
-        $("#colorPicker").addClass("active");
-    });
+        document
+            .getElementById('changeColor')
+            .classList
+            .add('active');
+        document
+            .getElementById('changeColorInt')
+            .classList
+            .remove('active');
+        document
+            .getElementById('colorPicker2')
+            .classList
+            .remove('active');
+        document
+            .getElementById('colorPicker')
+            .classList
+            .add('active');
+    }
 
-    $(".changeColorInt").click(function () {
+    document
+        .getElementById('changeColorInt')
+        .onclick = () => {
         camera.current = 1;
-        $(".logo").attr("src", LOGOS.mitsubishi.white);
+        // document
+        //     .getElementById('logo')
+        //     .src = LOGOS.mitsubishi.white;
         ChangeCamera(camera.current);
-        $(".changeColor").removeClass("active");
-        $(".changeColorInt").addClass("active");
-        // $(".exterior-items").removeClass("active");
-        // $(".interior-items").addClass("active");
-        $("#colorPicker").removeClass("active");
-        $("#colorPicker2").addClass("active");
-    });
+        document
+            .getElementById('changeColor')
+            .classList
+            .remove('active');
+        document
+            .getElementById('changeColorInt')
+            .classList
+            .add('active');
+        document
+            .getElementById('colorPicker')
+            .classList
+            .remove('active');
+        document
+            .getElementById('colorPicker2')
+            .classList
+            .add('active');
+    }
 
 }
 

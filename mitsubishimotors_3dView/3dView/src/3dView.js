@@ -1,33 +1,19 @@
-import AwdEvents from "./events/AwdEvents.js";
-import ButtonEvents from "./events/ButtonEvents.js";
-import CameraEvents from "./events/CameraEvents.js";
-import ColorEvents from "./events/ColorEvents.js";
+import { CarEvents } from "./events/CarEvents.js";
 import DoorEvents from "./events/DoorEvents.js";
-import GlsEvents from "./events/GlsEvents.js";
-import HpeEvents from "./events/HpeEvents.js";
-import HpesEvents from "./events/HpesEvents.js";
-import ViewEvents from "./events/ViewEvents.js";
 import HandleLoadingAnimation from "./handles/HandleLoadingAnimation.js";
-import HandleResize from "./handles/HandleResize.js";
 import LoadModel from "./helpers/LoadModel.js";
+import SelectedCarColorEvent from "./events/SelectedCarColorEvent.js";
 
-$(document).ready(() => {
-
+document.addEventListener("DOMContentLoaded", () => {
     // Handles
-    HandleResize();
-   HandleLoadingAnimation();
-    
+    HandleLoadingAnimation();
+
     // 3D Model
     LoadModel();
 
     // Events
-    AwdEvents();
-    ButtonEvents();
-    CameraEvents();
-    ColorEvents();
-    GlsEvents();
-    HpeEvents();
-    HpesEvents();
-    DoorEvents();
-    ViewEvents();
+    CarEvents(['HPE_S', 'S_AWC', 'HPE', 'GLS']);
+    SelectedCarColorEvent();
+
+    DoorEvents(); 
 });

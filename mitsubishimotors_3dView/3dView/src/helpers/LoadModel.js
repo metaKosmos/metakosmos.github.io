@@ -5,9 +5,9 @@ import ViewerReady from "../events/ViewerReady.js";
 
 function LoadModel() {
 
-    loadingPct.nextPct = 20;
+    loadingPct.nextPct = 98;
     const textureSize = GetTextureSize();
-    const iframe = document.getElementById('api-frame');
+    const iframe = document.getElementById('sketchfab-iframe');
 
     sketchfabDict.client = new Sketchfab(sketchfabDict.version, iframe);
 

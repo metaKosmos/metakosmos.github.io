@@ -1,4 +1,191 @@
 const BASE_URL = "https://metakosmos.github.io/mitsubishimotors_3dView/";
+
+const CAR_OBJECTS = {
+    "GLS": {
+        'show': [
+            'Lights_Front_Conver_GLS_Chrome',
+            'Lights_Front_Case_GLS_Chrome',
+            'Lights_Front_GLS_BlackMatt',
+            'Lights_Front_Cover_LedGLS_Silver',
+            'Lights_Front_Glass_GLS_Emissive',
+            'Lights_Front_Grid_GLS_Silver',
+            'Lights_Front_Glass_GLS_Chrome',
+            'Seat_Front_Base_GLS_L',
+            'Seat_Front_Base_GLS_R',
+            'Body_Roof_Close',
+            'Body_Roof',
+            'LogoFront_BlackMatte',
+            'Gear_Panel_GLS',
+            'Handbrake',
+            'LogoBack_GLS'
+        ],
+        'hide': [
+            'Lights_Front_Silver',
+            'Lights_Front_VD_Glass',
+            'Lights_Front_Chrome',
+            'Lights_Front_BlackShiny',
+            'Lights_Front_Chrome.003',
+            'Painel_PaddleShifter',
+            'Seat_Front_Base_HPE_L',
+            'Seat_Front_Base_HPE_R',
+            'Body_Roof_HPE-S',
+            'Body_VD_Glass_Top',
+            'Body_Roof_Open',
+            'LogoFront_BlackShiny',
+            'Gear_Panel_HPE',
+            'Button_GearPanel_Parking_Detail',
+            'Button_GearPanel_Parking',
+            'Button_GearPanel_SeatHealting',
+            'P_Front_SideDetail_L',
+            'P_Front_SideDetail_R',
+            'LogoBack_Vidro',
+            'LogoBack_S',
+            'LogoBack_HPE'
+        ]
+    },
+    "HPE": {
+        'show': [
+            'Lights_Front_Silver',
+            'Lights_Front_VD_Glass',
+            'Lights_Front_Chrome',
+            'Lights_Front_BlackShiny',
+            'Lights_Front_Chrome.003',
+            'Seat_Front_Base_HPE_L',
+            'Seat_Front_Base_HPE_R',
+            'Painel_PaddleShifter',
+            'Body_Roof_Close',
+            'Body_Roof',
+            'LogoFront_BlackMatte',
+            'Gear_Panel_HPE',
+            'Button_GearPanel_Parking_Detail',
+            'Button_GearPanel_Parking',
+            'Button_GearPanel_SeatHealting',
+            'LogoBack_HPE'
+        ],
+        'hide': [
+            'Lights_Front_Conver_GLS_Chrome',
+            'Lights_Front_Case_GLS_Chrome',
+            'Lights_Front_GLS_BlackMatt',
+            'Lights_Front_Cover_LedGLS_Silver',
+            'Lights_Front_Glass_GLS_Emissive',
+            'Lights_Front_Grid_GLS_Silver',
+            'Lights_Front_Glass_GLS_Chrome',
+            'Seat_Front_Base_GLS_L',
+            'Seat_Front_Base_GLS_R',
+            'Body_Roof_HPE-S',
+            'Body_VD_Glass_Top',
+            'Body_Roof_Open',
+            'LogoFront_BlackShiny',
+            'Gear_Panel_GLS',
+            'Handbrake',
+            'P_Front_SideDetail_L',
+            'P_Front_SideDetail_R',
+            'LogoBack_GLS',
+            'LogoBack_Vidro',
+            'LogoBack_S'
+        ]
+    },
+    "HPE_S": {
+        'show': [
+            'Lights_Front_Silver',
+            'Lights_Front_VD_Glass',
+            'Lights_Front_Chrome',
+            'Lights_Front_BlackShiny',
+            'Lights_Front_Chrome.003',
+            'Painel_PaddleShifter',
+            'Seat_Front_Base_HPE_L',
+            'Seat_Front_Base_HPE_R',
+            'Body_Roof_HPE-S',
+            'Body_VD_Glass_Top',
+            'Body_Roof_Open',
+            'LogoFront_BlackShiny',
+            'Gear_Panel_HPE',
+            'Button_GearPanel_Parking_Detail',
+            'Button_GearPanel_Parking',
+            'Button_GearPanel_SeatHealting',
+            'P_Front_SideDetail_L',
+            'P_Front_SideDetail_R',
+            'LogoBack_S',
+            'LogoBack_HPE'
+        ],
+        'hide': [
+            'Lights_Front_Conver_GLS_Chrome',
+            'Lights_Front_Case_GLS_Chrome',
+            'Lights_Front_GLS_BlackMatt',
+            'Lights_Front_Cover_LedGLS_Silver',
+            'Lights_Front_Glass_GLS_Emissive',
+            'Lights_Front_Grid_GLS_Silver',
+            'Lights_Front_Glass_GLS_Chrome',
+            'Seat_Front_Base_GLS_L',
+            'Seat_Front_Base_GLS_R',
+            'Body_Roof_Close',
+            'Body_Roof',
+            'LogoFront_BlackMatte',
+            'Gear_Panel_GLS',
+            'Handbrake',
+            'LogoBack_GLS',
+            'LogoBack_Vidro'
+        ]
+    },
+    "S_AWC": {
+        'show': [
+            'Lights_Front_Silver',
+            'Lights_Front_VD_Glass',
+            'Lights_Front_Chrome',
+            'Lights_Front_BlackShiny',
+            'Lights_Front_Chrome.003',
+            'Painel_PaddleShifter',
+            'Seat_Front_Base_HPE_L',
+            'Seat_Front_Base_HPE_R',
+            'Body_Roof_HPE-S',
+            'Body_VD_Glass_Top',
+            'Body_Roof_Open',
+            'LogoFront_BlackShiny',
+            'Gear_Panel_HPE',
+            'Button_GearPanel_Parking_Detail',
+            'Button_GearPanel_Parking',
+            'Button_GearPanel_SeatHealting',
+            'P_Front_SideDetail_L',
+            'P_Front_SideDetail_R',
+            'LogoBack_Vidro',
+            'LogoBack_S',
+            'LogoBack_HPE'
+        ],
+        'hide': [
+            'Lights_Front_Conver_GLS_Chrome',
+            'Lights_Front_Case_GLS_Chrome',
+            'Lights_Front_GLS_BlackMatt',
+            'Lights_Front_Cover_LedGLS_Silver',
+            'Lights_Front_Glass_GLS_Emissive',
+            'Lights_Front_Grid_GLS_Silver',
+            'Lights_Front_Glass_GLS_Chrome',
+            'Seat_Front_Base_GLS_L',
+            'Seat_Front_Base_GLS_R',
+            'Body_Roof_Close',
+            'Body_Roof',
+            'LogoFront_BlackMatte',
+            'Gear_Panel_GLS',
+            'Handbrake',
+            'LogoBack_GLS'
+        ]
+    }
+};
+
+const CAR_DESCRIPTIONS = {
+    "GLS": {
+        "leatherColor": "Couro Preto"
+    },
+    "HPE": {
+        "leatherColor": "Couro Preto"
+    } ,
+    "HPE_S": {
+        "leatherColor": "Couro Cinza Claro",
+    },
+    "S_AWC": {
+        "leatherColor": "Couro Cinza Claro",
+    }
+};
+
 const CAR_TEXTURES = {
     "GLS": {
         "bodyColor": {
@@ -143,7 +330,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.3,
             "ClearCoatRoughness": 0.2,
             "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.3,
+            "RoughnessPBR": 0.3,
             "AlbedoPBR": 1
         },
         'lowerPaint': {
@@ -158,7 +345,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.2,
             "ClearCoatRoughness": 0.2,
             "MetalnessPBR": 0.5,
-            "RoughnessPBR":0.5,
+            "RoughnessPBR": 0.5,
             "AlbedoPBR": 0.5
         },
         'lowerPaint': {
@@ -173,7 +360,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.3,
             "ClearCoatRoughness": 0.2,
             "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.1,
+            "RoughnessPBR": 0.1,
             "AlbedoPBR": 0.5
         },
         'lowerPaint': {
@@ -188,7 +375,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.85,
             "ClearCoatRoughness": 0.3,
             "MetalnessPBR": 0.5,
-            "RoughnessPBR":0.4,
+            "RoughnessPBR": 0.4,
             "AlbedoPBR": 1
         },
         'lowerPaint': {
@@ -203,7 +390,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.3,
             "ClearCoatRoughness": 0.2,
             "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.3,
+            "RoughnessPBR": 0.3,
             "AlbedoPBR": 0.5
         },
         'lowerPaint': {
@@ -218,7 +405,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 1,
             "ClearCoatRoughness": 0.1,
             "MetalnessPBR": 1,
-            "RoughnessPBR":0.6,
+            "RoughnessPBR": 0.6,
             "AlbedoPBR": 0.5
         },
         'lowerPaint': {
@@ -233,11 +420,11 @@ const TEXTURES_SETTINGS = {
             "ClearCoat": 0.2,
             "ClearCoatRoughness": 0.2,
             "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.3,
+            "RoughnessPBR": 0.3,
             "AlbedoPBR": 0.5
         },
         'lowerPaint': {
-            "ClearCoatRoughness":0
+            "ClearCoatRoughness": 0
         },
         'camera': {
             'exposure': 5
@@ -256,6 +443,8 @@ const TEXTURES_UIDS = {
 
 export {
     CAR_TEXTURES,
+    CAR_OBJECTS,
+    CAR_DESCRIPTIONS,
     LOGOS,
     MAX_TEXTURE_SIZE,
     NODES_TO_REMOVE,

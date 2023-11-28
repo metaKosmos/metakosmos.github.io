@@ -1,25 +1,21 @@
+import { NODES_TO_REMOVE, POST_PROCESSING } from "../Constants.js";
 import {
+    camera,
+    carMaterials,
     loadingPct,
     namedResources,
-    carMaterials,
     sketchfabDict,
-    camera,
     texturesUids
 } from "../Globals.js";
-import GetNamedResources from "../helpers/GetNameResource.js";
-import {POST_PROCESSING} from "../Constants.js";
-import RemoveNodes from "../helpers/RemoveNodes.js";
+import HandleError from "../handles/HandleError.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
-import {LOGOS} from "../Constants.js";
-import HandleError from "../handles/HandleError.js";
+import GetNamedResources from "../helpers/GetNameResource.js";
+import Hide3dNodes from "../helpers/Hide3dNodes.js";
 
 function ViewerReady() {
-
     loadingPct.nextPct = 99;
-    var frameMask = document.getElementById("iframe-mask");
-    var loader = document.getElementById("iframe-loader");
 
     sketchfabDict
         .api
@@ -29,7 +25,7 @@ function ViewerReady() {
                 return;
             };
             GetNamedResources(nodes, "nodes");
-            RemoveNodes(namedResources.nodes);
+            Hide3dNodes(NODES_TO_REMOVE);
         });
 
     sketchfabDict
@@ -88,8 +84,6 @@ function ViewerReady() {
     sketchfabDict
         .api
         .addEventListener('camerastop', () => {
-            $(".logo").attr("src", LOGOS.mitsubishi.black);
-            
             sketchfabDict
                 .api
                 .getCameraLookAt((err, returnCamera) => {
@@ -101,19 +95,16 @@ function ViewerReady() {
                         case 0:
                             if (returnCamera.target[0] != camera.target[0] || returnCamera.target[1] != camera.target[1] || returnCamera.target[2] != camera.target[2]) 
                                 ChangeCamera(0, true);
-                            
-                            $(".logo").attr("src", LOGOS.mitsubishi.black);
 
                             break;
                         case 1:
                             if (returnCamera.target[0] != camera.headTarget[0] || returnCamera.target[1] != camera.headTarget[1] || returnCamera.target[2] != camera.headTarget[2]) 
                                 ChangeCamera(1, true);
-                            $(".logo").attr("src", LOGOS.mitsubishi.white);
+
                             break;
                         case 2:
                             if (returnCamera.target[0] != camera.headTarget2[0] || returnCamera.target[1] != camera.headTarget2[1] || returnCamera.target[2] != camera.headTarget2[2]) 
                                 ChangeCamera(2, true);
-                            $(".logo").attr("src", LOGOS.mitsubishi.white);
                             break;
                         default:
                             HandleError("Wrong camera index!", "camera.current");
@@ -176,19 +167,24 @@ function ViewerReady() {
                     };
                     ChangeCamera(0);
                     loadingPct.nextPct = 100;
+                    loadingPct.pctValue = 100;
                     ChangeCarColor('brancoAlpino', 'GLS');
                     ChangeLeatherColor('Black');
-                    $("#intcolorwhite").css("display", "none");
-                    loadingPct.pctValue = 100;
+                    document
+                        .getElementById('intcolorwhite')
+                        .style
+                        .display = "none";
+                    document
+                        .getElementById('loading-text')
+                        .textContent = `Carregando ${loadingPct.pctValue}%`;
+                    document
+                        .getElementById('loading-bar-fill')
+                        .style
+                        .width = `${loadingPct.pctValue}%`;
                     document
                         .getElementById("iframe-loader")
-                        .innerHTML = "carregando 100%<div style='width: 100%'></div>";
-                    frameMask
-                        .classList
-                        .add("hidden");
-                    document
-                        .getElementById("iframe-loader")
-                        .remove()
+                        .style
+                        .display = "none";
                     clearInterval(loadingPct.intervalId);
                 });
         });
