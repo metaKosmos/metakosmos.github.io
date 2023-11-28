@@ -30,253 +30,276 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="3dView.css">
+        <link rel="stylesheet" href="assets/elements.css">
+        <link rel="stylesheet" href="assets/classes.css">
+        <link rel="stylesheet" href="assets/bigmonitor.css">
+        <link rel="stylesheet" href="assets/smallmonitor.css">
+        <link rel="stylesheet" href="assets/tablets.css">
+        <link rel="stylesheet" href="assets/bigmobile.css">
+        <link rel="stylesheet" href="assets/smallmobile.css">
+
         <link
             rel="shortcut icon"
             src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/favicon.ico">
         <script type="module" src="src/3dView.js"></script>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     </head>
     <body>
-        <div class="logo-div">
+        <header>
             <img
                 class="logo"
+                id="logo"
                 src="https://metakosmos.github.io/mitsubishimotors_3dView/3dView/assets/logo/mitsubishi.png"/>
-        </div>
-        <div class="iframe-div">
-            <div class='iframe-gradient'></div>
-            <div class='iframe-mask' id='iframe-mask'></div>
-            <div class='iframe-loader' id='iframe-loader'>carregando 0%...</div>
-            <div class='iframe-container'>
+            <div class="spacing"></div>
+            <div class="car-name-container">
+                <h1 class="car-name">Eclipse Cross</h1>
+            </div>
+        </header>
+        <section>
+            <div class="iframe-container">
+                <div class='iframe-loader' id='iframe-loader'>
+                    <span class="loading-text" id="loading-text">Carregando 0%</span>
+                    <div class='loading-bar-container' id="loading-bar-container">
+                        <div class='loading-bar-fill' id="loading-bar-fill"></div>
+                    </div>
+                </div>
                 <iframe
                     src=''
-                    id='api-frame'
+                    class='sketchfab-iframe'
+                    id='sketchfab-iframe'
                     sandbox='allow-scripts allow-same-origin allow-popups allow-forms'
                     allow='autoplay; fullscreen;'
                     mozallowfullscreen='true'
                     webkitallowfullscreen='true'></iframe>
             </div>
-        </div>
-        <div class="navigation">
+            <!-- up here ok -->
+            <div class="info-container">
+                <div class="car-info">
+                    <h2 class="info-title">Selecione a Versão</h2>
 
-            <div id="top-right" class="text-right">
-                <div class="selector-box">
-                    <span class="car-name active">Eclipse Cross</span>
+                    <div class="button-group" id="car-models">
+                        <button class="gls round-button" id="GLS">GLS</button>
+                        <button class="hpe round-button" id="HPE">HPE</button>
+                        <button class="hpes round-button" id="HPE_S">HPE-S</button>
+                        <button class="sawc round-button" id="S_AWC">S-AWC</button>
+                    </div>
+                    <div class="button-group" id="view-buttons">
+                        <button class="changeColor round-button" id="changeColor">Exterior</button>
+                        <button class="changeColorInt round-button" id="changeColorInt">Interior</button>
+                    </div>
 
-                </div>
+                    <div class="colors-picker" id="ext-color-picker">
+                        <div class="color-info-container">
+                            <span class="color-info" id="exterior-info">Branco Fuji</span>
+                        </div>
+                        <div class="colors-container">
+                            <div
+                                class="car-color branco-alpino active"
+                                data-color="brancoAlpino"
+                                data-name="Branco Fuji"
+                                data-price="0"></div>
+                            <div
+                                class="car-color preto-onix"
+                                data-color="pretoOnix"
+                                data-name="Preto Onix Pearl"
+                                data-price="0"></div>
+                            <div
+                                class="car-color azul-baikal"
+                                data-color="azulBaikal"
+                                data-name="Azul Baikal"
+                                data-price="0"></div>
+                            <div
+                                class="car-color vermelho-lucid"
+                                data-color="vermelhoLucid"
+                                data-name="Vermelho Lucid"
+                                data-price="0"></div>
+                            <div
+                                class="car-color prata-cool"
+                                data-color="prataCool"
+                                data-name="Prata Cool"
+                                data-price="0"></div>
+                            <div
+                                class="car-color cinza-londrino"
+                                data-color="cinzaLondrino"
+                                data-name="Cinza Londrino"
+                                data-price="0"></div>
+                            <div
+                                class="car-color prata-litio"
+                                data-color="prataLitio"
+                                data-name="Prata Lítio"
+                                data-price="0"></div>
+                        </div>
 
-                <div class="info-area">
-                    <span style="margin-bottom: 10px;">Selecione a Versão</span>
+                    </div>
 
-                    <div class="modelButtons" style="margin-bottom: 20px;">
-                        <div class="btn-group" style="width: 100%;">
-                            <button class="gls active">GLS</button>
-                            <button class="hpe">HPE</button>
-                            <button class="hpes">HPE-S</button>
-                            <button class="awd">S-AWC</button>
+                    <div class="colors-picker" id="int-color-picker">
+                        <div class="color-info-container">
+                            <span class="color-info" id="interior-info">Couro Preto</span>
+                        </div>
+                        <div class="colors-container">
+                            <div
+                                class="int-color hidden"
+                                id="intcolorwhite"
+                                data-color="White"
+                                data-name="Couro Cinza Claro"
+                                style="background-color: #FFFFFF; border: 1px solid black;"
+                                data-price="0"></div>
+                            <div
+                                class="int-color active"
+                                data-color="Black"
+                                data-name="Couro Preto"
+                                style="background-color: #000000;"
+                                data-price="0"></div>
                         </div>
                     </div>
-
-                    <div class="btn-group" style="width: 100%;">
-                        <button class="changeColor active">Exterior</button>
-                        <button class="changeColorInt">Interior</button>
-                    </div>
-
-                    <div class="colors active" id="colorPicker" style="background: none;">
-                        <span class="info" style="font-weight: bolder;"></span>
-                        <div
-                            class="car-color active"
-                            data-color-id="brancoAlpino"
-                            data-name="Branco Fuji"
-                            style="background-color: #ffffff; border: 1px solid black;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="pretoOnix"
-                            data-name="Preto Onix Pearl"
-                            style="background-color: #343434;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="azulBaikal"
-                            data-name="Azul Baikal"
-                            style="background-color: #1f478f;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="vermelhoLucid"
-                            data-name="Vermelho Lucid"
-                            style="background-color: #aa0e1e;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="prataCool"
-                            data-name="Prata Cool"
-                            style="background-color: #6d7170;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="cinzaLondrino"
-                            data-name="Cinza Londrino"
-                            style="background-color: #4a494f;"
-                            data-price="0"></div>
-                        <div
-                            class="car-color"
-                            data-color-id="prataLitio"
-                            data-name="Prata Lítio"
-                            style="background-color: #8d9391;"
-                            data-price="0"></div>
-                    </div>
-
-                    <div class="colors" id="colorPicker2" style="background: none;">
-                        <span class="info"></span>
-                        <div
-                            class="int-color"
-                            id="intcolorwhite"
-                            data-color-id="White"
-                            data-name="Couro Cinza Claro"
-                            style="background-color: #FFFFFF; border: 1px solid black;"
-                            data-price="0"></div>
-                        <div
-                            class="int-color active"
-                            data-color-id="Black"
-                            data-name="Couro Preto"
-                            style="background-color: #000000;"
-                            data-price="0"></div>
-                    </div>
-
-                    <div
-                        class="exterior-items active"
-                        style="padding-top: 10px;border: 1px solid red;padding-bottom:  10px;border-radius: 8px;padding-left: 14px;padding-right: 2px;">
-                        <span >- Roda de liga leve 18”</span>
-                        <span >- DRL em led</span>
-                        <span >- Lanternas em led</span>
-                        <span >- Ar-condicionado digital automático</span>
-                        <span >- Multimídia JBL com Wi-Fi integrado</span>
-                        <span >- Câmera de ré</span>
+                    <div class="exterior-container" id="exterior-container">
+                        <div class="exterior-items active" id='GLS-exterior'>
+                            <ul class="exterior-list">
+                                <li>Roda de liga leve 18”</li>
+                                <li>DRL em led</li>
+                                <li>Lanternas em led</li>
+                                <li>Ar-condicionado digital automático</li>
+                                <li>Multimídia JBL com Wi-Fi integrado</li>
+                                <li>Câmera de ré</li>
+                            </ul>
+                        </div>
+                        <div class="exterior-items hidden" id="HPE-exterior">
+                            <ul class="exterior-list">
+                                <li>Roda de liga leve 18”</li>
+                                <li>DRL em led</li>
+                                <li>Faróis e Lanternas em led</li>
+                                <li>Ar-condicionado digital Dual Zone</li>
+                                <li>Multimídia JBL com Wi-Fi integrado</li>
+                                <li>Câmera de ré</li>
+                                <li>Bancos dianteiros elétricos e aquecidos</li>
+                            </ul>
+                        </div>
+                        <div class="exterior-items hidden" id="HPE_S-exterior">
+                            <ul class="exterior-list">
+                                <li>Roda de liga leve 18”</li>
+                                <li>DRL em led</li>
+                                <li>Faróis e lanternas em led</li>
+                                <li>Ar-condicionado digital Dual Zone</li>
+                                <li>Multimídia JBL com GPS Offline e Wi-Fi integrado</li>
+                                <li>Câmera de ré</li>
+                                <li>Bancos dianteiros elétricos e aquecidos</li>
+                            </ul>
+                        </div>
+                        <div class="exterior-items hidden" id="S_AWC-exterior">
+                            <ul class="exterior-list">
+                                <li>Roda de liga leve 18”</li>
+                                <li>DRL em led</li>
+                                <li>Faróis e lanternas em led</li>
+                                <li>Ar-condicionado digital Dual Zone</li>
+                                <li >Multimídia JBL com GPS Offline e Wi-Fi integrado</li>
+                                <li>Câmera de ré</li>
+                                <li>Bancos dianteiros elétricos e aquecidos</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-            <div class="views" id="cameraPicker">
-
-                <div id="view-button">
-                    <svg
-                        id="exteriorView"
-                        width="48"
-                        height="48"
-                        viewBox="0 0 48 48"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="camera active"
-                        data-cam-id="0"
-                        style="height: 35px;">
-                        <title>
-                            car-large
-                        </title>
-                        <path
-                            d="M2.5,23 L2.5,37 C2.5,37.8284271 3.17157288,38.5 4,38.5 L9,38.5 C9.82842712,38.5 10.5,37.8284271 10.5,37 L10.5,35.5 L37.5,35.5 L37.5,37 C37.5,37.8284271 38.1715729,38.5 39,38.5 L44,38.5 C44.8284271,38.5 45.5,37.8284271 45.5,37 L45.5,23 L41,18.5 C40.0666656,16.6666667 39.2333323,15.1666667 38.5,14 C37.7666677,12.8333333 36.7666677,11.5 35.5,10 C31.7608696,9.66666667 27.9347826,9.5 24.0217391,9.5 C20.1086957,9.5 16.2681159,9.66666667 12.5,10 C11.2333336,11.5 10.2333336,12.8333333 9.5,14 C8.76666641,15.1666667 7.93333308,16.6666667 7,18.5 L2.5,23 Z M15,27 L17,24.5 L31,24.5 L33,27 C31.6666667,30.6666667 30.6666667,32.5 30,32.5 C29,32.5 19,32.5 18,32.5 C17.3333333,32.5 16.3333333,30.6666667 15,27 Z M6.75,18.5 L24,18.5 L41.25,18.5 M43.5,23.5749239 C43.5,24.5459384 43.4166667,25.2053587 43.25,25.5531847 C43,26.0749239 42.5,26.5749239 42,26.5749239 L40,26.5749239 C39.5,26.5749239 35.75,25.5749239 35.25,25.0749239 C34.9166667,24.7415905 34.6666667,24.4082572 34.5,24.0749239 C36.2683726,23.841489 37.7683726,23.6748224 39,23.5749239 C40.2316274,23.4750254 41.7316274,23.4750254 43.5,23.5749239 Z M4.5,23.5749239 C6.26837257,23.4750254 7.76837257,23.4750254 9,23.5749239 C10.2316274,23.6748224 11.7316274,23.841489 13.5,24.0749239 C13.3333333,24.4082572 13.0833333,24.7415905 12.75,25.0749239 C12.25,25.5749239 8.5,26.5749239 8,26.5749239 C7.5,26.5749239 6.5,26.5749239 6,26.5749239 C5.5,26.5749239 5,26.0749239 4.75,25.5531847 C4.58333333,25.2053587 4.5,24.5459384 4.5,23.5749239 Z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                    </svg>
-                    <span>Externo</span>
-                </div>
-                <div id="view-button">
-                    <svg
-                        id="interiorView"
-                        width="48"
-                        height="48"
-                        viewBox="0 0 48 48"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="camera"
-                        data-cam-id="1"
-                        style="height: 35px;">
-                        <title>
-                            test-drive-large
-                        </title>
-                        <path
-                            d="M23.5,44.5 C34.545695,44.5 43.5,35.545695 43.5,24.5 C43.5,13.454305 34.545695,4.5 23.5,4.5 C12.454305,4.5 3.5,13.454305 3.5,24.5 C3.5,35.545695 12.454305,44.5 23.5,44.5 Z M23.5,41.5 C27.6881245,41.5 31.5225212,39.9855113 34.4854041,37.4743201 C38.1646435,34.3559808 40.5,29.7007162 40.5,24.5 C40.5,15.1111593 32.8888407,7.5 23.5,7.5 C14.1111593,7.5 6.5,15.1111593 6.5,24.5 C6.5,29.7118989 8.84541031,34.3759979 12.538348,37.494414 C15.4979577,39.9935882 19.3230582,41.5 23.5,41.5 Z M30.0766572,29.0766572 L36.5,35.5 L30.0766572,29.0766572 Z M28.0941322,32.0941322 L34,38 L28.0941322,32.0941322 Z M18.9111915,32.0888085 L13,38 M16.9416504,29.0624695 L10.5,35.5 M16.5,24.5 L6.5,24.5 M40.5,24.5 L30.5,24.5 M7.25431729,19.5 C7.25431729,19.5 10.8362115,19.5 18,19.5 M39.752308,19.5 L29,19.5 L39.752308,19.5 Z M23.5,33.5803114 C27.918278,33.5803114 30.5,30.5803114 30.5,26.0803114 C30.5,23.5803114 30.5,20.5803114 28.5,19.2803122 C26.8974467,18.2386532 20.0987283,18.2411394 18.5,19.2803122 C16.5,20.5803114 16.5,23.5803114 16.5,26.0803114 C16.5,30.5803114 19.081722,33.5803114 23.5,33.5803114 Z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                    </svg>
-                    <span>Condutor</span>
-                </div>
-                <div id="view-button">
-                    <svg
-                        id="interiorView2"
-                        width="48"
-                        height="48"
-                        viewBox="0 0 48 48"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="camera"
-                        data-cam-id="2"
-                        style="height: 35px;">
-                        <title>
-                            interior-configuration-large
-                        </title>
-                        <path
-                            d="M24.2,39 L29.1,45.3 L24.2,39 Z M4.5,43 L4.5,39 C4.5,39 4,34.4 9.2,34.4 C14.4,34.4 24.2,39 24.2,39 C24.2,33.2 31.2,10.7 40.2,15 C40.2,15 42,15.6 40.2,19 C38.4,22.4 30.2,45 30.2,45 C30.2,45 29.8,45.6 24.1,45.6 L4.5,43 Z M37.5,2.5 L40.5,2.5 C41.6,2.5 42.5,3.4 42.5,4.5 L42.5,9.5 C42.5,10.6 41.6,11.5 40.5,11.5 L37.5,11.5 C36.4,11.5 35.5,10.6 35.5,9.5 L35.5,4.5 C35.5,3.4 36.4,2.5 37.5,2.5 Z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                    </svg>
-                    <span>Interno</span>
-                </div>
-                <div id="view-button">
-                    <svg
-                        width="48"
-                        height="48"
-                        viewBox="0 0 48 48"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="animation"
-                        id="openDoor"
-                        style="height: 35px;">
-                        <title>door</title>
-                        <path
-                            d="M5.5,42.2V22C12.3,10.7,18.6,8.1,18.6,8.1s15.9-1.3,23.7,0v34.1C42.3,42.2,5.5,42.2,5.5,42.2z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                        <line
-                            x1="42.3"
-                            y1="22"
-                            x2="10.9"
-                            y2="22"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                        <path
-                            d="M32.7,24.9c3-0.9,5.9,0,5.9,0v1.6c-3,1.3-5.9,0-5.9,0V24.9z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                        <path
-                            d="M39,36.9l-20.6,0.4c-5.1,0-9.4,1.9-9.4,1.9"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                        <path
-                            d="M7.6,21l2-2.2c2.1-1.5,7.2-2,8.7-0.1c0,0,0.7,1.4,0,3.2h-7.4v1.8H7.6V21z"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                        <line
-                            x1="7.6"
-                            y1="22"
-                            x2="5.5"
-                            y2="22"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"/>
-                    </svg>
-                    <span>Portas</span>
-                </div>
+        </section>
+        <!-- Down here ok -->
+        <footer>
+            <div class="view-button">
+                <svg
+                    id="exterior-view"
+                    class="camera active"
+                    data-cam-id="0"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Visão Externa do Carro.</title>
+                    <path
+                        d="M2.5,23 L2.5,37 C2.5,37.8284271 3.17157288,38.5 4,38.5 L9,38.5 C9.82842712,38.5 10.5,37.8284271 10.5,37 L10.5,35.5 L37.5,35.5 L37.5,37 C37.5,37.8284271 38.1715729,38.5 39,38.5 L44,38.5 C44.8284271,38.5 45.5,37.8284271 45.5,37 L45.5,23 L41,18.5 C40.0666656,16.6666667 39.2333323,15.1666667 38.5,14 C37.7666677,12.8333333 36.7666677,11.5 35.5,10 C31.7608696,9.66666667 27.9347826,9.5 24.0217391,9.5 C20.1086957,9.5 16.2681159,9.66666667 12.5,10 C11.2333336,11.5 10.2333336,12.8333333 9.5,14 C8.76666641,15.1666667 7.93333308,16.6666667 7,18.5 L2.5,23 Z M15,27 L17,24.5 L31,24.5 L33,27 C31.6666667,30.6666667 30.6666667,32.5 30,32.5 C29,32.5 19,32.5 18,32.5 C17.3333333,32.5 16.3333333,30.6666667 15,27 Z M6.75,18.5 L24,18.5 L41.25,18.5 M43.5,23.5749239 C43.5,24.5459384 43.4166667,25.2053587 43.25,25.5531847 C43,26.0749239 42.5,26.5749239 42,26.5749239 L40,26.5749239 C39.5,26.5749239 35.75,25.5749239 35.25,25.0749239 C34.9166667,24.7415905 34.6666667,24.4082572 34.5,24.0749239 C36.2683726,23.841489 37.7683726,23.6748224 39,23.5749239 C40.2316274,23.4750254 41.7316274,23.4750254 43.5,23.5749239 Z M4.5,23.5749239 C6.26837257,23.4750254 7.76837257,23.4750254 9,23.5749239 C10.2316274,23.6748224 11.7316274,23.841489 13.5,24.0749239 C13.3333333,24.4082572 13.0833333,24.7415905 12.75,25.0749239 C12.25,25.5749239 8.5,26.5749239 8,26.5749239 C7.5,26.5749239 6.5,26.5749239 6,26.5749239 C5.5,26.5749239 5,26.0749239 4.75,25.5531847 C4.58333333,25.2053587 4.5,24.5459384 4.5,23.5749239 Z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                </svg>
+                <span class="view-desc">Externo</span>
             </div>
-        </div>
+            <div class="view-button">
+                <svg
+                    id="interior-view"
+                    class="camera"
+                    data-cam-id="1"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Visão Interna do Carro do Motorista.</title>
+                    <path
+                        d="M23.5,44.5 C34.545695,44.5 43.5,35.545695 43.5,24.5 C43.5,13.454305 34.545695,4.5 23.5,4.5 C12.454305,4.5 3.5,13.454305 3.5,24.5 C3.5,35.545695 12.454305,44.5 23.5,44.5 Z M23.5,41.5 C27.6881245,41.5 31.5225212,39.9855113 34.4854041,37.4743201 C38.1646435,34.3559808 40.5,29.7007162 40.5,24.5 C40.5,15.1111593 32.8888407,7.5 23.5,7.5 C14.1111593,7.5 6.5,15.1111593 6.5,24.5 C6.5,29.7118989 8.84541031,34.3759979 12.538348,37.494414 C15.4979577,39.9935882 19.3230582,41.5 23.5,41.5 Z M30.0766572,29.0766572 L36.5,35.5 L30.0766572,29.0766572 Z M28.0941322,32.0941322 L34,38 L28.0941322,32.0941322 Z M18.9111915,32.0888085 L13,38 M16.9416504,29.0624695 L10.5,35.5 M16.5,24.5 L6.5,24.5 M40.5,24.5 L30.5,24.5 M7.25431729,19.5 C7.25431729,19.5 10.8362115,19.5 18,19.5 M39.752308,19.5 L29,19.5 L39.752308,19.5 Z M23.5,33.5803114 C27.918278,33.5803114 30.5,30.5803114 30.5,26.0803114 C30.5,23.5803114 30.5,20.5803114 28.5,19.2803122 C26.8974467,18.2386532 20.0987283,18.2411394 18.5,19.2803122 C16.5,20.5803114 16.5,23.5803114 16.5,26.0803114 C16.5,30.5803114 19.081722,33.5803114 23.5,33.5803114 Z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                </svg>
+                <span class="view-desc">Condutor</span>
+            </div>
+            <div class="view-button">
+                <svg
+                    id="backSeat-view"
+                    class="camera"
+                    data-cam-id="2"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Visão Interna do Carro dos Bancos Traseiros.</title>
+                    <path
+                        d="M24.2,39 L29.1,45.3 L24.2,39 Z M4.5,43 L4.5,39 C4.5,39 4,34.4 9.2,34.4 C14.4,34.4 24.2,39 24.2,39 C24.2,33.2 31.2,10.7 40.2,15 C40.2,15 42,15.6 40.2,19 C38.4,22.4 30.2,45 30.2,45 C30.2,45 29.8,45.6 24.1,45.6 L4.5,43 Z M37.5,2.5 L40.5,2.5 C41.6,2.5 42.5,3.4 42.5,4.5 L42.5,9.5 C42.5,10.6 41.6,11.5 40.5,11.5 L37.5,11.5 C36.4,11.5 35.5,10.6 35.5,9.5 L35.5,4.5 C35.5,3.4 36.4,2.5 37.5,2.5 Z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                </svg>
+                <span class="view-desc">Interno</span>
+            </div>
+            <div class="view-button">
+                <svg
+                    id="door-toogle"
+                    class="animation"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Abre/Fecha as Portas do Carro.</title>
+                    <path
+                        d="M5.5,42.2V22C12.3,10.7,18.6,8.1,18.6,8.1s15.9-1.3,23.7,0v34.1C42.3,42.2,5.5,42.2,5.5,42.2z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                    <line
+                        x1="42.3"
+                        y1="22"
+                        x2="10.9"
+                        y2="22"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                    <path
+                        d="M32.7,24.9c3-0.9,5.9,0,5.9,0v1.6c-3,1.3-5.9,0-5.9,0V24.9z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                    <path
+                        d="M39,36.9l-20.6,0.4c-5.1,0-9.4,1.9-9.4,1.9"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                    <path
+                        d="M7.6,21l2-2.2c2.1-1.5,7.2-2,8.7-0.1c0,0,0.7,1.4,0,3.2h-7.4v1.8H7.6V21z"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                    <line
+                        x1="7.6"
+                        y1="22"
+                        x2="5.5"
+                        y2="22"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"/>
+                </svg>
+                <span class="view-desc">Portas</span>
+            </div>
+        </footer>
     </body>
 </html>

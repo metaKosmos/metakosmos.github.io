@@ -1,0 +1,47 @@
+:root {
+    --branco-alpino: #ffffff;
+    --preto-onix: #343434;
+    --auzul-baikal: #1f478f;
+    --vermelho-lucid: #aa0e1e;
+    --prata-cool: #6d7170;
+    --cinza-londrino: #4a494f;
+    --prata-litio: #8d9391;
+    --menu-width: 25vw;
+    --header-footer-height: 10vh;
+
+}
+
+.hidden {
+    display: none;
+}
+.spacing {
+    width: 75vw;
+    /* height: 10vh; */
+
+    /* Debug */
+    /* background-color: #ff0000; */
+    /* border: 1px solid #ff00ff; */
+}
+
+.branco-alpino {
+    background-color: var(--branco-alpino);
+}
+.preto-onix {
+    background-color: var(--preto-onix);
+}
+.auzul-baikal {
+    background-color: var(--auzul-baikal);
+}
+.vermelho-lucid {
+    background-color: var(--vermelho-lucid);
+}
+.prata-cool {
+    background-color: var(--prata-cool);
+}
+.cinza-londrino {
+    background-color: var(--cinza-londrino);
+}
+.prata-litio {
+    background-color: var(--prata-litio);
+}
+

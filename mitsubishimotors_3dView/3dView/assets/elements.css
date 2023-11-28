@@ -1,0 +1,70 @@
+/* DEBUG */
+
+.sketchfab-iframe {
+    /* display: none; */
+}
+
+/* END DEBUG */
+
+@media (max-width: 360px) {
+    body {
+        display: none;
+    }
+}
+
+body,
+html {
+    /* Removing all possible margins */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    /* Color */
+    background: #fafafa;
+
+    /* Size */
+    height: 100%;
+    min-height: 100vh;
+
+    /* Lettering */
+    font-family: 'MMC', sans-serif;
+
+    /* Children Placement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    overflow: hidden;
+
+    /* Animation */
+    -webkit-transition: background 0.5s ease-out, color 0.5s ease-out;
+    -moz-transition: background 0.5s ease-out, color 0.5s ease-out;
+    -o-transition: background 0.5s ease-out, color 0.5s ease-out;
+    transition: background 0.5s ease-out, color 0.5s ease-out;
+}
+svg {
+    /* Color */
+    fill: black;
+    stroke: black;
+
+    /* Size */
+    width: 3rem;
+
+    /* Animation */
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+svg.active {
+    stroke: #ff0000;
+}
+button:disabled button[disabled] {
+    /* Color */
+    background-color: #cccccc !important;
+    color: #666666 !important;
+}
+ul {
+    list-style-type: "- ";
+}
