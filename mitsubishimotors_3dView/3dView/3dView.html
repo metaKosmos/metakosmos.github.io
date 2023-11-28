@@ -616,7 +616,7 @@ if (!err) {
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                                     loadedApi.setMaterial(paintMaterial);
                                     loadedApi.setMaterial(lowerPaintMaterial);
-                                    enviromment.exposure = 1;
+                                    enviromment.exposure = 2;
                                     loadedApi.setEnvironment(enviromment);
                                 }
                             });
@@ -697,8 +697,9 @@ if (!err) {
                         loadedApi
                             .updateTexture(CAR_TEXTURES.GLS.bodyColor.prataCool, bodyTextureUID, function (err, bodyTextureUID) {
                                 if (!err) {
+                                    // console.log(`pratacool gls`)
                                     //console.log('Replaced texture with UID', bodyTextureUID);
-                                    paintMaterial.channels.ClearCoat.factor = 1;
+                                    // paintMaterial.channels.ClearCoat.factor = 1;
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0.1;
                                     paintMaterial.channels.MetalnessPBR.factor = 1;
                                     paintMaterial.channels.RoughnessPBR.factor = 0.6;
@@ -773,7 +774,7 @@ if (!err) {
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                                     loadedApi.setMaterial(paintMaterial);
                                     loadedApi.setMaterial(lowerPaintMaterial);
-                                    enviromment.exposure = 1;
+                                    enviromment.exposure = 2;
                                     loadedApi.setEnvironment(enviromment);
                                 }
                             });
@@ -856,7 +857,7 @@ if (!err) {
                             .updateTexture(CAR_TEXTURES.HPE.bodyColor.prataCool, bodyTextureUID, function (err, bodyTextureUID) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID);
-                                    paintMaterial.channels.ClearCoat.factor = 1;
+                                    // paintMaterial.channels.ClearCoat.factor = 1;
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0.1;
                                     paintMaterial.channels.MetalnessPBR.factor = 1;
                                     paintMaterial.channels.RoughnessPBR.factor = 0.6;
@@ -931,7 +932,7 @@ if (!err) {
                                     lowerPaintMaterial.channels.ClearCoatRoughness.factor = 0.072;
                                     loadedApi.setMaterial(paintMaterial);
                                     loadedApi.setMaterial(lowerPaintMaterial);
-                                    enviromment.exposure = 1;
+                                    enviromment.exposure = 2;
                                     loadedApi.setEnvironment(enviromment);
                                 }
 
@@ -1015,7 +1016,7 @@ if (!err) {
                             .updateTexture(CAR_TEXTURES.HPE_S.bodyColor.prataCool, bodyTextureUID, function (err, bodyTextureUID) {
                                 if (!err) {
                                     //console.log('Replaced texture with UID', bodyTextureUID);
-                                    paintMaterial.channels.ClearCoat.factor = 1;
+                                    // paintMaterial.channels.ClearCoat.factor = 1;
                                     paintMaterial.channels.ClearCoatRoughness.factor = 0.1;
                                     paintMaterial.channels.MetalnessPBR.factor = 1;
                                     paintMaterial.channels.RoughnessPBR.factor = 0.6;
@@ -1074,6 +1075,7 @@ if (!err) {
 
                 if (index == 0) {
                     //door leather black
+
                     loadedApi.hide(myNodesByNameFromMap['P_Back_Int_R_Leather_Black'].instanceID);
                     loadedApi.hide(myNodesByNameFromMap['P_Back_Int_L_Leather_Black'].instanceID);
 
@@ -1092,12 +1094,13 @@ if (!err) {
             loadedApi.setMaterial(porta2Material);*/
 
                     loadedApi.updateTexture(CAR_TEXTURES.seats.frontSeat.whiteAlbedo, leatherAlbedoFrontTextureUID, function (err, leatherAlbedoFrontTextureUID) {
+
                         if (!err) {
                             //console.log('Replaced texture with UID', leatherAlbedoFrontTextureUID);
                         }
                     });
 
-                    loadedApi.updateTexture(CAR_TEXTURES.seats.frontSeat.leatherWhite, function (err, leatherAlbedoBackTextureUID) {
+                    loadedApi.updateTexture(CAR_TEXTURES.seats.backSeat.leatherWhite, leatherAlbedoBackTextureUID,  function (err, leatherAlbedoBackTextureUID) {
                         if (!err) {
                             //console.log('Replaced texture with UID', leatherAlbedoBackTextureUID);
                         }
@@ -1935,7 +1938,7 @@ if (!err) {
                         var html = "<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis" +
                                 " e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <spa" +
                                 "n >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de " +
-                                "ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
+                                "ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span> <span >- Tração 4x4</span>";
                         // var htmlint = "<span >- Ar-condicionado digital Dual Zone</span> <span >-
                         // Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de
                         // ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>";
