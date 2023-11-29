@@ -1,0 +1,325 @@
+
+/* Not sure if it does something */
+/*
+body {
+    font-weight: 400; 
+}
+body.light {
+    color: #fff;
+}
+body.light svg {
+    stroke: white;
+    fill: white;
+} 
+
+h1 {
+    line-height: 2rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+}
+h1 > small {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+h1 > big {
+    font-weight: 900;
+    font-size: 2.8rem;
+}
+h3 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+    letter-spacing: 0.16rem;
+}
+*/
+
+/* .sketchfab-iframe {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: 0 none;
+    outline: none;
+    background: transparent;
+    z-index: 1;
+} */
+
+.iframe-loader {
+    font-family: 'MMC', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+.iframe-loader.hidden {
+    animation: none;
+    opacity: 0;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+}
+
+.iframe-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    opacity: 1;
+    z-index: 10;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+}
+.iframe-mask.hidden {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+}
+
+.views {
+    z-index: 21;
+    user-select: none;
+    text-align: center;
+}
+.views > div img,
+.views > div svg {
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.colors {
+    background: #fff;
+    padding: 10px;
+    left: 20px;
+    bottom: 0;
+    z-index: 20;
+    width: 100%;
+    user-select: none;
+    text-align: center;
+    display: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.colors div {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+.colors div > img {
+    width: 60px;
+    height: auto;
+}
+.colors.active {
+    display: block;
+
+}
+.colors div.active {
+    border: 1px solid #242424;
+}
+.colors span {
+    top: 8px;
+    left: 15px;
+}
+
+.info-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+.navigation__left .rings {
+    width: auto;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.navigation__right svg {
+    height: 36px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.info-area {
+    width: auto;
+
+    z-index: 20;
+}
+.info-area span {
+    display: block;
+    font-family: 'MMC', sans-serif;
+    text-align: left;
+}
+.info-area .selector-box {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.info-area span + span.small {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    -webkit-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    -moz-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    -o-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+}
+.info-area span.active + span.small {
+    max-height: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    -moz-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    -o-transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+    transition: max-height 0.25s ease-in, padding 0.25s ease-in;
+}
+.info-area span.small {
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+    transform-origin: top;
+    display: block;
+    overflow: hidden;
+}
+.info-area span.car-feature {
+    margin-top: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.info-area span.car-feature + span.small {
+    font-size: 0.8125rem;
+    line-height: 1.4375rem;
+    *margin: 20px 0;
+    font-family: 'MMC', sans-serif;
+}
+.info-area span.car-feature.price {
+    font-size: 1.875rem;
+    letter-spacing: 8px;
+    line-height: 1rem;
+    font-family: 'MMC', sans-serif;
+    margin-top: 50px;
+}
+
+.view-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.changeColor .changeColorInt {
+    padding: 0.5em;
+}
+
+/* Butons in general */
+
+.btn-group {
+    background-color: white;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    height: 36px;
+}
+
+.btn-group button {
+    background-color: #fd3c3c00;
+    border: 0 solid rgb(241, 115, 115);
+    color: #ff0000;
+    font-family: 'MMC', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    width: 90px;
+    border-radius: 8px;
+
+}
+.btn-group button:focus {
+    outline: 0;
+}
+.btn-group button:hover {
+    background-color: #fadbdb !important;
+    color: #ff0000 !important;
+}
+
+.btn-group button.active {
+    background-color: #ff0000;
+    color: white;
+    border: 0;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button.gls {
+    width: 40px;
+}
+
+.btn-group button.sawc {
+    width: 65px;
+}
+
+.btn-group button.hpe {
+    width: 40px;
+}
+
+.btn-group button.hpes {
+    width: 60px;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Car Model Buttons */
+.model-buttons {
+    left: 68%;
+    bottom: -35px;
+    margin: 0 auto;
+    z-index: 32;
+}
+
+/* Car Features Text */
+.exterior-items span {
+    font-size: 12px;
+    text-align: left;
+    display: inline-block;
+}
+
+.exterior-items.active {
+    display: block;
+}
+
+.exterior-items {
+    display: none;
+    margin-bottom: 20px;
+}

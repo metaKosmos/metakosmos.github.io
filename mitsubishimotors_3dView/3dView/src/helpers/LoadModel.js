@@ -2,6 +2,7 @@ import {loadingPct} from "../Globals.js";
 import {sketchfabDict} from "../Globals.js";
 import GetTextureSize from "./GetTextureSize.js";
 import ViewerReady from "../events/ViewerReady.js";
+import HandleError from "../handles/HandleError.js";
 
 function LoadModel() {
 
@@ -27,7 +28,7 @@ function LoadModel() {
                     .addEventListener('viewerready', () => ViewerReady());
             },
             error: (err) => {
-                HandleError('Sketchfab API initialization failed.', 'On LoadModel');
+                HandleError(`Sketchfab API initialization failed. Error${err}`, 'On LoadModel');
                 return;
             },
             dnt: 1,
