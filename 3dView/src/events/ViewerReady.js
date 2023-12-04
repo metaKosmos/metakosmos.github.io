@@ -6,7 +6,7 @@ import {
     camera,
     texturesUids
 } from "../Globals.js";
-import GetNamedResources from "../helpers/GetNameResource.js";
+import GetNamedResources from "../helpers/getNameResource.js";
 import { POST_PROCESSING } from "../Constants.js";
 import RemoveNodes from "../helpers/RemoveNodes.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
