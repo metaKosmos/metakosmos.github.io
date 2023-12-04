@@ -1,6 +1,0 @@
-/* Tablets */
-@media (min-width:577px) and (max-width: 768px) {
-    body {
-        display: none;
-    }
-}

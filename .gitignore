@@ -1,4 +1,5 @@
-log.txt
-structure.txt
-tools/
 _old/
+*.old.js
+.vscode/
+htmlnav.txt
+log.txt
