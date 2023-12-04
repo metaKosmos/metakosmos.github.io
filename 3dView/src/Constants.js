@@ -1,4 +1,4 @@
-const BASE_URL = "https://metakosmos.github.io/mitsubishimotors_3dView/";
+const BASE_URL = "https://metakosmos.github.io/";
 const CAR_TEXTURES = {
     "GLS": {
         "bodyColor": {
