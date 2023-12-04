@@ -103,7 +103,6 @@ p {
     padding: 0;
     overflow: hidden;
     background: transparent;
-    *background: red;
 }
 #api-frame {
     height: 100%;
@@ -367,7 +366,6 @@ p {
 #top-right span.car-feature + span.small {
     font-size: 0.8125rem;
     line-height: 1.4375rem;
-    *margin: 20px 0;
     font-family: 'MMC', sans-serif;
 }
 #top-right span.car-feature.price {
@@ -620,6 +618,7 @@ top: -1rem;
         width: 40px;
     }
 }
+
 
 .btn-group {
     background-color: white;

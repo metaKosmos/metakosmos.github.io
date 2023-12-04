@@ -1,7 +1,6 @@
 import { namedResources } from "../Globals.js";
 
 function GetNamedResources(resources, type){ 
-    //Console.log('')
     var idx = 0;
     Object
         .keys(resources)
