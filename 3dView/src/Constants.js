@@ -4,9 +4,9 @@ const CAR_TEXTURES = {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Cinza_Londrino.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
-            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Prata_Litio.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Prata_Litio.png`,
+            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Preto_Onix.png`,
             "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Roughness.png`,
             "specular": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/GLS_Body_Specular.png`,
@@ -21,7 +21,7 @@ const CAR_TEXTURES = {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Cinza_Londrino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Prata_Litio.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Preto_Onix.png`,
@@ -30,14 +30,14 @@ const CAR_TEXTURES = {
         },
         "detailsColor": {
             "color": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Details_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Details_Roughness.png`
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Detailss_Roughnes.png`
         }
     },
     "HPE_S": {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Cinza_Londrino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Prata_Litio.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Preto_Onix.png`,
@@ -140,41 +140,54 @@ const POST_PROCESSING = {
 const TEXTURES_SETTINGS = {
     'brancoAlpino': {
         'paint': {
-            "ClearCoat": 0.3,
-            "ClearCoatRoughness": 0.2,
-            "MetalnessPBR": 0.85,
+            "AlbedoPBR": 0.8,
+            "MetalnessPBR": 0.6,
+            "SpecularPBR": 0,
             "RoughnessPBR":0.3,
-            "AlbedoPBR": 1
+            "NormalmapPBR": 1,
+            "ClearCoat": 0.3,
+            "ClearCoatThickness": 20,
+            "ClearCoatReflectivity": 0,
+            "ClearCoatRoughness": 0.2,
+            "ClearCoatNormalmap": 0.2,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0.072
         },
         'camera': {
-            'exposure': 1, //1 as default
+            'exposure': 0.8, //1 as default
         }
     },
     'azulBaikal': {
         'paint': {
-            "ClearCoat": 0.2,
-            "ClearCoatRoughness": 0.2,
-            "MetalnessPBR": 0.5,
-            "RoughnessPBR":0.5,
-            "AlbedoPBR": 0.5
+            "AlbedoPBR": 1,
+            "MetalnessPBR": 0.4,
+            "SpecularPBR": 0,
+            "RoughnessPBR":0.2,
+            "ClearCoat": 0,
+            "ClearCoatThickness": 20,
+            "ClearCoatReflectivity": 0,
+            "ClearCoatRoughness": 0,
+            "ClearCoatNormalmap": 0,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0.072
         },
         'camera': {
-            'exposure': 2.08
+            'exposure': 1
         }
     },
     'pretoOnix': {
         'paint': {
+            "AlbedoPBR": 0.5,
+            "MetalnessPBR": 1,
+            "SpecularPBR": 0,
+            "RoughnessPBR": 1,
             "ClearCoat": 0.3,
+            "ClearCoatThickness": 20,
+            "ClearCoatReflectivity": 0,
             "ClearCoatRoughness": 0.2,
-            "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.1,
-            "AlbedoPBR": 0.5
+            "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0
@@ -185,26 +198,34 @@ const TEXTURES_SETTINGS = {
     },
     'prataLitio': {
         'paint': {
-            "ClearCoat": 0.85,
-            "ClearCoatRoughness": 0.3,
-            "MetalnessPBR": 0.5,
-            "RoughnessPBR":0.4,
-            "AlbedoPBR": 1
+            "AlbedoPBR": 0.3,
+            "MetalnessPBR": 0.6,
+            "SpecularPBR": 0,
+            "RoughnessPBR":0.5,
+            "ClearCoat": 0.2,
+            "ClearCoatThickness": 20,
+            "ClearCoatReflectivity": 0,
+            "ClearCoatRoughness": 0.2,
+            "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0
         },
         'camera': {
-            'exposure': 5
+            'exposure': 1.15
         }
     },
     'vermelhoLucid': {
         'paint': {
+            "AlbedoPBR": 0.5,
+            "MetalnessPBR": 1,
+            "SpecularPBR": 0,
+            "RoughnessPBR":0.5,
             "ClearCoat": 0.3,
+            "ClearCoatThickness": 15,
+            "ClearCoatReflectivity": 0,
             "ClearCoatRoughness": 0.2,
-            "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.3,
-            "AlbedoPBR": 0.5
+            "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0
@@ -215,11 +236,15 @@ const TEXTURES_SETTINGS = {
     },
     'prataCool': {
         'paint': {
-            "ClearCoat": 1,
-            "ClearCoatRoughness": 0.1,
-            "MetalnessPBR": 1,
-            "RoughnessPBR":0.6,
-            "AlbedoPBR": 0.5
+            "AlbedoPBR": 1,
+            "MetalnessPBR": 0.8,
+            "SpecularPBR": 0,
+            "RoughnessPBR":0.3,
+            "ClearCoat": 0,
+            "ClearCoatThickness": 20,
+            "ClearCoatReflectivity": 0,
+            "ClearCoatRoughness": 0.2,
+            "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
             "ClearCoatRoughness": 0
@@ -230,17 +255,21 @@ const TEXTURES_SETTINGS = {
     },
     'cinzaLondrino': {
         'paint': {
-            "ClearCoat": 0.2,
-            "ClearCoatRoughness": 0.2,
-            "MetalnessPBR": 0.85,
-            "RoughnessPBR":0.3,
-            "AlbedoPBR": 0.5
+            "AlbedoPBR": 0.6,
+            "MetalnessPBR": 1,
+            "SpecularPBR": 0,
+            "RoughnessPBR":0.4,
+            "ClearCoat": 1,
+            "ClearCoatThickness": 15,
+            "ClearCoatReflectivity": 0,
+            "ClearCoatRoughness": 0.3,
+            "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
             "ClearCoatRoughness":0
         },
         'camera': {
-            'exposure': 5
+            'exposure': 1
         }
     }
 };
