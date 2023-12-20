@@ -1,13 +1,16 @@
-import {loadingPct} from "../Globals.js";
+import { loadingPct } from "../Globals.js";
 
 function HandleLoadingAnimation() {
     loadingPct.intervalId = setInterval(function () {
-        if (loadingPct.pctValue < loadingPct.nextPct && loadingPct.pctValue < 100) 
+
+        //console.log(loadingPct);
+
+        if (loadingPct.pctValue < loadingPct.nextPct && loadingPct.pctValue < 100)
             loadingPct.pctValue += 1;
         document
             .getElementById("iframe-loader")
-            .innerHTML = "carregando " + loadingPct.pctValue + "%<div style='width: " + loadingPct.pctValue + "%'></div>";
-    }, 150);
+            .innerHTML = "carregando " + (loadingPct.pctValue * 5) + "%<div style='width: " + (loadingPct.pctValue * 5) + "%'></div>";
+    }, 550);
 }
 
 export default HandleLoadingAnimation;

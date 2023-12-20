@@ -8,26 +8,29 @@ import HpeEvents from "./events/HpeEvents.js";
 import HpesEvents from "./events/HpesEvents.js";
 import ViewEvents from "./events/ViewEvents.js";
 import HandleLoadingAnimation from "./handles/HandleLoadingAnimation.js";
-import HandleResize from "./handles/HandleResize.js";
+// import HandleResize from "./handles/HandleResize.js";
 import LoadModel from "./helpers/LoadModel.js";
 
 $(document).ready(() => {
 
     // Handles
-    HandleResize();
+    // HandleResize();
    HandleLoadingAnimation();
     
     // 3D Model
     LoadModel();
 
-    // Events
-    AwdEvents();
+    // Events    
+    ViewEvents();
+
     ButtonEvents();
     CameraEvents();
     ColorEvents();
+
+    DoorEvents();
+    
     GlsEvents();
     HpeEvents();
-    HpesEvents();
-    DoorEvents();
-    ViewEvents();
+    HpesEvents();        
+    AwdEvents();
 });

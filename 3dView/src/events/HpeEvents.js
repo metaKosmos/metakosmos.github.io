@@ -6,17 +6,26 @@ function HpeEvents() {
     $(".hpe")
         .click(function () {
 
+            console.log("HPE");
+
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels = carMaterials.paint.channels;
+
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
 
-            $(".exterior-items").html("<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis" +
-                    " e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <spa" +
-                    "n >- Multimídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span> <spa" +
-                    "n>- Bancos dianteiros elétricos e aquecidos</span>");
-            $("#colorPicker2 span.info").text("Couro Preto");
+            $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
+                    <li>DRL em led</li> 
+                    <li>Faróis e lanternas em led</li>
+                    <li>Ar-condicionado digital Dual Zone</li> 
+                    <li>Multimídia JBL com Wi-Fi integrado</li>
+                    <li>Câmera de ré</li>
+                    <li>Bancos dianteiros elétricos e aquecidos</li>`);
+
+            // $(".info").html("Couro Preto");
+            $(".info").html("Escolha a cor:");
+
             //farol
             sketchfabDict
                 .api
@@ -136,6 +145,7 @@ function HpeEvents() {
             var carColorSelected = $(".car-color.active").data("color-id");
             ChangeCarColor(carColorSelected, 'HPE');
             carSelection.latestModelSelected = 'HPE';
+
             //back logo
             sketchfabDict
                 .api
