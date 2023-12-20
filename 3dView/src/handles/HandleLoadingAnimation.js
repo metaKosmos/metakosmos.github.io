@@ -10,7 +10,7 @@ function HandleLoadingAnimation() {
         document
             .getElementById("iframe-loader")
             .innerHTML = "carregando " + (loadingPct.pctValue * 5) + "%<div style='width: " + (loadingPct.pctValue * 5) + "%'></div>";
-    }, 550);
+    }, 500);
 }
 
 export default HandleLoadingAnimation;

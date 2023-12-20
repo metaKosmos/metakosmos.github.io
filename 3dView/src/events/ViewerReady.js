@@ -16,7 +16,6 @@ import { LOGOS } from "../Constants.js";
 import HandleError from "../handles/HandleError.js";
 
 function ViewerReady() {
-    loadingPct.nextPct = 99;
     var frameMask = document.getElementById("iframe-mask");
     var loader = document.getElementById("iframe-loader");
     var cameraIndex = 0;
@@ -186,21 +185,21 @@ function ViewerReady() {
                         return;
                     };
                     ChangeCamera(0);
-                    loadingPct.nextPct = 100;
-                    ChangeCarColor('brancoAlpino', 'GLS');
+                    ChangeCarColor('prataLitio', 'GLS');
                     ChangeLeatherColor('Black');
-                    $("#intcolorwhite").css("display", "none");
-                    loadingPct.pctValue = 100;
-                    document
-                        .getElementById("iframe-loader")
-                        .innerHTML = "carregando 100%<div style='width: 100%'></div>";
-                    frameMask
-                        .classList
-                        .add("hidden");
-                    document
-                        .getElementById("iframe-loader")
-                        .remove()
-                    clearInterval(loadingPct.intervalId);
+                    setTimeout(() => {
+                        $("#intcolorwhite").css("display", "none");
+                        document
+                            .getElementById("iframe-loader")
+                            .innerHTML = "carregando 100%<div style='width: 100%'></div>";
+                        frameMask
+                            .classList
+                            .add("hidden");
+                        document
+                            .getElementById("iframe-loader")
+                            .remove()
+                        clearInterval(loadingPct.intervalId); 
+                    }, 1500);
                 });
         });
 
