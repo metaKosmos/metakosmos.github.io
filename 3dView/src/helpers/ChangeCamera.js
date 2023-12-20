@@ -74,18 +74,18 @@ function ChangeCamera(index, animate = false) {
             .api
             .setCameraConstraints({
                 position: [ 4.095644343482733, -3.1859643618633404, 1.3662944636923688],
-                target: [ 0.1429519418097821, 0.42086450454277224, 0.9774644072491593],
+                target: [ 0.10906072469526419, 0.5900035255628744, 1.067941290133902],
                 useCameraConstraints: true,
                 usePanConstraints: true,
                 useZoomConstraints: true,
                 usePitchConstraints: true,
                 useYawConstraints: true,
                 zoomIn: 0,
-                zoomOut: 0.7,
-                left: 2.336904008986092,
-                right: -2.5353203871075523,
-                up: 0.5897375683054524,
-                down: -0.13778915147323656
+                zoomOut: 0.2,
+                left: -3.141592653589793,
+                right: 3.1405926535897932,
+                up: 0.9424777960769379,
+                down: -0.6668994931304648
             });
 
         sketchfabDict

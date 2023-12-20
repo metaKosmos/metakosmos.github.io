@@ -96,7 +96,7 @@ function ViewerReady() {
                     sketchfabDict.api.getCameraLookAt(function (err, cameraLookAt) {
                         var cameraPosition = cameraLookAt.position;
                         var cameraTarget = cameraLookAt.target;
-                        // console.log('Camera position:', cameraPosition);
+                        //console.log('Camera position:', cameraPosition);
                         //console.log('Camera target:', cameraTarget);
                     });
 
