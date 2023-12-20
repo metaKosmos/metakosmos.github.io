@@ -203,6 +203,14 @@ function ViewerReady() {
                     clearInterval(loadingPct.intervalId);
                 });
         });
+
+
+    console.log('READY');
+
+    document.getElementById("base-buttons").style.display = "block";
+    document.getElementById("info-area").style.display = "block";
+
+
 }
 
 export default ViewerReady;

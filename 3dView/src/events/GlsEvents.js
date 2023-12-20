@@ -1,4 +1,4 @@
-import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
+import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
@@ -6,9 +6,12 @@ function GlsEvents() {
     $(".gls")
         .click(function () {
 
-            $(".exterior-items").html("<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Lanter" +
-                    "nas em led</span><span >- Ar-condicionado digital automático</span> <span >- Mul" +
-                    "timídia JBL com Wi-Fi integrado</span> <span >- Câmera de ré</span>");
+            $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
+                    <li>DRL em led</li> 
+                    <li>Lanternas em led</li>
+                    <li>Ar-condicionado digital automático</li> 
+                    <li>Multimídia JBL com Wi-Fi integrado</li> 
+                    <li>Câmera de ré</li>`);
 
             carMaterials.lowerPaint.channels.ClearCoat.enable = false;
             carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
@@ -19,7 +22,7 @@ function GlsEvents() {
                 .api
                 .setMaterial(carMaterials.lowerPaint);
 
-            $("#colorPicker2 span.info").text("Couro Preto");
+            $(".info").html("Escolha a cor:");
             //farol
             sketchfabDict
                 .api

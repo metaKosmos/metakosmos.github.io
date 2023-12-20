@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="interiorView2"
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   class="camera"
+   data-cam-id="2"
+   style="height: 35px;"
+   sodipodi:docname="01.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1026"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="5.4285177"
+     inkscape:cx="25.150249"
+     inkscape:cy="11.391839"
+     inkscape:window-x="1366"
+     inkscape:window-y="29"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="interiorView2" />
+  <title
+     id="title2">
+                            interior-configuration-large
+                        </title>
+  <path
+     d="M24.2,39 L29.1,45.3 L24.2,39 Z M4.5,43 L4.5,39 C4.5,39 4,34.4 9.2,34.4 C14.4,34.4 24.2,39 24.2,39 C24.2,33.2 31.2,10.7 40.2,15 C40.2,15 42,15.6 40.2,19 C38.4,22.4 30.2,45 30.2,45 C30.2,45 29.8,45.6 24.1,45.6 L4.5,43 Z M37.5,2.5 L40.5,2.5 C41.6,2.5 42.5,3.4 42.5,4.5 L42.5,9.5 C42.5,10.6 41.6,11.5 40.5,11.5 L37.5,11.5 C36.4,11.5 35.5,10.6 35.5,9.5 L35.5,4.5 C35.5,3.4 36.4,2.5 37.5,2.5 Z"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     id="path4"
+     style="fill:none;stroke:#4d4d4d" />
+</svg>

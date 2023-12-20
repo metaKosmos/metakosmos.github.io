@@ -1,4 +1,4 @@
-import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
+import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
@@ -12,12 +12,16 @@ function HpesEvents() {
                 .api
                 .setMaterial(carMaterials.lowerPaint);
 
-            $(".exterior-items").html("<span >- Roda de liga leve 18”</span> <span >- DRL em led</span> <span >- Faróis" +
-                    " e lanternas em led</span><span >- Ar-condicionado digital Dual Zone</span> <spa" +
-                    "n >- Multimídia JBL com GPS Offline e Wi-Fi integrado</span> <span >- Câmera de " +
-                    "ré</span> <span >- Bancos dianteiros elétricos e aquecidos</span>");
+            $(".exterior-items").html(`<li>Roda de liga leve 18”</li> 
+                    <li>DRL em led</li> 
+                    <li>Faróis e lanternas em led</li>
+                    <li>Ar-condicionado digital Dual Zone</li> 
+                    <li>Multimídia JBL com GPS Offline e Wi-Fi integrado</li> 
+                    <li>Câmera de ré</li> 
+                    <li>Bancos dianteiros elétricos e aquecidos</li>`);
 
-            $("#colorPicker2 span.info").text("Couro Cinza Claro");
+            // $(".info").html("Couro Cinza Claro");
+            $(".info").html("Escolha a cor:");
             //farol
             sketchfabDict
                 .api

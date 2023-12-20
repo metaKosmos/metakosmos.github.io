@@ -1,9 +1,10 @@
-import {animation, sketchfabDict} from "../Globals.js";
+import { animation, sketchfabDict } from "../Globals.js";
 
 function DoorEvents() {
     $("#openDoor")
-        .click(function () {
-            if (animation.running) 
+        .click(function () {           
+
+            if (animation.running)
                 return;
             if (animation.doorOpened) {
 
@@ -38,6 +39,8 @@ function DoorEvents() {
                                     .pause();
                                 clearInterval(animation.interval);
                                 animation.running = false;
+
+                                $("#openDoor").toggleClass("active");
                             }
                         });
                 }, 10);
@@ -70,6 +73,8 @@ function DoorEvents() {
                             if (time >= 2) {
                                 clearInterval(animation.interval);
                                 animation.running = false;
+
+                                $("#openDoor").toggleClass("active");
                             }
                         });
                 }, 10);

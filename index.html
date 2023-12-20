@@ -3,10 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="robots" content="noindex">
-        <meta name="theme-color" content="#fafafa"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="theme-color" content="#fafafa" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
         <title>Mitsubishi Eclipse Cross 2024</title>
+
+        <link rel="icon" type="image/x-icon"
+            href="3dView/assets/logo/favicon.ico" />
+
         <style>
             body {
                 position: fixed;
@@ -24,6 +29,7 @@
                 justify-content: center;
                 align-items: center;
             }
+
             button {
                 font-family: "MMC OFFICE";
                 font-size: 20px;
@@ -37,6 +43,7 @@
                 cursor: pointer;
                 text-align: center;
             }
+
             #container {
                 width: 100%;
                 height: 100%;
@@ -47,21 +54,31 @@
                 justify-content: center;
                 align-items: center;
             }
-
         </style>
-        <script>
-            function openIframe() {
-                container = document.getElementById("container");
-                button = document.getElementById("3dButton");
-                button.style.display = "none";
-                container.innerHTML = '<iframe src="3dView/3dView.html" title="3dView" id="iframeDesk" frameborder="0" ' +
-                        'width="100%" height="100%"></iframe>';
-            }
-        </script>
+
     </head>
     <body>
         <div id="container">
             <button id="3dButton" onclick=openIframe()>VEJA O CARRO EM 3D</button>
         </div>
+
+        <script>
+            function openIframe() {
+                container = document.getElementById("container");
+                button = document.getElementById("3dButton");
+                button.style.display = "none";
+                var w = window.innerWidth;
+
+                if(w <= 768){
+                    /* MOBILE */
+                    container.innerHTML = '<iframe src="3dView/3D.html" title="3dView" id="iframeDesk" frameborder="0" ' +
+                        'width="100%" height="100%"></iframe>';
+                }else{
+                    /* DESK */
+                    container.innerHTML = '<iframe src="3dView/3dView.html" title="3dView" id="iframeDesk" frameborder="0" ' +
+                        'width="100%" height="100%"></iframe>';    
+                }                
+            }
+        </script>
     </body>
 </html>
