@@ -1,5 +1,6 @@
 import ChangeCamera from "../helpers/ChangeCamera.js";
 import { camera } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 
 function CameraEvents() {
     $(".camera")
@@ -12,6 +13,8 @@ function CameraEvents() {
             $(".info").html('Escolha a cor:');
 
             if (camera.current == 0) {
+                GTMevent('UI','OutCarCam')  
+                console.log('Lado de fora do carro')    
                 $("#external-colors").removeClass("d-none");
                 $("#internal-colors").addClass("d-none");
 
@@ -20,7 +23,12 @@ function CameraEvents() {
                 // $(".exterior-items").removeClass("active");
                 // $(".interior-items").addClass("active");
             } else {
-
+                if(camera.current == 1){
+                    GTMevent('UI','DriverCam')    
+                }
+                if(camera.current == 2){
+                    GTMevent('UI','PassengerCam')  
+                }
                 $("#external-colors").addClass("d-none");
                 $("#internal-colors").removeClass("d-none");
 

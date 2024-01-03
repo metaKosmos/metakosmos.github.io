@@ -1,11 +1,12 @@
 import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function HpesEvents() {
     $(".hpes")
         .click(function () {
-
+            GTMevent('Car','HPES')
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels = carMaterials.paint.channels;
             sketchfabDict

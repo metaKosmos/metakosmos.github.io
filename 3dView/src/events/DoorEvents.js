@@ -1,8 +1,10 @@
 import { animation, sketchfabDict } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 
 function DoorEvents() {
     $("#openDoor")
-        .click(function () {           
+        .click(function () {     
+            GTMevent('UI','Door')    
 
             if (animation.running)
                 return;

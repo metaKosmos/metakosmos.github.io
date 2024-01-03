@@ -1,10 +1,10 @@
 import { priceInfo, carSelection } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 // import writePrice from "../helpers/WritePrice.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
-function ColorEvents() {
-
+function ColorEvents() {   
     // priceInfo.currentColorText = $(".car-color.active").data("name");
 
     // console.log(priceInfo.currentColorText);
@@ -33,8 +33,7 @@ function ColorEvents() {
         // console.log("Click Color");
 
         var carColor = $(this).data("color-id");
-
-        // console.log(carColor);
+        GTMevent(carSelection.selectedModel+'_ExteriorColor',carColor) 
 
         $(".car-color").removeClass("active");
 
@@ -62,6 +61,7 @@ function ColorEvents() {
 
     $(".int-color").click(function () {
         var intColor = $(this).data("color-id");
+        GTMevent(carSelection.selectedModel+'_InteriorColor',intColor) 
 
         $(".int-color").removeClass("active");
 

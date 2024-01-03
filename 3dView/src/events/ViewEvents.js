@@ -1,8 +1,10 @@
 import { LOGOS } from "../Constants.js";
 import { camera } from "../Globals.js";
+import { GTMsessionStart } from "../events/analytics.js";
 import ChangeCamera from "../helpers/ChangeCamera.js";
 
 function ViewEvents() {
+    GTMsessionStart();
     $("#interiorView").click(function () {
         $("#interiorView").addClass("active");
         $("#exteriorView").removeClass("active");

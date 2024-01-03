@@ -1,11 +1,12 @@
 import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function GlsEvents() {
     $(".gls")
         .click(function () {
-
+            GTMevent('Car','GLS')
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
                     <li>DRL em led</li> 
                     <li>Lanternas em led</li>

@@ -1,10 +1,12 @@
 import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
+import { GTMevent } from "../events/analytics.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 
 function AwdEvents(api) {
     $(".awd")
         .click(function () {
+            GTMevent('Car','S-AWC')
 
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels = carMaterials.paint.channels;
@@ -71,9 +73,9 @@ function AwdEvents(api) {
             sketchfabDict.api.show(namedResources.nodes['P_Front_SideDetail_L'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['P_Front_SideDetail_R'].instanceID);
 
-            carSelection.selectedModel = 'HPE_S';
+            carSelection.selectedModel = 'S-AWC';
             var carColorSelected = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorSelected, 'HPE_S');
+            ChangeCarColor(carColorSelected, 'S-AWC');
             carSelection.latestModelSelected = 'HPE_S';
             //back logo back logo
             sketchfabDict.api.hide(namedResources.nodes['LogoBack_GLS'].instanceID);

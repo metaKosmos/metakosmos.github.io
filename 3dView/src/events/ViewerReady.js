@@ -204,8 +204,6 @@ function ViewerReady() {
         });
 
 
-    console.log('READY');
-
     document.getElementById("base-buttons").style.display = "block";
     document.getElementById("info-area").style.display = "block";
 
