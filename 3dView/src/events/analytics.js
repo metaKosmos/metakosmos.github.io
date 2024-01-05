@@ -18,7 +18,7 @@ export async function GTMevent(category, name) {
         mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
-        },
+        },                                                                                                                                                     
         body: JSON.stringify({ "client_id": '121245j', "user_id": '121245j', "non_personalized_ads": true, "events": [{ "name": "Clique_", "params": { "items": [], "categoria_": category, "item_": name } }] })
     })
 

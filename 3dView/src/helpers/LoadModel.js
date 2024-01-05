@@ -1,5 +1,5 @@
-import {loadingPct} from "../Globals.js";
-import {sketchfabDict} from "../Globals.js";
+import { loadingPct } from "../Globals.js";
+import { sketchfabDict } from "../Globals.js";
 import GetTextureSize from "./GetTextureSize.js";
 import ViewerReady from "../events/ViewerReady.js";
 

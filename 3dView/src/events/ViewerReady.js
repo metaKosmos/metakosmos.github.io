@@ -203,11 +203,26 @@ function ViewerReady() {
                 });
         });
 
-
     document.getElementById("base-buttons").style.display = "block";
     document.getElementById("info-area").style.display = "block";
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    const botao = document.getElementById("AR");
+    if (botao) {
+        botao.addEventListener("click", OpenAR);
+    }
+});
 
+function OpenAR() {
+    console.log('Executado')
+    sketchfabDict
+        .api
+        .startAR(function(err) {
+            if (!err) {
+                window.console.log('Starting AR');
+            }
+        });
 }
 
 export default ViewerReady;
