@@ -69,9 +69,6 @@
           execution-while-not-rendered web-share allowfullscreen mozallowfullscreen="true"
           webkitallowfullscreen="true"></iframe>
 
-          <img onclick="OpenAR()" class="position-absolute bottom-0 end-0" src="assets/logo/icon-ar.svg" width="42px"
-          style="margin: 10px;" />
-  
         <a id="ios-ar-link" rel="ar"
           href="https://tmw.digital/3D.V.1.0/webgl/collections/makai/Assets/Thumb/Mitsubishi_Eclipse_Cross_2024_-_copy%20(2)%20(1).usdz"
           style="display: none;">
@@ -82,6 +79,11 @@
   </div>
 
   <content class="fixed-bottom">
+
+    <!-- AR Button -->
+    <div class="d-flex justify-content-end mx-2">
+      <img onclick="OpenAR()" src="assets/logo/icon-ar.svg" width="42px" style="margin: 10px; display: none !important;" id="ar-button"/>
+    </div>
 
     <!-- Card -->
     <div class="custom-card mx-2 my-auto border border-danger rounded-3" style="display: none !important;"
