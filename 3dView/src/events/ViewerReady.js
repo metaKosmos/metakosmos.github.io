@@ -55,6 +55,7 @@ function ViewerReady() {
             texturesUids.bodyTexture = namedResources.textures['GLS_Body_Branco_Alpino.png'].uid; //cor do carro
             texturesUids.leatherAlbedoFront = namedResources.textures['Leather_White_albedo.jpg'].uid;
             texturesUids.leatherAlbedoBack = namedResources.textures['Seat_Back_LeatherWhite_Color.png'].uid;
+            texturesUids.steering = namedResources.textures['Volante_Plastic_Matte_BaseColor.png'].uid;
         });
 
     sketchfabDict
@@ -198,14 +199,15 @@ function ViewerReady() {
                         document
                             .getElementById("iframe-loader")
                             .remove()
-                        clearInterval(loadingPct.intervalId); 
+                        clearInterval(loadingPct.intervalId);
                     }, 1500);
                 });
         });
 
-    document.getElementById("ar-button").style.display = "block";
+    document.getElementById("ar-button").style.display = "block";    
     document.getElementById("base-buttons").style.display = "block";
-    document.getElementById("info-area").style.display = "block";
+    document.getElementById("info-area").style.display = "block";    
+    document.getElementById("toogle-menu").style.display = "block";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,7 +221,7 @@ function OpenAR() {
     console.log('Executado')
     sketchfabDict
         .api
-        .startAR(function(err) {
+        .startAR(function (err) {
             if (!err) {
                 window.console.log('Starting AR');
             }

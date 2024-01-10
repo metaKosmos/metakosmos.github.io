@@ -1,5 +1,5 @@
-import {carMaterials, sketchfabDict, carSelection, texturesUids, camera} from "../Globals.js";
-import {CAR_TEXTURES, TEXTURES_SETTINGS} from "../Constants.js";
+import { carMaterials, sketchfabDict, carSelection, texturesUids, camera } from "../Globals.js";
+import { CAR_TEXTURES, TEXTURES_SETTINGS } from "../Constants.js";
 import HandleError from "../handles/HandleError.js";
 
 function ChangeCarColor(selectedColor, carName) {
@@ -8,8 +8,26 @@ function ChangeCarColor(selectedColor, carName) {
         return;
     };
 
+     sketchfabDict
+     .api
+     .getCameraLookAt(function (err, cameraLookAt) {
+         console.log('Play')
+         var cameraPosition = cameraLookAt.position;
+         var cameraTarget = cameraLookAt.target;            
+             console.log('Camera position:', cameraPosition);
+             console.log('Camera target:', cameraTarget);
+     });
+ 
+
     // Limpa o modelo 3d ao trocar o modelo de carro
     if (carSelection.latestModelSelected != carSelection.selectedModel) {
+//////////////////////////////
+        sketchfabDict
+            .api
+            .updateTexture(CAR_TEXTURES[carName].detailsColor.steering, texturesUids.steering, (err, steeringUID) => {
+                HandleError(err, steeringUID)
+            });
+/////////////////////////////////
         sketchfabDict
             .api
             .updateTexture(CAR_TEXTURES[carName].bodyColor.roughness, texturesUids.bodyRoughness, (err, bodyRoughnessUID) => {
