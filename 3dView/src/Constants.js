@@ -14,8 +14,9 @@ const CAR_TEXTURES = {
         },
         "detailsColor": {
             "color": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Details_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Details_Roughness.png`
-        }
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Details_Roughness.png`,
+            "steering": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/Volante_Plastic_Matte_BaseColor.png`,
+        },
     },
     "HPE": {
         "bodyColor": {
@@ -30,7 +31,8 @@ const CAR_TEXTURES = {
         },
         "detailsColor": {
             "color": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Details_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Detailss_Roughnes.png`
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE/detailsColor/HPE_Detailss_Roughnes.png`,
+            "steering": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/Volante_Plastic_Matte_BaseColor.png`
         }
     },
     "HPE_S": {
@@ -46,7 +48,8 @@ const CAR_TEXTURES = {
         },
         "detailsColor": {
             "color": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Roughness.png`
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Roughness.png`,
+            "steering": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/Volante_Plastic_Matte_BaseColor_HPE-S.jpg`
         }
     },
     // Not sure where the s-awc stuff comes from
@@ -63,7 +66,8 @@ const CAR_TEXTURES = {
         },
         "detailsColor": {
             "color": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Color.png`,
-            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Roughness.png`
+            "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/HPE-S_Details_Roughness.png`,
+            "steering": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/detailsColor/Volante_Plastic_Matte_BaseColor_HPE-S.jpg`
         }
     },
     "seats": {

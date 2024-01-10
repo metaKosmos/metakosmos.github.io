@@ -7,13 +7,13 @@ const animation = {
 const camera = {
     "enviromment": null,
     "current": 0,
-    "changedCurrent": 0,
-    "position": [-4.870976199776911, -0.0629355493017227, 1.5080407936289586],
-    "target": [0.1429519418097821, -0.0342716750010755, 0.7445627986873815],
+    "changedCurrent": 0,    
+    "position": [-3.4446727769579892, -3.920127732368049, 2.9226225496577802],
+    "target": [0.14320670441945327, -0.03443397894758263, 0.7446247763073608],
     "headPosition": [0.4618180956391606, 0.10671339354285858, 1.202025589666613],
     "headTarget": [0.4741707244600637, -0.3389848621924768, 1.1411940403217824],
-    "headPosition2": [0.08584151125183442, 1.0849184327234078, 1.1351729998946178],
-    "headTarget2": [0.10906072469526419, 0.5900035255628744, 1.067941290133902],
+    "headPosition2": [0.11183631100987593, 0.9887379274139888, 1.4166501073402105],
+    "headTarget2": [0.10371857479361152, 0.31688550090242784, 1.240237541111411],
 };
 
 // Used in helpers/ChangeCarColor.js
@@ -67,7 +67,8 @@ const texturesUids = {
     "detailsColor": null,
     "detailsRoughness": null,
     "leatherAlbedoFront": null,
-    "leatherAlbedoBack": null
+    "leatherAlbedoBack": null,
+    "steering": null
 };
 
 export {
