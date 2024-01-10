@@ -1,0 +1,239 @@
+* {
+    font-family: 'MMC', sans-serif;
+    font-weight: bolder !important;
+    outline: none !important;
+}
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+h1,
+h6 {
+    font-weight: bolder;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+}
+
+.color-square {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+}
+
+.color-square.black {
+    background-color: #000;
+}
+
+.color-square.red {
+    background-color: #EC1B23;
+}
+
+.color-square.gray {
+    background-color: #808080;
+}
+
+.color-square.silver {
+    background-color: #c0c0c0;
+}
+
+.color-square.white {
+    background-color: #ffffff;
+}
+
+.btn-color {
+    color: #ffffff;
+}
+
+.btn-color:not(.active) {
+    background-color: #FFF;
+    color: #EC1B23;
+    font-weight: bolder;
+}
+
+.active {
+    font-weight: bolder;
+    background-color: #EC1B23;
+    border-color: #EC1B23;
+    color: #FFF;
+}
+
+button.active {
+    color: #FFF !important;
+}
+
+.camera, #openDoor {    
+    width: 70px;
+    border: 1px solid #F5F5F5;
+    margin: 2px;
+}
+
+.camera h6, #openDoor h6 {
+    font-size: 0.8em !important;
+}
+
+.camera.active, #openDoor.active,
+.animation.active {
+    /* background-color: transparent !important; */
+    color: #333;
+    border: 1px solid #EC1B23;
+}
+
+.custom-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 10px 5px;    
+    font-size: 0.8em;
+    /* border-radius: 5px; */
+    /* border: 1px solid #CCC; */
+}
+
+.feature-list li {
+    margin-bottom: 5px;
+}
+
+.feature-list li:before {
+    content: "– ";
+    color: #EC1B23;
+}
+
+.border-danger {
+    --bs-border-opacity: 1;
+    border-color: #EC1B23 !important;
+}
+
+#info-area {
+    padding-right: 17px;
+    /* height: 31vh; */
+    overflow: hidden;
+    /* min-height: 100%; */
+}
+
+#api-frame {
+    left: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    outline: none;
+    background: transparent;
+    z-index: 1;
+}
+
+.iframe-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    display: block;
+    color: #000;
+    font-family: 'MMC', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.iframe-loader>div {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #000;
+}
+
+.iframe-loader.hidden {
+    animation: none;
+    opacity: 0;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+}
+
+.iframe-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+    opacity: 1;
+    z-index: 10;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+}
+
+.iframe-mask.hidden {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+}
+
+.colors.active {
+    display: block;
+
+}
+
+.colors div.active {
+    border: 1px solid #242424;
+}
+
+.right-collum {
+    /* zoom: 0.9; */
+}
+
+#arrow {
+    -moz-transition: transform 1s;
+    -webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+
+.flip {
+    transform: rotate(-180deg);
+}
+
+#base-buttons img {
+    cursor: pointer;
+}
+
+.bg-footer {
+    background: #F5F5F5;
+}

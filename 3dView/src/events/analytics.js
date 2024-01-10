@@ -1,5 +1,5 @@
-const measurement_id = 'G-3F6TZW1J7X'
-const api_secret = 'NLQ1rcdtS2O00tlYB2vSXg'
+const measurement_id = 'G-XBHGBLT3SC'
+const api_secret = 'tUik_GqKS-Wju2UggK77ZA'
 let userID = generateRandomString(5);
 
 function generateRandomString(length) {
