@@ -1,0 +1,27 @@
+<head>
+    <base href="https://www.w3schools.com/" target="_blank">
+</head>
+
+<body>
+
+    <script>
+
+        function OpenAR() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Para usuários de iPhone/iPad
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                console.log('iphone');
+                // Criar um link para Quick Look com arquivo .usdz
+                document.getElementById('ios-ar-link').click();
+            } else {
+                console.log('android');
+                // Redirecionar para Google's Scene Viewer ou URL apropriado para Android
+                window.location.href = 'intent://arvr.google.com/scene-viewer/1.0?file=https%3A%2F%2Fsketchfab-prod-media.s3.amazonaws.com%2Farchives%2F42b51939c68e448b9c9a06a24a0d21e5%2Fgltf-ar%2F1a4aa2d45d7047fc92c900c64c9d5863%2Fscene.gltf&mode=ar_preferred&link=https%3A%2F%2Fsketchfab.com%2F3d-models%2Fmitsubishi-eclipse-cross-2024-copy-42b51939c68e448b9c9a06a24a0d21e5&title=Mitsubishi_Eclipse_Cross_2024%20-%20copy#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;';
+            }
+        }
+
+        OpenAR()
+    </script>
+
+</body>
