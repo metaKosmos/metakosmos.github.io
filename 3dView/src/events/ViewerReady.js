@@ -216,7 +216,7 @@ function ViewerReady() {
                             .getElementById("iframe-loader")
                             .remove()
                         clearInterval(loadingPct.intervalId);
-                    }, 1500);
+                    }, 2500);
                 });
         });
         
@@ -225,6 +225,9 @@ function ViewerReady() {
     document.getElementById("base-buttons").style.display = "block";
     document.getElementById("info-area").style.display = "block";    
     document.getElementById("toogle-menu").style.display = "block";
+
+
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {

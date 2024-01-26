@@ -143,6 +143,9 @@ function HpeEvents() {
             //back logo
             sketchfabDict
                 .api
+                .show(namedResources.nodes['LogoBack_Turbo'].instanceID);
+            sketchfabDict
+                .api
                 .hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict
                 .api

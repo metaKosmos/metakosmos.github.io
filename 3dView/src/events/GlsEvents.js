@@ -139,6 +139,9 @@ function GlsEvents() {
             //back logo
             sketchfabDict
                 .api
+                .hide(namedResources.nodes['LogoBack_Turbo'].instanceID);
+            sketchfabDict
+                .api
                 .show(namedResources.nodes['LogoBack_RUSH'].instanceID);
             sketchfabDict
                 .api

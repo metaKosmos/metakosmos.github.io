@@ -6,7 +6,7 @@ import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 function AwdEvents(api) {
     $(".awd")
         .click(function () {
-            GTMevent('Car','S-AWC')
+            GTMevent('Car', 'S-AWC')
 
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li> 
             <li>DRL em led</li> 
@@ -18,7 +18,7 @@ function AwdEvents(api) {
 
             // $(".info").html("Couro Cinza Claro");
             $(".info").html("Escolha a cor:");
-            
+
             //farol
             sketchfabDict.api.show(namedResources.nodes['Lights_Front_Silver'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['Lights_Front_VD_Glass'].instanceID);
@@ -73,6 +73,9 @@ function AwdEvents(api) {
             ChangeCarColor(carColorSelected, 'S-AWC');
             carSelection.latestModelSelected = 'HPE_S';
             //back logo back logo
+            sketchfabDict
+                .api
+                .show(namedResources.nodes['LogoBack_Turbo'].instanceID);
             sketchfabDict.api.hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['LogoBack_Vidro'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['LogoBack_S'].instanceID);
