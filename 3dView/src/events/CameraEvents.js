@@ -1,4 +1,5 @@
 import ChangeCamera from "../helpers/ChangeCamera.js";
+import { carSelection } from "../Globals.js";
 import { camera } from "../Globals.js";
 import { GTMevent } from "../events/analytics.js";
 
@@ -9,15 +10,22 @@ function CameraEvents() {
             camera.current = $(this).data("cam-id");
 
             console.log('CAMERA ', camera.current);
+            console.log(carSelection.selectedModel)
 
             $(".info").html('Escolha a cor:');
 
             if (camera.current == 0) {
                 GTMevent('UI','OutCarCam')  
                 console.log('Lado de fora do carro')    
-                $("#external-colors-type01").removeClass("d-none");
-                $("#external-colors-type02").removeClass("d-none");
                 $("#internal-colors").addClass("d-none");
+
+                if(carSelection.selectedModel == 'GLS'){
+                    $("#external-colors-type01").addClass("d-none");
+                    $("#external-colors-type02").removeClass("d-none");
+                }else{
+                    $("#external-colors-type01").removeClass("d-none");
+                    $("#external-colors-type02").addClass("d-none");
+                }
 
                 // $("#colorPicker").removeClass("active");
                 // $(".changeColor").removeClass("active");                
@@ -26,12 +34,16 @@ function CameraEvents() {
             } else {
                 if(camera.current == 1){
                     GTMevent('UI','DriverCam')    
+                    $("#external-colors-type02").addClass("d-none");
+                    $("#external-colors-type01").addClass("d-none");
                 }
                 if(camera.current == 2){
                     GTMevent('UI','PassengerCam')  
                 }
                 $("#external-colors").addClass("d-none");
                 $("#internal-colors").removeClass("d-none");
+                $("#external-colors-type02").addClass("d-none");
+                $("#external-colors-type01").addClass("d-none");
 
 
                 // $("#colorPicker").addClass("active");
