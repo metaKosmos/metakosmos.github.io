@@ -6,12 +6,7 @@ import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 function HpesEvents() {
     $(".hpes")
         .click(function () {
-            GTMevent('Car','HPES')
-            carMaterials.lowerPaint.channels.ClearCoat.enable = true;
-            carMaterials.lowerPaint.channels = carMaterials.paint.channels;
-            sketchfabDict
-                .api
-                .setMaterial(carMaterials.lowerPaint);
+            GTMevent('Car', 'HPES')
 
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li> 
                     <li>DRL em led</li> 
@@ -148,6 +143,9 @@ function HpesEvents() {
                 .hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict
                 .api
+                .hide(namedResources.nodes['LogoBack_RUSH'].instanceID);
+            sketchfabDict
+                .api
                 .hide(namedResources.nodes['LogoBack_Vidro'].instanceID);
             sketchfabDict
                 .api
@@ -161,6 +159,9 @@ function HpesEvents() {
             $(".awd").removeClass("active");
             $("#intcolorwhite").css("display", "inline-block");
             ChangeLeatherColor('Black');
+
+            $("#external-colors-type01").removeClass("d-none");
+            $("#external-colors-type02").addClass("d-none");
         });
 };
 

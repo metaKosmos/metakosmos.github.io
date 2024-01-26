@@ -6,22 +6,13 @@ import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
 function GlsEvents() {
     $(".gls")
         .click(function () {
-            GTMevent('Car','GLS')
+            GTMevent('Car', 'GLS')
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
                     <li>DRL em led</li> 
                     <li>Lanternas em led</li>
                     <li>Ar-condicionado digital automático</li> 
                     <li>Multimídia JBL com Wi-Fi integrado</li> 
                     <li>Câmera de ré</li>`);
-
-            carMaterials.lowerPaint.channels.ClearCoat.enable = false;
-            carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
-            carMaterials.lowerPaint.channels.MetalnessPBR.factor = 0;
-            carMaterials.lowerPaint.channels.SpecularPBR.factor = 0.05;
-            //carMaterials.lowerPaint.channels.AlbedoPBR.factor = 0;
-            sketchfabDict
-                .api
-                .setMaterial(carMaterials.lowerPaint);
 
             $(".info").html("Escolha a cor:");
             //farol
@@ -141,14 +132,17 @@ function GlsEvents() {
 
             carSelection.selectedModel = 'GLS';
             var carColorSelected = $(".car-color.active").data("color-id");
-            ChangeCarColor(carColorSelected, 'GLS');
+            ChangeCarColor('prataLitio', 'GLS');
             carSelection.latestModelSelected = 'GLS';
 
 
             //back logo
             sketchfabDict
                 .api
-                .show(namedResources.nodes['LogoBack_GLS'].instanceID);
+                .show(namedResources.nodes['LogoBack_RUSH'].instanceID);
+            sketchfabDict
+                .api
+                .hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict
                 .api
                 .hide(namedResources.nodes['LogoBack_Vidro'].instanceID);
@@ -164,6 +158,9 @@ function GlsEvents() {
             $(".hpes").removeClass("active");
             $(".awd").removeClass("active");
             ChangeLeatherColor('Black');
+
+            $("#external-colors-type02").removeClass("d-none");
+            $("#external-colors-type01").addClass("d-none");
         });
 }
 

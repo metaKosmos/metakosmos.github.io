@@ -52,7 +52,16 @@ function ViewerReady() {
             texturesUids.bodyRoughness = namedResources.textures['GLS_Body_Roghness.png'].uid;
             texturesUids.detailsColor = namedResources.textures['GLS_Dets_Color.png'].uid;
             texturesUids.detailsRoughness = namedResources.textures['GLS_Dets_Roghness.png'].uid;
-            texturesUids.bodyTexture = namedResources.textures['GLS_Body_Branco_Alpino.png'].uid; //cor do carro
+
+            texturesUids.bodyTexture = namedResources.textures['Car_Red.png'].uid; //cor do carro
+            texturesUids.bottonTexture = namedResources.textures['Car_branco_Body_bottom_PBR_Diffuse.png'].uid;
+            texturesUids.body02Texture = namedResources.textures['Car_Body_Textures.V2__PBR_Diffuse.png'].uid; 
+            texturesUids.detsTexture = namedResources.textures['Car_branco_Body_bottom_PBR_Diffuse.png'].uid;                         
+            texturesUids.detsTexture = namedResources.textures['GLS_Dets_Color.png'].uid;   
+            texturesUids.dets02Texture = namedResources.textures['car_branco_detsTexture.V2_PBR_Diffuse.png'].uid;         
+            texturesUids.dets03Texture = namedResources.textures['Car_Dets_Textures.V3__PBR_Diffuse.png'].uid;      
+            texturesUids.dets04Texture = namedResources.textures['car_Dets_Textures.V4__PBR_Diffuse.png'].uid;      
+
             texturesUids.leatherAlbedoFront = namedResources.textures['Leather_White_albedo.jpg'].uid;
             texturesUids.leatherAlbedoBack = namedResources.textures['Seat_Back_LeatherWhite_Color.png'].uid;
             texturesUids.steering = namedResources.textures['Volante_Plastic_Matte_BaseColor.png'].uid;
@@ -141,8 +150,14 @@ function ViewerReady() {
             };
             GetNamedResources(materials, "materials");
 
+            //////////////////////////////////////////////////////////////////////////////
             carMaterials.lowerPaint = namedResources.materials["Eclipse_Body_Bottom"];
             carMaterials.paint = namedResources.materials["Eclipse_Body_Textures"];
+            carMaterials.paint02 = namedResources.materials["Eclipse_Body_Textures.V2"];
+            carMaterials.dets = namedResources.materials["Eclipse_Dets_Textures"];
+            carMaterials.dets02 = namedResources.materials["Eclipse_Dets_Textures.V2"];
+            carMaterials.dets03 = namedResources.materials["Eclipse_Dets_Textures.V3"];
+            carMaterials.dets04 = namedResources.materials["Eclipse_Dets_Textures.V4"];
 
             carMaterials.frontSeat = namedResources.materials["Seat_Front_Leather"];
             carMaterials.backSeat = namedResources.materials["Seat_Back_Leather.001"];
@@ -185,6 +200,7 @@ function ViewerReady() {
                         HandleError(err, 'On CameraLookAt');
                         return;
                     };
+                    $('.gls').click();
                     ChangeCamera(0);
                     ChangeCarColor('prataLitio', 'GLS');
                     ChangeLeatherColor('Black');
@@ -203,6 +219,7 @@ function ViewerReady() {
                     }, 1500);
                 });
         });
+        
 
     document.getElementById("ar-button").style.display = "block";    
     document.getElementById("base-buttons").style.display = "block";

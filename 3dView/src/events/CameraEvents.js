@@ -15,7 +15,8 @@ function CameraEvents() {
             if (camera.current == 0) {
                 GTMevent('UI','OutCarCam')  
                 console.log('Lado de fora do carro')    
-                $("#external-colors").removeClass("d-none");
+                $("#external-colors-type01").removeClass("d-none");
+                $("#external-colors-type02").removeClass("d-none");
                 $("#internal-colors").addClass("d-none");
 
                 // $("#colorPicker").removeClass("active");

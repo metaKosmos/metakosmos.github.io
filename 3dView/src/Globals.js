@@ -19,6 +19,12 @@ const camera = {
 // Used in helpers/ChangeCarColor.js
 const carMaterials = {
     "paint": null,
+    "paint02": null,
+    "dets": null,
+    "dets02": null,
+    "dets03": null,
+    "dets04": null,
+    
     "lowerPaint": null,
     "doorOne": null,
     "doorTwo": null,
@@ -57,12 +63,19 @@ const sketchfabDict = {
     "client": null,
     "api": null,
     // "urlid": "42b51939c68e448b9c9a06a24a0d21e5",
-    "urlid": "8f9b2df5ae4048bc89e1e6cc87181913", 
+    "urlid": "9c53ffeb24674de28342bc00ad8133ba", 
     // "urlid": "33bd9534879a4f8d9491c96691be117f", //OG
 };
 
 const texturesUids = {
     "bodyTexture": null,
+    "body02Texture": null,
+    "bottonTexture": null,
+    "detsTexture": null,
+    "dets02Texture": null,
+    "dets03Texture": null,
+    "dets04Texture": null,
+
     "bodyRoughness": null,
     "detailsColor": null,
     "detailsRoughness": null,

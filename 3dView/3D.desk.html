@@ -68,7 +68,7 @@
     <div class="ar-button" onclick="OpenAR()">
       <img src="assets/logo/icon-ar.svg" width="48px" class="ar-icon" />
       <div class="ar-text">Ver modelo em tamanho real pelo celular</div>
-  </div>
+    </div>
   </div>
 
   <!-- INFO -->
@@ -87,7 +87,7 @@
       <!-- Version Buttons -->
       <h6 class="mb-3">Selecione a Versão</h6>
       <div class="d-flex justify-content-center mb-4 border border-danger rounded-3 btn-group">
-        <button class="gls btn btn-color flex-fill rounded-3 m-1 active">GLS</button>
+        <button class="gls btn btn-color flex-fill rounded-3 m-1 active">RUSH</button>
         <button class="hpe btn btn-color flex-fill rounded-3 m-1">HPE</button>
         <button class="hpes btn btn-color flex-fill rounded-3 m-1">HPE-S</button>
         <button class="awd btn btn-color flex-fill rounded-3 m-1">S-AWC</button>
@@ -96,7 +96,7 @@
       <!-- Color Picker -->
       <h6 class="info mb-3">Escolha a cor:</h6>
 
-      <div id="external-colors" class="d-flex justify-content-center mb-4">
+      <div id="external-colors-type01" class="d-flex justify-content-center mb-4">
 
         <div class="color-square white car-color active" data-color-id="brancoAlpino" data-name="Branco Fuji"
           style="background-color: #ffffff; border: 1px solid black;" data-price="0"></div>
@@ -112,6 +112,21 @@
 
         <div class="color-square black car-color" data-color-id="prataCool" data-name="Prata Cool"
           style="background-color: #6d7170;" data-price="0"></div>
+
+        <div class="color-square black car-color" data-color-id="cinzaLondrino" data-name="Cinza Londrino"
+          data-price="0" style="background-color: #4a494f;"></div>
+
+        <div class="color-square black car-color" class="car-color" data-color-id="prataLitio" data-name="Prata Lítio"
+          data-price="0" style="background-color: #8d9391;"></div>
+      </div>
+
+      <div id="external-colors-type02" class="d-flex justify-content-center mb-4">
+
+        <div class="color-square white car-color active" data-color-id="brancoAlpino" data-name="Branco Fuji"
+          style="background-color: #ffffff; border: 1px solid black;" data-price="0"></div>
+
+        <div class="color-square silver car-color" data-color-id="pretoOnix" data-name="Preto Onix Pearl" data-price="0"
+          style="background-color: #343434;"></div>
 
         <div class="color-square black car-color" data-color-id="cinzaLondrino" data-name="Cinza Londrino"
           data-price="0" style="background-color: #4a494f;"></div>
@@ -192,7 +207,8 @@
 
   <div class="ar-div">
     <div class="image-wrapper">
-      <div class="intro-text">Escaneie o QR Code com seu celular e veja o modelo no seu ambiente com realidade aumentada.</div>
+      <div class="intro-text">Escaneie o QR Code com seu celular e veja o modelo no seu ambiente com realidade
+        aumentada.</div>
       <img src="assets/ar-qr-code.svg" alt="Descrição da Imagem" class="centered-image">
       <button class="close-button" onclick="closeAr()">X</button>
     </div>
@@ -203,4 +219,5 @@
   <script type="module" src="src/3dView.js"></script>
 
 </body>
+
 </html>

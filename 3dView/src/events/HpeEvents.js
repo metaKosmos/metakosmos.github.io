@@ -1,4 +1,4 @@
-import {carMaterials, sketchfabDict, namedResources, carSelection} from "../Globals.js";
+import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
 import { GTMevent } from "../events/analytics.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
@@ -7,14 +7,7 @@ function HpeEvents() {
     $(".hpe")
         .click(function () {
 
-            GTMevent('Car','HPE')
-
-            carMaterials.lowerPaint.channels.ClearCoat.enable = true;
-            carMaterials.lowerPaint.channels = carMaterials.paint.channels;
-
-            sketchfabDict
-                .api
-                .setMaterial(carMaterials.lowerPaint);
+            GTMevent('Car', 'HPE')
 
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
                     <li>DRL em led</li> 
@@ -153,6 +146,9 @@ function HpeEvents() {
                 .hide(namedResources.nodes['LogoBack_GLS'].instanceID);
             sketchfabDict
                 .api
+                .hide(namedResources.nodes['LogoBack_RUSH'].instanceID);
+            sketchfabDict
+                .api
                 .hide(namedResources.nodes['LogoBack_Vidro'].instanceID);
             sketchfabDict
                 .api
@@ -167,6 +163,9 @@ function HpeEvents() {
             $(".awd").removeClass("active");
             $("#intcolorwhite").css("display", "none");
             ChangeLeatherColor('Black');
+
+            $("#external-colors-type01").removeClass("d-none");
+            $("#external-colors-type02").addClass("d-none");
         });
 };
 

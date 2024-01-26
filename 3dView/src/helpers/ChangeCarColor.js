@@ -8,31 +8,26 @@ function ChangeCarColor(selectedColor, carName) {
         return;
     };
 
-     sketchfabDict
-     .api
-     .getCameraLookAt(function (err, cameraLookAt) {
-         console.log('Play')
-         var cameraPosition = cameraLookAt.position;
-         var cameraTarget = cameraLookAt.target;            
-             console.log('Camera position:', cameraPosition);
-             console.log('Camera target:', cameraTarget);
-     });
- 
+    sketchfabDict
+        .api
+        .getCameraLookAt(function (err, cameraLookAt) {
+            console.log('Play')
+            var cameraPosition = cameraLookAt.position;
+            var cameraTarget = cameraLookAt.target;
+            console.log('Camera position:', cameraPosition);
+            console.log('Camera target:', cameraTarget);
+        });
+
 
     // Limpa o modelo 3d ao trocar o modelo de carro
     if (carSelection.latestModelSelected != carSelection.selectedModel) {
-//////////////////////////////
+        //////////////////////////////
         sketchfabDict
             .api
             .updateTexture(CAR_TEXTURES[carName].detailsColor.steering, texturesUids.steering, (err, steeringUID) => {
                 HandleError(err, steeringUID)
             });
-/////////////////////////////////
-        sketchfabDict
-            .api
-            .updateTexture(CAR_TEXTURES[carName].bodyColor.roughness, texturesUids.bodyRoughness, (err, bodyRoughnessUID) => {
-                HandleError(err, bodyRoughnessUID)
-            });
+        /////////////////////////////////
         sketchfabDict
             .api
             .updateTexture(CAR_TEXTURES[carName].detailsColor.color, texturesUids.detailsColor, (err, detailsColorUID) => {
@@ -43,9 +38,48 @@ function ChangeCarColor(selectedColor, carName) {
             .updateTexture(CAR_TEXTURES[carName].detailsColor.roughness, texturesUids.detailsRoughness, (err, detailsRoughness) => {
                 HandleError(err, detailsRoughness)
             });
+
     };
 
     const colorsToUpdateRoughness = ['brancoAlpino', 'azulBaikal']
+
+    console.log(carName)
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].bodyColor02[selectedColor], texturesUids.body02Texture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].bottonColor[selectedColor], texturesUids.bottonTexture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].detsColor[selectedColor], texturesUids.detsTexture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
+
+        sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].detsColor02[selectedColor], texturesUids.dets02Texture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].detsColor03[selectedColor], texturesUids.dets03Texture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].detsColor04[selectedColor], texturesUids.dets04Texture, function (err, bodyTexture) {
+            HandleError(err, bodyTexture);
+        });
 
     sketchfabDict
         .api
@@ -90,7 +124,6 @@ function ChangeCarColor(selectedColor, carName) {
                 .setEnvironment(camera.enviromment);
 
         });
-
 }
 
 export default ChangeCarColor;

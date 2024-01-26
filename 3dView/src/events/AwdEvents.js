@@ -8,11 +8,6 @@ function AwdEvents(api) {
         .click(function () {
             GTMevent('Car','S-AWC')
 
-            carMaterials.lowerPaint.channels.ClearCoat.enable = true;
-            carMaterials.lowerPaint.channels = carMaterials.paint.channels;
-            //carMaterials.lowerPaint.channels.AlbedoPBR.factor = 1;
-            sketchfabDict.api.setMaterial(carMaterials.lowerPaint);
-
             $(".exterior-items").html(`<li>Roda de liga leve 18”</li> 
             <li>DRL em led</li> 
             <li>Faróis e lanternas em led</li>
@@ -88,6 +83,9 @@ function AwdEvents(api) {
             $(".hpe").removeClass("active");
             $("#intcolorwhite").css("display", "inline-block");
             ChangeLeatherColor('Black');
+
+            $("#external-colors-type01").removeClass("d-none");
+            $("#external-colors-type02").addClass("d-none");
         });
 }
 
