@@ -104,24 +104,27 @@ function ChangeCarColor(selectedColor, carName) {
             carMaterials.paint.channels.MetalnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.MetalnessPBR;
             carMaterials.paint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.AlbedoPBR;
             carMaterials.paint.channels.RoughnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.RoughnessPBR;
+            carMaterials.dets02.channels.RoughnessPBR.factor = 1;
+            carMaterials.dets02.channels.MetalnessPBR.factor = 0;
             carMaterials.paint.channels.ClearCoat.thickness = 12;
             // All of them are 0
-            carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
+           carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
 
             // Set materials
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.paint);
+                console.log(carMaterials)
 
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
 
             // Set camera exposure
-            camera.enviromment.exposure = TEXTURES_SETTINGS[selectedColor].camera.exposure;
-            sketchfabDict
-                .api
-                .setEnvironment(camera.enviromment);
+            //camera.enviromment.exposure = TEXTURES_SETTINGS[selectedColor].camera.exposure;
+           // sketchfabDict
+            //    .api
+            //    .setEnvironment(camera.enviromment);
 
         });
 }

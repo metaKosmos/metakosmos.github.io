@@ -16,10 +16,10 @@ const CAR_TEXTURES = {
         },
 
         "bodyColor02":{
-            "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Body_Textures.V2__PBR_Diffuse.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Body_Textures.V2__PBR_Diffuse.png`,
-            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Body_Textures.V2__PBR_Diffuse.png`,
-            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Body_Textures.V2__PBR_Diffuse.png`,
+            "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/branco/Car_Body_Textures.V2__PBR_Diffuse.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_Body_Textures.V2__PBR_Diffuse.png`,
+            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/PrataLitio/Car_Body_Textures.V2__PBR_Diffuse.png`,
+            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/preto/Car_Body_Textures.V2__PBR_Diffuse.png`,
         },
         "bottonColor":{
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/branco/Car_branco_Body_bottom_PBR_Diffuse.png`,

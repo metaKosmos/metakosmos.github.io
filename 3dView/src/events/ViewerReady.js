@@ -55,8 +55,7 @@ function ViewerReady() {
 
             texturesUids.bodyTexture = namedResources.textures['Car_Red.png'].uid; //cor do carro
             texturesUids.bottonTexture = namedResources.textures['Car_branco_Body_bottom_PBR_Diffuse.png'].uid;
-            texturesUids.body02Texture = namedResources.textures['Car_Body_Textures.V2__PBR_Diffuse.png'].uid; 
-            texturesUids.detsTexture = namedResources.textures['Car_branco_Body_bottom_PBR_Diffuse.png'].uid;                         
+            texturesUids.body02Texture = namedResources.textures['Car_Body_Textures.V2__PBR_Diffuse.png'].uid;                       
             texturesUids.detsTexture = namedResources.textures['GLS_Dets_Color.png'].uid;   
             texturesUids.dets02Texture = namedResources.textures['car_branco_detsTexture.V2_PBR_Diffuse.png'].uid;         
             texturesUids.dets03Texture = namedResources.textures['Car_Dets_Textures.V3__PBR_Diffuse.png'].uid;      
@@ -167,16 +166,16 @@ function ViewerReady() {
 
             carMaterials.lights = namedResources.materials["Emessive"];
 
-            carMaterials.lowerPaint.channels.ClearCoat.enable = false;
-            carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
-            carMaterials.lowerPaint.channels.MetalnessPBR.factor = 0;
-            carMaterials.lowerPaint.channels.SpecularPBR.factor = 0.05;
+           // carMaterials.lowerPaint.channels.ClearCoat.enable = false;
+           // carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
+           // carMaterials.lowerPaint.channels.MetalnessPBR.factor = 0;
+            //carMaterials.lowerPaint.channels.SpecularPBR.factor = 0.05;
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
             //
-            carMaterials.paint.channels.AlbedoPBR.factor = 1;
-            carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
+           // carMaterials.paint.channels.AlbedoPBR.factor = 1;
+           // carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.paint);
