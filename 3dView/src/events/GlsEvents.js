@@ -12,9 +12,22 @@ function GlsEvents() {
                     <li>Lanternas em led</li>
                     <li>Ar-condicionado digital automático</li> 
                     <li>Multimídia JBL com Wi-Fi integrado</li> 
-                    <li>Câmera de ré</li>`);
+                    <li>Câmera de ré</li>
+                    <li>Tração 4x4</li>`);
 
             $(".info").html("Escolha a cor:");
+
+            $(".rush-feature").addClass("active");
+
+            //Adjust Color
+            carMaterials.dets02.channels.ClearCoat.enable = true;
+            carMaterials.dets02.channels.RoughnessPBR.factor = 0.6;
+            carMaterials.dets02.channels.MetalnessPBR.factor = 1;
+
+            carMaterials.lowerPaint.channels.ClearCoat.enable = true;
+            carMaterials.lowerPaint.channels.RoughnessPBR.factor = 0.6;
+            carMaterials.lowerPaint.channels.MetalnessPBR.factor = 1;
+
             //farol
             sketchfabDict
                 .api

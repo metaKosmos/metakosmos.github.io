@@ -19,6 +19,11 @@ function AwdEvents(api) {
             // $(".info").html("Couro Cinza Claro");
             $(".info").html("Escolha a cor:");
 
+            //Adjust Color
+            carMaterials.dets02.channels.ClearCoat.enable = false;
+            carMaterials.dets02.channels.RoughnessPBR.factor = 0.16;
+            carMaterials.dets02.channels.MetalnessPBR.factor = 0.5;
+
             //farol
             sketchfabDict.api.show(namedResources.nodes['Lights_Front_Silver'].instanceID);
             sketchfabDict.api.show(namedResources.nodes['Lights_Front_VD_Glass'].instanceID);

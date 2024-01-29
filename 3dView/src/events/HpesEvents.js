@@ -18,6 +18,7 @@ function HpesEvents() {
 
             // $(".info").html("Couro Cinza Claro");
             $(".info").html("Escolha a cor:");
+            
             //farol
             sketchfabDict
                 .api
