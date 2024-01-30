@@ -56,7 +56,7 @@ const CAR_TEXTURES = {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_BodyTexture_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Preto_Onix.png`,
@@ -82,7 +82,7 @@ const CAR_TEXTURES = {
         "bottonColor":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_Body_bottom_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE/bodyColor/HPE_Body_Preto_Onix.png`,
@@ -115,10 +115,10 @@ const CAR_TEXTURES = {
         "detsColor03":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Azul.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Cinza.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Dets_Textures.V3__PBR_Diffuse.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
+            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataLitio.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataCool.png`,
+            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
             "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/HPE_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse-Vermelho.png`
         },
@@ -138,7 +138,7 @@ const CAR_TEXTURES = {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_BodyTexture_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Preto_Onix.png`,
@@ -163,7 +163,7 @@ const CAR_TEXTURES = {
         "bottonColor":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_Body_bottom_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Preto_Onix.png`,
@@ -196,10 +196,10 @@ const CAR_TEXTURES = {
         "detsColor03":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Azul.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Cinza.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Dets_Textures.V3__PBR_Diffuse.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
+            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataLitio.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataCool.png`,
+            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
             "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/HPE_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse-Vermelho.png`
         },
@@ -220,7 +220,7 @@ const CAR_TEXTURES = {
         "bodyColor": {
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_BodyTexture_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Preto_Onix.png`,
@@ -245,14 +245,14 @@ const CAR_TEXTURES = {
         "bottonColor":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Azul_Baikal.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Cinza Londrino/Car_CinzaLondrino_Body_bottom_PBR_Diffuse.png`,
             "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Prata_Litio.png`,
             "prataCool": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Branco_Alpino.png`,
             "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Preto_Onix.png`,
             "roughness": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/HPE-S/bodyColor/HPE-S_Body_Vermelho_Lucid.png`
         },
-        
+
         "detsColor":{
             "azulBaikal":  `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Dets_Color.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/detailsColor/GLS_Dets_Color.png`,
@@ -278,10 +278,10 @@ const CAR_TEXTURES = {
         "detsColor03":{
             "azulBaikal": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Azul.png`,
             "brancoAlpino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Cinza.png`,
-            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Branco.png`,
-            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/ALL/Car_Dets_Textures.V3__PBR_Diffuse.png`,
+            "cinzaLondrino": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
+            "prataLitio": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataLitio.png`,
+            "prataCool": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_PrataCool.png`,
+            "pretoOnix": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse_Preto.png`,
             "roughness": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/HPE_Body_Roughness.png`,
             "vermelhoLucid": `${BASE_URL}/3dView/assets/textures/cars/GLS/bodyColor/Car_Dets_Textures.V3__PBR_Diffuse-Vermelho.png`
         },
@@ -452,6 +452,7 @@ const TEXTURES_SETTINGS = {
             "ClearCoatNormalmap": 1,
         },
         'lowerPaint': {
+            "AlbedoPBR": 0.3,
             "ClearCoatRoughness": 0
         },
         'camera': {
