@@ -14,7 +14,8 @@ function AwdEvents(api) {
             <li>Ar-condicionado digital Dual Zone</li>
             <li>Multimídia JBL com GPS Offline e Wi-Fi integrado</li> 
             <li>Câmera de ré</li>
-            <li>Bancos dianteiros elétricos e aquecidos</li>`);
+            <li>Bancos dianteiros elétricos e aquecidos</li>
+            <li>Tração 4x4</li>`);
 
             // $(".info").html("Couro Cinza Claro");
             $(".info").html("Escolha a cor:");
@@ -23,6 +24,17 @@ function AwdEvents(api) {
             carMaterials.dets02.channels.ClearCoat.enable = false;
             carMaterials.dets02.channels.RoughnessPBR.factor = 0.16;
             carMaterials.dets02.channels.MetalnessPBR.factor = 0.5;
+            carMaterials.steering.channels.AlbedoPBR.factor = 1;
+
+
+            carMaterials.paint02.channels.AlbedoPBR.factor = 1;
+            carMaterials.paint02.channels.RoughnessPBR.factor = 0.6;
+            carMaterials.paint02.channels.MetalnessPBR.factor = 1;
+
+            //Dets
+            carMaterials.dets.channels.AlbedoPBR.factor = 1;
+            carMaterials.dets.channels.RoughnessPBR.factor = 0.1;
+            carMaterials.dets.channels.MetalnessPBR.factor = 1;
 
             //farol
             sketchfabDict.api.show(namedResources.nodes['Lights_Front_Silver'].instanceID);

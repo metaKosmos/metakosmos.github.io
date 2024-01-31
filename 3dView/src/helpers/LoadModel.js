@@ -10,7 +10,7 @@ function LoadModel() {
     const iframe = document.getElementById('api-frame');
 
     sketchfabDict.client = new Sketchfab(sketchfabDict.version, iframe);
-
+    console.log('teste')
     sketchfabDict
         .client
         .init(sketchfabDict.urlid, {

@@ -43,42 +43,41 @@ function ChangeCarColor(selectedColor, carName) {
 
     const colorsToUpdateRoughness = ['brancoAlpino', 'azulBaikal']
 
-    console.log(carName)
-
     sketchfabDict
         .api
-        .updateTexture(CAR_TEXTURES[carName].bodyColor02[selectedColor], texturesUids.body02Texture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
+        .updateTexture(CAR_TEXTURES[carName].bodyColor02[selectedColor], texturesUids.body02Texture, function (err, body02Texture) {
+            console.log(CAR_TEXTURES[carName].bodyColor02[selectedColor])
+            HandleError(err, body02Texture);
         });
 
     sketchfabDict
         .api
-        .updateTexture(CAR_TEXTURES[carName].bottonColor[selectedColor], texturesUids.bottonTexture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
+        .updateTexture(CAR_TEXTURES[carName].bottonColor[selectedColor], texturesUids.bottonTexture, function (err, bottonTexture) {
+            HandleError(err, bottonTexture);
         });
 
     sketchfabDict
         .api
-        .updateTexture(CAR_TEXTURES[carName].detsColor[selectedColor], texturesUids.detsTexture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
-        });
-
-        sketchfabDict
-        .api
-        .updateTexture(CAR_TEXTURES[carName].detsColor02[selectedColor], texturesUids.dets02Texture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
+        .updateTexture(CAR_TEXTURES[carName].detsColor[selectedColor], texturesUids.detsTexture, function (err, detsTexture) {
+            HandleError(err, detsTexture);
         });
 
     sketchfabDict
         .api
-        .updateTexture(CAR_TEXTURES[carName].detsColor03[selectedColor], texturesUids.dets03Texture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
+        .updateTexture(CAR_TEXTURES[carName].detsColor02[selectedColor], texturesUids.dets02Texture, function (err, dets02Texture) {
+            HandleError(err, dets02Texture);
         });
 
     sketchfabDict
         .api
-        .updateTexture(CAR_TEXTURES[carName].detsColor04[selectedColor], texturesUids.dets04Texture, function (err, bodyTexture) {
-            HandleError(err, bodyTexture);
+        .updateTexture(CAR_TEXTURES[carName].detsColor03[selectedColor], texturesUids.dets03Texture, function (err, dets03Texture) {
+            HandleError(err, dets03Texture);
+        });
+
+    sketchfabDict
+        .api
+        .updateTexture(CAR_TEXTURES[carName].detsColor04[selectedColor], texturesUids.dets04Texture, function (err, dets04Texture) {
+            HandleError(err, dets04Texture);
         });
 
     sketchfabDict
@@ -89,38 +88,50 @@ function ChangeCarColor(selectedColor, carName) {
                 return;
             };
 
-            if (colorsToUpdateRoughness.includes(selectedColor)) {
-                sketchfabDict
-                    .api
-                    .updateTexture(CAR_TEXTURES[carName].bodyColor.roughness, texturesUids.bodyRoughness, (err, bodyRoughness) => {
-                        HandleError(err, bodyRoughness)
-                    });
-
-            };
             // Update textures values
             //carMaterials.paint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].paint.ClearCoatRoughness;
-           // carMaterials.paint.channels.ClearCoat.factor = TEXTURES_SETTINGS[selectedColor].paint.ClearCoat;
+            // carMaterials.paint.channels.ClearCoat.factor = TEXTURES_SETTINGS[selectedColor].paint.ClearCoat;
 
-           // carMaterials.paint.channels.MetalnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.MetalnessPBR;
-            carMaterials.paint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.AlbedoPBR;
+            // carMaterials.paint.channels.MetalnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.MetalnessPBR;
+            //carMaterials.paint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.AlbedoPBR;
+
+            // carMaterials.lowerPaint.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.AlbedoPBR;
+
+            // carMaterials.dets03.channels.AlbedoPBR.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.AlbedoPBR;
+
             //carMaterials.paint.channels.RoughnessPBR.factor = TEXTURES_SETTINGS[selectedColor].paint.RoughnessPBR;
             //carMaterials.paint.channels.ClearCoat.thickness = 12;
             // All of them are 0
-           //carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
+            //carMaterials.lowerPaint.channels.ClearCoatRoughness.factor = TEXTURES_SETTINGS[selectedColor].lowerPaint.ClearCoatRoughness;
 
             // Set materials
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.paint);
-                console.log(carMaterials)
+
+            sketchfabDict
+                .api
+                .setMaterial(carMaterials.paint02);
 
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
 
-                sketchfabDict
+            sketchfabDict
+                .api
+                .setMaterial(carMaterials.dets);
+
+            sketchfabDict
                 .api
                 .setMaterial(carMaterials.dets02);
+
+            sketchfabDict
+                .api
+                .setMaterial(carMaterials.dets03);
+
+            sketchfabDict
+                .api
+                .setMaterial(carMaterials.steering);
 
             // Set camera exposure
             camera.enviromment.exposure = TEXTURES_SETTINGS[selectedColor].camera.exposure;

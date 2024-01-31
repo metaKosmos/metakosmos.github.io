@@ -20,6 +20,17 @@ function HpeEvents() {
             // $(".info").html("Couro Preto");
             $(".info").html("Escolha a cor:");
 
+            carMaterials.steering.channels.AlbedoPBR.factor = 1;
+
+            carMaterials.paint02.channels.AlbedoPBR.factor = 1;
+            carMaterials.paint02.channels.RoughnessPBR.factor = 0.6;
+            carMaterials.paint02.channels.MetalnessPBR.factor = 1;
+
+            //Dets
+            carMaterials.dets.channels.AlbedoPBR.factor = 1;
+            carMaterials.dets.channels.RoughnessPBR.factor = 0.1;
+            carMaterials.dets.channels.MetalnessPBR.factor = 1;
+
             //farol
             sketchfabDict
                 .api

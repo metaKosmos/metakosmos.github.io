@@ -23,6 +23,7 @@ function ViewerReady() {
     sketchfabDict
         .api
         .getNodeMap((err, nodes) => {
+            console.log('Node')
             if (err) {
                 HandleError(err, 'On Nodes');
                 return;
@@ -34,6 +35,7 @@ function ViewerReady() {
     sketchfabDict
         .api
         .getEnvironment((err, envInfo) => {
+            console.log('Scene')
             if (err) {
                 HandleError(err, 'On Env Info');
                 return;
@@ -44,6 +46,7 @@ function ViewerReady() {
     sketchfabDict
         .api
         .getTextureList((err, textures) => {
+            console.log('Texture')
             if (err) {
                 HandleError(err, 'On Textures');
                 return;
@@ -55,11 +58,11 @@ function ViewerReady() {
 
             texturesUids.bodyTexture = namedResources.textures['Car_Red.png'].uid; //cor do carro
             texturesUids.bottonTexture = namedResources.textures['Car_branco_Body_bottom_PBR_Diffuse.png'].uid;
-            texturesUids.body02Texture = namedResources.textures['Car_Body_Textures.V2__PBR_Diffuse.png'].uid;                       
-            texturesUids.detsTexture = namedResources.textures['GLS_Dets_Color.png'].uid;   
-            texturesUids.dets02Texture = namedResources.textures['car_branco_detsTexture.V2_PBR_Diffuse.png'].uid;         
-            texturesUids.dets03Texture = namedResources.textures['Car_Dets_Textures.V3__PBR_Diffuse.png'].uid;      
-            texturesUids.dets04Texture = namedResources.textures['car_Dets_Textures.V4__PBR_Diffuse.png'].uid;      
+            texturesUids.body02Texture = namedResources.textures['Car_Preto_BodyTextures.png'].uid;
+            texturesUids.detsTexture = namedResources.textures['GLS_Dets_Color.png'].uid;
+            texturesUids.dets02Texture = namedResources.textures['car_branco_detsTexture.V2_PBR_Diffuse.png'].uid;
+            texturesUids.dets03Texture = namedResources.textures['Car_Dets_Textures.V3__PBR_Diffuse.png'].uid;
+            texturesUids.dets04Texture = namedResources.textures['car_Dets_Textures.V4__PBR_Diffuse.png'].uid;
 
             texturesUids.leatherAlbedoFront = namedResources.textures['Leather_White_albedo.jpg'].uid;
             texturesUids.leatherAlbedoBack = namedResources.textures['Seat_Back_LeatherWhite_Color.png'].uid;
@@ -69,6 +72,7 @@ function ViewerReady() {
     sketchfabDict
         .api
         .getAnimations((err, animations) => {
+            console.log('Animation')
             if (err) {
                 HandleError(err, 'On Animations');
                 return;
@@ -101,6 +105,8 @@ function ViewerReady() {
             sketchfabDict
                 .api
                 .getCameraLookAt(async (err, returnCamera) => {
+
+                    console.log('Camera')
 
                     sketchfabDict.api.getCameraLookAt(function (err, cameraLookAt) {
                         var cameraPosition = cameraLookAt.position;
@@ -149,6 +155,8 @@ function ViewerReady() {
             };
             GetNamedResources(materials, "materials");
 
+            console.log('Material_Start')
+
             //////////////////////////////////////////////////////////////////////////////
             carMaterials.lowerPaint = namedResources.materials["Eclipse_Body_Bottom"];
             carMaterials.paint = namedResources.materials["Eclipse_Body_Textures"];
@@ -165,17 +173,18 @@ function ViewerReady() {
             carMaterials.doorTwo = namedResources.materials["PortaInt_Leather_White.002"];
 
             carMaterials.lights = namedResources.materials["Emessive"];
+            carMaterials.steering = namedResources.materials["Silver"];
 
-           // carMaterials.lowerPaint.channels.ClearCoat.enable = false;
-           // carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
-           // carMaterials.lowerPaint.channels.MetalnessPBR.factor = 0;
+            // carMaterials.lowerPaint.channels.ClearCoat.enable = false;
+            // carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;
+            // carMaterials.lowerPaint.channels.MetalnessPBR.factor = 0;
             //carMaterials.lowerPaint.channels.SpecularPBR.factor = 0.05;
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.lowerPaint);
             //
-           // carMaterials.paint.channels.AlbedoPBR.factor = 1;
-           // carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
+            // carMaterials.paint.channels.AlbedoPBR.factor = 1;
+            // carMaterials.paint.channels.MetalnessPBR.factor = 0.12;
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.paint);
@@ -190,6 +199,8 @@ function ViewerReady() {
             sketchfabDict
                 .api
                 .setMaterial(carMaterials.backSeat);
+
+            console.log('Material_Mid')
 
             sketchfabDict
                 .api
@@ -215,14 +226,15 @@ function ViewerReady() {
                             .getElementById("iframe-loader")
                             .remove()
                         clearInterval(loadingPct.intervalId);
-                    }, 2500);
+                        console.log('Material_End')
+                    }, 1000);
                 });
         });
-        
 
-    document.getElementById("ar-button").style.display = "block";    
+
+    document.getElementById("ar-button").style.display = "block";
     document.getElementById("base-buttons").style.display = "block";
-    document.getElementById("info-area").style.display = "block";    
+    document.getElementById("info-area").style.display = "block";
     document.getElementById("toogle-menu").style.display = "block";
 
 

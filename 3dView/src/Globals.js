@@ -24,7 +24,7 @@ const carMaterials = {
     "dets02": null,
     "dets03": null,
     "dets04": null,
-    
+    "steering": null,    
     "lowerPaint": null,
     "doorOne": null,
     "doorTwo": null,

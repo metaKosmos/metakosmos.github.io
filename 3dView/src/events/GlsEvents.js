@@ -7,13 +7,12 @@ function GlsEvents() {
     $(".gls")
         .click(function () {
             GTMevent('Car', 'GLS')
-            $(".exterior-items").html(`<li>Roda de liga leve 18”</li>
+            $(".exterior-items").html(`<li>Roda de liga leve 18" em cinza metálico</li>
                     <li>DRL em led</li> 
                     <li>Lanternas em led</li>
                     <li>Ar-condicionado digital automático</li> 
                     <li>Multimídia JBL com Wi-Fi integrado</li> 
-                    <li>Câmera de ré</li>
-                    <li>Tração 4x4</li>`);
+                    <li>Câmera de ré</li>`);
 
             $(".info").html("Escolha a cor:");
 
@@ -27,6 +26,17 @@ function GlsEvents() {
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels.RoughnessPBR.factor = 0.6;
             carMaterials.lowerPaint.channels.MetalnessPBR.factor = 1;
+
+            carMaterials.steering.channels.AlbedoPBR.factor = 0.2;
+
+            carMaterials.paint02.channels.AlbedoPBR.factor = 0.4;
+            carMaterials.paint02.channels.RoughnessPBR.factor = 0.3;
+            carMaterials.paint02.channels.MetalnessPBR.factor = 0.821;
+
+            //Dets
+            carMaterials.dets.channels.AlbedoPBR.factor = 1;
+            carMaterials.dets.channels.RoughnessPBR.factor = 0.7;
+            carMaterials.dets.channels.MetalnessPBR.factor = 1;
 
             //farol
             sketchfabDict
@@ -150,9 +160,6 @@ function GlsEvents() {
 
 
             //back logo
-            sketchfabDict
-                .api
-                .hide(namedResources.nodes['LogoBack_Turbo'].instanceID);
             sketchfabDict
                 .api
                 .show(namedResources.nodes['LogoBack_RUSH'].instanceID);
