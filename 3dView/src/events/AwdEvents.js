@@ -31,6 +31,11 @@ function AwdEvents(api) {
             carMaterials.paint02.channels.RoughnessPBR.factor = 0.6;
             carMaterials.paint02.channels.MetalnessPBR.factor = 1;
 
+            
+            carMaterials.dets03.channels.ClearCoat.enable = true;
+            carMaterials.dets03.channels.RoughnessPBR.factor = 0.6;
+            carMaterials.dets03.channels.MetalnessPBR.factor = 1;
+
             //Dets
             carMaterials.dets.channels.AlbedoPBR.factor = 1;
             carMaterials.dets.channels.RoughnessPBR.factor = 0.1;

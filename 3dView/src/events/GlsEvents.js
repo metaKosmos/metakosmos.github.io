@@ -23,6 +23,10 @@ function GlsEvents() {
             carMaterials.dets02.channels.RoughnessPBR.factor = 0.6;
             carMaterials.dets02.channels.MetalnessPBR.factor = 1;
 
+            carMaterials.dets03.channels.AlbedoPBR.factor = 0.6;
+            carMaterials.dets03.channels.RoughnessPBR.factor = 0.3;
+            carMaterials.dets03.channels.MetalnessPBR.factor = 0.8;
+
             carMaterials.lowerPaint.channels.ClearCoat.enable = true;
             carMaterials.lowerPaint.channels.RoughnessPBR.factor = 0.6;
             carMaterials.lowerPaint.channels.MetalnessPBR.factor = 1;

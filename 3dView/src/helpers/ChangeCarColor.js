@@ -46,7 +46,6 @@ function ChangeCarColor(selectedColor, carName) {
     sketchfabDict
         .api
         .updateTexture(CAR_TEXTURES[carName].bodyColor02[selectedColor], texturesUids.body02Texture, function (err, body02Texture) {
-            console.log(CAR_TEXTURES[carName].bodyColor02[selectedColor])
             HandleError(err, body02Texture);
         });
 
