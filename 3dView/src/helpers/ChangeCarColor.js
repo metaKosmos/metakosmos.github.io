@@ -132,6 +132,10 @@ function ChangeCarColor(selectedColor, carName) {
                 .api
                 .setMaterial(carMaterials.steering);
 
+                sketchfabDict
+                .api
+                .setMaterial(carMaterials.steering02);
+
             // Set camera exposure
             camera.enviromment.exposure = TEXTURES_SETTINGS[selectedColor].camera.exposure;
             sketchfabDict

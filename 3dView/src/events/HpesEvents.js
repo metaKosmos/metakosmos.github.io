@@ -19,7 +19,8 @@ function HpesEvents() {
             // $(".info").html("Couro Cinza Claro");
             $(".info").html("Escolha a cor:");
             
-            carMaterials.steering.channels.AlbedoPBR.factor = 1;
+            carMaterials.steering.channels.AlbedoPBR.factor = 0.5;
+            carMaterials.steering02.channels.MetalnessPBR.factor = 1;
 
             carMaterials.paint02.channels.AlbedoPBR.factor = 1;
             carMaterials.paint02.channels.RoughnessPBR.factor = 0.6;

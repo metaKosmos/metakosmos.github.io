@@ -174,6 +174,7 @@ function ViewerReady() {
 
             carMaterials.lights = namedResources.materials["Emessive"];
             carMaterials.steering = namedResources.materials["Silver"];
+            carMaterials.steering02 = namedResources.materials["Black_Shiny.V2"];
 
             // carMaterials.lowerPaint.channels.ClearCoat.enable = false;
             // carMaterials.lowerPaint.channels.RoughnessPBR.factor = 1;

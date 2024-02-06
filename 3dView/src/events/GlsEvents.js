@@ -31,7 +31,8 @@ function GlsEvents() {
             carMaterials.lowerPaint.channels.RoughnessPBR.factor = 0.6;
             carMaterials.lowerPaint.channels.MetalnessPBR.factor = 1;
 
-            carMaterials.steering.channels.AlbedoPBR.factor = 0.2;
+            carMaterials.steering.channels.AlbedoPBR.factor = 1;
+            carMaterials.steering02.channels.MetalnessPBR.factor = 0;
 
             carMaterials.paint02.channels.AlbedoPBR.factor = 0.4;
             carMaterials.paint02.channels.RoughnessPBR.factor = 0.3;
