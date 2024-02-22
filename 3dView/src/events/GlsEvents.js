@@ -1,4 +1,4 @@
-import { carMaterials, sketchfabDict, namedResources, carSelection } from "../Globals.js";
+import { carMaterials, sketchfabDict, namedResources, carSelection, camera } from "../Globals.js";
 import { GTMevent } from "../events/analytics.js";
 import ChangeCarColor from "../helpers/ChangeCarColor.js";
 import ChangeLeatherColor from "../helpers/ChangeLeatherColor.js";
@@ -187,8 +187,13 @@ function GlsEvents() {
             $(".awd").removeClass("active");
             ChangeLeatherColor('Black');
 
-            $("#external-colors-type02").removeClass("d-none");
-            $("#external-colors-type01").addClass("d-none");
+            if ($("#api-frame").hasClass("interior")){
+
+            }else{
+                $("#external-colors-type02").removeClass("d-none");
+                $("#external-colors-type01").addClass("d-none");
+            }
+           
         });
 }
 

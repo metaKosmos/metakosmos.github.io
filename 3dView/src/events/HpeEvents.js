@@ -183,8 +183,13 @@ function HpeEvents() {
             $("#intcolorwhite").css("display", "none");
             ChangeLeatherColor('Black');
 
-            $("#external-colors-type01").removeClass("d-none");
-            $("#external-colors-type02").addClass("d-none");
+            if ($("#api-frame").hasClass("interior")){
+
+            }else{
+                $("#external-colors-type01").removeClass("d-none");
+                $("#external-colors-type02").addClass("d-none");
+            }
+            
         });
 };
 
